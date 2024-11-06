@@ -31,6 +31,7 @@ public class StaffEntity {
     private String contactNo;
     @Column(unique = true)
     private String email;
+    private String password;
     private String role;
     @OneToMany(mappedBy = "staff")
     private List<FieldStaff> fieldStaffs = new ArrayList<>();

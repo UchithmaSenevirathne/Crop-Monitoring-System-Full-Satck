@@ -25,6 +25,7 @@ public class StaffDTO {
     private String postalCode;
     private String contactNo;
     private String email;
+    private String password;
     private String role;
     private List<FieldStaffDTO> fieldStaffs;
     private List<VehicleStaffDTO> vehicleStaffs;

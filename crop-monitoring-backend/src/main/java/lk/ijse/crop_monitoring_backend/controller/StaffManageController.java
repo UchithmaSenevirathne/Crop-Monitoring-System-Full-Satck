@@ -1,7 +1,10 @@
 package lk.ijse.crop_monitoring_backend.controller;
 
 import lk.ijse.crop_monitoring_backend.dto.StaffDTO;
+import lk.ijse.crop_monitoring_backend.exception.DataPersistFailedException;
+import lk.ijse.crop_monitoring_backend.service.StaffService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,25 +15,13 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequiredArgsConstructor
 public class StaffManageController {
+    @Autowired
+    private final StaffService staffService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> saveItem(@RequestBody StaffDTO staffDTO) {
         try {
-//            String base64Image = Base64.getEncoder().encodeToString(itemImage.getBytes());
-
-            double parsedUnitPrice = Double.parseDouble(unitPrice);
-            int parsedItemQty = Integer.parseInt(itemQty);
-            int parsedCategoryId = Integer.parseInt(categoryId);
-
-            ItemDTO itemDTO = new ItemDTO();
-
-            itemDTO.setItemName(itemName);
-            itemDTO.setItemPrice(parsedUnitPrice);
-            itemDTO.setItemQuantity(parsedItemQty);
-            itemDTO.setItemImage(itemImage);
-            itemDTO.setCategoryId(parsedCategoryId);
-
-            itemService.saveItem(itemDTO);
+            staffService.addStaff(staffDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistFailedException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
