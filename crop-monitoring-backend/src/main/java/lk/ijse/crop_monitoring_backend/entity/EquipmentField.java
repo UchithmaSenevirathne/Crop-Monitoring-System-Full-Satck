@@ -13,13 +13,11 @@ import lombok.NoArgsConstructor;
 public class EquipmentField {
     @Id
     @GeneratedValue
-    private Long equipment_field_id;
+    private int equipment_field_id;
     @ManyToOne
     @JoinColumn(name = "equipmentId")
     private EquipmentEntity equipment;
     @ManyToOne
     @JoinColumn(name = "fieldCode")
     private FieldEntity field;
-    private String assignedDate;
-    private String handOverDate;
 }

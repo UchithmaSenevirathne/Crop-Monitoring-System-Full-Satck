@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class VehicleStaff {
     @Id
     @GeneratedValue
-    private Long vehicle_staff_id;
+    private int vehicle_staff_id;
     @ManyToOne
     @JoinColumn(name = "vehicleCode")
     private VehicleEntity vehicle;

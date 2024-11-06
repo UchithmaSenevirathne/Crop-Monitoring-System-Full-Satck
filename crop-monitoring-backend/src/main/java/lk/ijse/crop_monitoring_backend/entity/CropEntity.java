@@ -15,7 +15,7 @@ import java.util.List;
 public class CropEntity {
     @Id
     @GeneratedValue
-    private String cropCode;
+    private int cropCode;
     private String cropCommonName;
     private String cropScientificName;
     private String cropImage;

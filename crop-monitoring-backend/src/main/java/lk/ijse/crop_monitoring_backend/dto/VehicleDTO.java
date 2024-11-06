@@ -1,6 +1,7 @@
-package lk.ijse.crop_monitoring_backend.entity;
+package lk.ijse.crop_monitoring_backend.dto;
 
 import jakarta.persistence.*;
+import lk.ijse.crop_monitoring_backend.entity.VehicleStaff;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,17 +12,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-@Table(name = "vehicle")
-public class VehicleEntity {
-    @Id
-    @GeneratedValue
+public class VehicleDTO {
     private int vehicleCode;
     private String licensePlateNumber;
     private String vehicleCategory;
     private String fuelType;
     private String status;
     private String remarks;
-    @OneToMany(mappedBy = "vehicle")
-    private List<VehicleStaff> vehicleStaffs = new ArrayList<>();
+    private List<VehicleStaff> vehicleStaffs;
 }

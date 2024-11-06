@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class CropDetailsEnttiy {
     @Id
     @GeneratedValue
-    private String logCode;
+    private int logCode;
     private String logDate;
     private String logDetails;
     private String observedImage;

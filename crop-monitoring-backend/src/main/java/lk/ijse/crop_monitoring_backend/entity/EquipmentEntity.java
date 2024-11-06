@@ -16,7 +16,7 @@ import java.util.List;
 public class EquipmentEntity {
     @Id
     @GeneratedValue
-    private String equipmentId;
+    private int equipmentId;
     private String name;
     private String type;
     private String status;

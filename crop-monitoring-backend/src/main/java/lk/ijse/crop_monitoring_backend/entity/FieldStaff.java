@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class FieldStaff {
     @Id
     @GeneratedValue
-    private Long field_staff_id;
+    private int field_staff_id;
     @ManyToOne
     @JoinColumn(name = "fieldCode")
     private FieldEntity field;
