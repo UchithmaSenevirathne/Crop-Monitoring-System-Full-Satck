@@ -23,8 +23,4 @@ public class FieldDTO {
     private Double extentSize;
     private String fieldImage1;
     private String fieldImage2;
-    private List<FieldStaffDTO> fieldStaffs;
-    private List<EquipmentFieldDTO> equipmentFields;
-    private List<CropDTO> crops;
-    private List<CropDetailsDTO> cropDetails;
 }

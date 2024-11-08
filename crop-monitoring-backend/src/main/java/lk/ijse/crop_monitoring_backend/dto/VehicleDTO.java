@@ -19,5 +19,4 @@ public class VehicleDTO {
     private String fuelType;
     private String status;
     private String remarks;
-    private List<VehicleStaff> vehicleStaffs;
 }

@@ -17,5 +17,4 @@ public class CropDTO {
     private String category;
     private String cropSeason;
     private int fieldId;
-    private List<CropDetailsDTO> cropdetails;
 }

@@ -30,5 +30,5 @@ public class StaffDTO {
     private List<FieldStaffDTO> fieldStaffs;
     private List<VehicleStaffDTO> vehicleStaffs;
     private List<EquipmentStaffDTO> equipmentStaffs;
-    private List<CropDetailsDTO> cropdetails;
+//    private List<CropDetailsDTO> cropdetails;
 }
