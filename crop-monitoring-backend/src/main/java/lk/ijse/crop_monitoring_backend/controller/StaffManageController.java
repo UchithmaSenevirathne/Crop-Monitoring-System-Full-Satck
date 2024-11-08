@@ -19,7 +19,7 @@ public class StaffManageController {
     private final StaffService staffService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> saveItem(@RequestBody StaffDTO staffDTO) {
+    public ResponseEntity<String> addStaff(@RequestBody StaffDTO staffDTO) {
         try {
             staffService.addStaff(staffDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);

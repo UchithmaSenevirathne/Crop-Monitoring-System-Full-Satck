@@ -20,7 +20,7 @@ public class FieldEntity {
     private int fieldCode;
     private String fieldName;
     @Column(columnDefinition = "Geometry(Point, 4326)") // Assuming Point is a geometry type.
-    private Point fieldLocation;
+    private String fieldLocation;
     private Double extentSize;
     private String fieldImage1;
     private String fieldImage2;
