@@ -1,14 +1,8 @@
 package lk.ijse.crop_monitoring_backend.dto;
 
-import jakarta.persistence.*;
-import lk.ijse.crop_monitoring_backend.entity.EquipmentField;
-import lk.ijse.crop_monitoring_backend.entity.EquipmentStaff;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,4 +12,6 @@ public class EquipmentDTO {
     private String name;
     private String type;
     private String status;
+    private int fieldCode;
+    private int staffId;
 }

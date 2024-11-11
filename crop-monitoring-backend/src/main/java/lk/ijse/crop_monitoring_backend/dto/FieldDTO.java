@@ -1,17 +1,8 @@
 package lk.ijse.crop_monitoring_backend.dto;
 
-import jakarta.persistence.*;
-import lk.ijse.crop_monitoring_backend.entity.CropDetailsEnttiy;
-import lk.ijse.crop_monitoring_backend.entity.CropEntity;
-import lk.ijse.crop_monitoring_backend.entity.EquipmentField;
-import lk.ijse.crop_monitoring_backend.entity.FieldStaff;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.geo.Point;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor

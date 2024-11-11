@@ -14,15 +14,16 @@ import java.util.List;
 @Table(name = "crop")
 public class CropEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cropCode;
     private String cropCommonName;
     private String cropScientificName;
+    @Column(columnDefinition = "LONGTEXT")
     private String cropImage;
     private String category;
     private String cropSeason;
     @ManyToOne
-    @JoinColumn(name = "field_id", referencedColumnName = "fieldCode")
+    @JoinColumn(name = "fieldCode")
     private FieldEntity field;
     @OneToMany(mappedBy = "crop", cascade = CascadeType.ALL)
     private List<CropDetailsEnttiy> cropDetails;

@@ -1,6 +1,6 @@
 package lk.ijse.crop_monitoring_backend.dto;
 
-import lk.ijse.crop_monitoring_backend.entity.VehicleStaff;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +17,7 @@ public class StaffDTO {
     private String designation;
     private String gender;
     private String joinedDate;
-    private String DOB;
+    private String dOB;
     private String buildingNo;
     private String lane;
     private String mainCity;
@@ -27,8 +27,4 @@ public class StaffDTO {
     private String email;
     private String password;
     private String role;
-    private List<FieldStaffDTO> fieldStaffs;
-    private List<VehicleStaffDTO> vehicleStaffs;
-    private List<EquipmentStaffDTO> equipmentStaffs;
-//    private List<CropDetailsDTO> cropdetails;
 }

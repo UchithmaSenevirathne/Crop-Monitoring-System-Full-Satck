@@ -15,13 +15,14 @@ import java.util.List;
 @Table(name = "vehicle")
 public class VehicleEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int vehicleCode;
     private String licensePlateNumber;
     private String vehicleCategory;
     private String fuelType;
     private String status;
     private String remarks;
-    @OneToMany(mappedBy = "vehicle")
-    private List<VehicleStaff> vehicleStaffs = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "staffId")
+    private StaffEntity staff;
 }

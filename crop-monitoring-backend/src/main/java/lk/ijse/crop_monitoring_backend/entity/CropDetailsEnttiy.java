@@ -12,18 +12,19 @@ import lombok.NoArgsConstructor;
 @Table(name = "crop_details")
 public class CropDetailsEnttiy {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int logCode;
     private String logDate;
     private String logDetails;
+    @Column(columnDefinition = "LONGTEXT")
     private String observedImage;
     @ManyToOne
-    @JoinColumn(name = "staff_id", referencedColumnName = "staffId")
+    @JoinColumn(name = "staffId")
     private StaffEntity staff;
     @ManyToOne
-    @JoinColumn(name = "field_id", referencedColumnName = "fieldCode")
+    @JoinColumn(name = "fieldCode")
     private FieldEntity field;
     @ManyToOne
-    @JoinColumn(name = "crop_id", referencedColumnName = "cropCode")
+    @JoinColumn(name = "cropCode")
     private CropEntity crop;
 }

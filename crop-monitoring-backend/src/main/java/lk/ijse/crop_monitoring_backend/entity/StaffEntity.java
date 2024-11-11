@@ -15,14 +15,14 @@ import java.util.List;
 @Table(name = "staff")
 public class StaffEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int staffId;
     private String firstName;
     private String lastName;
     private String designation;
     private String gender;
     private String joinedDate;
-    private String DOB;
+    private String dOB;
     private String buildingNo;
     private String lane;
     private String mainCity;
@@ -36,9 +36,9 @@ public class StaffEntity {
     @OneToMany(mappedBy = "staff")
     private List<FieldStaff> fieldStaffs = new ArrayList<>();
     @OneToMany(mappedBy = "staff")
-    private List<VehicleStaff> vehicleStaffs = new ArrayList<>();
+    private List<VehicleEntity> vehicles = new ArrayList<>();
     @OneToMany(mappedBy = "staff")
-    private List<EquipmentStaff> equipmentStaffs = new ArrayList<>();
+    private List<EquipmentEntity> equipments = new ArrayList<>();
     @OneToMany(mappedBy = "staff", cascade = CascadeType.ALL)
     private List<CropDetailsEnttiy> cropDetails;
 }

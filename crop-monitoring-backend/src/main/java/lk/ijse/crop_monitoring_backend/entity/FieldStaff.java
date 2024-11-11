@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "field_staff")
 public class FieldStaff {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int field_staff_id;
     @ManyToOne
     @JoinColumn(name = "fieldCode")

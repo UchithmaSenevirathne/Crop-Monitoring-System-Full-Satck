@@ -16,18 +16,19 @@ import java.util.List;
 @Table(name = "field")
 public class FieldEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int fieldCode;
     private String fieldName;
-    @Column(columnDefinition = "Geometry(Point, 4326)") // Assuming Point is a geometry type.
     private String fieldLocation;
     private Double extentSize;
+    @Column(columnDefinition = "LONGTEXT")
     private String fieldImage1;
+    @Column(columnDefinition = "LONGTEXT")
     private String fieldImage2;
     @OneToMany(mappedBy = "field")
     private List<FieldStaff> fieldStaffs = new ArrayList<>();
     @OneToMany(mappedBy = "field")
-    private List<EquipmentField> equipmentFields = new ArrayList<>();
+    private List<EquipmentEntity> equipments = new ArrayList<>();
     @OneToMany(mappedBy = "field", cascade = CascadeType.ALL)
     private List<CropEntity> crops;
     @OneToMany(mappedBy = "field", cascade = CascadeType.ALL)

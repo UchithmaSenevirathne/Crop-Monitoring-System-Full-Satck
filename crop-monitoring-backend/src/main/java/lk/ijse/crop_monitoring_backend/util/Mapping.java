@@ -68,21 +68,6 @@ public class Mapping {
         return modelMapper.map(cropDetailsDTO, CropDetailsEnttiy.class);
     }
 
-    public EquipmentFieldDTO convertToEquipmentFieldDTO(EquipmentField equipmentField) {
-        return modelMapper.map(equipmentField, EquipmentFieldDTO.class);
-    }
-
-    public EquipmentField convertToEquipmentField(EquipmentFieldDTO equipmentFieldDTO) {
-        return modelMapper.map(equipmentFieldDTO, EquipmentField.class);
-    }
-
-    EquipmentStaffDTO convertToEquipmentStaffDTO(EquipmentStaff equipmentStaff) {
-        return modelMapper.map(equipmentStaff, EquipmentStaffDTO.class);
-    }
-
-    public EquipmentStaff convertToEquipmentStaff(EquipmentStaffDTO equipmentStaffDTO) {
-        return modelMapper.map(equipmentStaffDTO, EquipmentStaff.class);
-    }
 
     public FieldStaffDTO convertToFieldStaffDTO(FieldStaff fieldStaff) {
         return modelMapper.map(fieldStaff, FieldStaffDTO.class);
@@ -92,11 +77,4 @@ public class Mapping {
         return modelMapper.map(fieldStaffDTO, FieldStaff.class);
     }
 
-    public VehicleStaffDTO convertToVehicleStaffDTO(VehicleStaff vehicleStaff) {
-        return modelMapper.map(vehicleStaff, VehicleStaffDTO.class);
-    }
-
-    public VehicleStaff convertToVehicleStaff(VehicleStaffDTO vehicleStaffDTO) {
-        return modelMapper.map(vehicleStaffDTO, VehicleStaff.class);
-    }
 }
