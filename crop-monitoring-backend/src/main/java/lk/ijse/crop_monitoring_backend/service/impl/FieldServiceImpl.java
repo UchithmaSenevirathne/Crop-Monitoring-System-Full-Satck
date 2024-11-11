@@ -23,4 +23,9 @@ public class FieldServiceImpl implements FieldService {
     public void saveField(FieldDTO fieldDTO) {
         fieldDAO.save(mapping.convertToFieldEntity(fieldDTO));
     }
+
+    @Override
+    public int getFieldID(String fieldName) {
+        return fieldDAO.getIdByName(fieldName);
+    }
 }

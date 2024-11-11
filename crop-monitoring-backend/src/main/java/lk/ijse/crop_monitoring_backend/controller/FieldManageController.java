@@ -52,4 +52,9 @@ public class FieldManageController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping(value = "/{fieldName}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public int getFieldID(@PathVariable("fieldName") String fieldName) {
+        return fieldService.getFieldID(fieldName);
+    }
 }
