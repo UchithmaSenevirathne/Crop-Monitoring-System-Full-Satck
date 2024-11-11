@@ -4,6 +4,7 @@ import lk.ijse.crop_monitoring_backend.dto.FieldDTO;
 import lk.ijse.crop_monitoring_backend.exception.DataPersistFailedException;
 import lk.ijse.crop_monitoring_backend.service.FieldService;
 import lk.ijse.crop_monitoring_backend.util.AppUtil;
+import lk.ijse.crop_monitoring_backend.util.Enums.FieldName;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/field")
@@ -56,5 +61,13 @@ public class FieldManageController {
     @GetMapping(value = "/{fieldName}", produces = MediaType.APPLICATION_JSON_VALUE)
     public int getFieldID(@PathVariable("fieldName") String fieldName) {
         return fieldService.getFieldID(fieldName);
+    }
+
+    @GetMapping(value = "/names", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<String>> getFieldNames() {
+        List<String> fieldNames = Arrays.stream(FieldName.values())
+                .map(Enum::name)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(fieldNames);
     }
 }
