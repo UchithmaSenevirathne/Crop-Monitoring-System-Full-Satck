@@ -2,6 +2,7 @@ package lk.ijse.crop_monitoring_backend.service.impl;
 
 import lk.ijse.crop_monitoring_backend.dao.FieldDAO;
 import lk.ijse.crop_monitoring_backend.dao.LogDAO;
+import lk.ijse.crop_monitoring_backend.dto.CropDetailsDTO;
 import lk.ijse.crop_monitoring_backend.service.LogService;
 import lk.ijse.crop_monitoring_backend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,4 +18,9 @@ public class LogServiceImpl implements LogService {
 
     @Autowired
     private Mapping mapping;
+
+    @Override
+    public void saveLog(CropDetailsDTO cropDetailsDTO) {
+        logDAO.save(mapping.convertToCropDetailsEnttiy(cropDetailsDTO));
+    }
 }
