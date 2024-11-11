@@ -45,7 +45,7 @@ public class LogMonitoringController {
             cropDetailsDTO.setLogDetails(logDetails);
             cropDetailsDTO.setObservedImage(base64Img);
             cropDetailsDTO.setStaffId(staffIdInt);
-            cropDetailsDTO.setFieldId(fieldCodeInt);
+            cropDetailsDTO.setFieldCode(fieldCodeInt);
             cropDetailsDTO.setCropCode(cropCodeInt);
 
             logService.saveLog(cropDetailsDTO);

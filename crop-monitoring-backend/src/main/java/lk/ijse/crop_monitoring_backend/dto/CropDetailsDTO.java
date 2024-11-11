@@ -13,6 +13,6 @@ public class CropDetailsDTO {
     private String logDetails;
     private String observedImage;
     private int staffId;
-    private int fieldId;
+    private int fieldCode;
     private int cropCode;
 }
