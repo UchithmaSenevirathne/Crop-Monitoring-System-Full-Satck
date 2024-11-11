@@ -24,6 +24,16 @@ public class EquipmentManageController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> addStaff(@RequestBody EquipmentDTO equipmentDTO) {
         try {
+//            int fieldCode = equipmentDTO.getFieldCode();
+//            int staffId = equipmentDTO.getStaffId();
+//
+//            EquipmentDTO newDTO = new EquipmentDTO();
+//            newDTO.setName(equipmentDTO.getName());
+//            newDTO.setType(equipmentDTO.getType());
+//            newDTO.setStatus(equipmentDTO.getStatus());
+//            newDTO.setFieldCode(fieldCode);
+//            newDTO.setStaffId(staffId);
+
             equipmentService.addEquipment(equipmentDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistFailedException e){
