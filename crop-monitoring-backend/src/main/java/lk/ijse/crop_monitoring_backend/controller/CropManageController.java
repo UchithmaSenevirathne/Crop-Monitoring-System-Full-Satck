@@ -29,10 +29,10 @@ public class CropManageController {
             @RequestPart("cropImage") MultipartFile cropImage,
             @RequestPart("category") String category,
             @RequestPart("cropSeason") String cropSeason,
-            @RequestPart("fieldId") String fieldId
+            @RequestPart("fieldCode") String fieldCode
     ){
         try {
-            int fieldIdInt = Integer.parseInt(fieldId);
+            int fieldIdInt = Integer.parseInt(fieldCode);
 
             byte[] bytesImg = cropImage.getBytes();
             String base64Img = AppUtil.toBase64Img(bytesImg);
@@ -43,7 +43,7 @@ public class CropManageController {
             cropDTO.setCropImage(base64Img);
             cropDTO.setCategory(category);
             cropDTO.setCropSeason(cropSeason);
-            cropDTO.setFieldId(fieldIdInt);
+            cropDTO.setFieldCode(fieldIdInt);
 
             cropService.saveCrop(cropDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
