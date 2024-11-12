@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.outer_pane{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.outer_pane div {
+    height: 100%;
+}
+
+.outer_pane div:nth-child(1){
+    background-color: #E8F3EF;
+    flex: 3;
+}
+
+.outer_pane div:nth-child(2){
+    background-color: #D0E7DD;
+   flex: 6;
+}
+
+.outer_pane div:nth-child(3){
+    background-color: #19696A;
+    flex: 3;
+}
