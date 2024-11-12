@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class FieldStaffDTO {
     private int field_staff_id;
-    private int fieldId;
+    private int fieldCode;
     private int staffId;
     private String assignedDate;
     private String dueDate;

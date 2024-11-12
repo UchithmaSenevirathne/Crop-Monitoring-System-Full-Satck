@@ -7,6 +7,7 @@ import lk.ijse.crop_monitoring_backend.service.EquipmentService;
 import lk.ijse.crop_monitoring_backend.service.StaffService;
 import lk.ijse.crop_monitoring_backend.util.Enums.Availability;
 import lk.ijse.crop_monitoring_backend.util.Enums.EquipmentName;
+import lk.ijse.crop_monitoring_backend.util.Enums.EquipmentType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -59,7 +60,7 @@ public class EquipmentManageController {
 
     @GetMapping(value = "/types", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<String>> getEquipmentTypes() {
-        List<String> types = Arrays.stream(Availability.values())
+        List<String> types = Arrays.stream(EquipmentType.values())
                 .map(Enum::name)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(types);
