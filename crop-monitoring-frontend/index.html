@@ -1,36 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                dark_green: '#002C2D',
-                light_blue: '#138FCB',
-                light_orange: '#FDEFEC',
-                dark_orange: '#E16E4E',
-                pastel_green: '#00AB94',
-                yellow_orng: '#FFAB00',
-                light_green: '#7ED63F',
-                dark_pink: '#FF00A1',
-                chilly_red: '#BA0000',
-                white_ash: '#F2F6F9'
-              }
-            }
-          }
-        }
-      </script>
-</head>
-<body>
-   
-</body>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              bakbak: ['"Bakbak One"', "serif"],
+            },
+            colors: {},
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- Main Container -->
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="bg-white w-64">
+        <div class="flex items-center space-x-3 mb-10 p-6">
+          <img
+            src="./assets/images/nav_head.jpg"
+            alt="Logo"
+            class="w-10 h-10 rounded-full"
+          />
+          <span class="font-bakbak font-normal text-[17px]">GREEN SHADOW</span>
+        </div>
+        <nav class="space-y-3 pr-6 pb-6">
+          <a
+            href="#"
+            class="flex items-center space-x-3 py-2 px-5 bg-[#FDEFEC] text-[#E16E4E] rounded-r-full"
+          >
+            <span>🏠</span>
+            <span>Home</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
+          >
+            <span>🌾</span>
+            <span>Field</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
+          >
+            <span>🌱</span>
+            <span>Crop</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
+          >
+            <span>👥</span>
+            <span>Staff</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
+          >
+            <span>📖</span>
+            <span>Monitoring Log</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
+          >
+            <span>🔧</span>
+            <span>Equipment</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
+          >
+            <span>🚜</span>
+            <span>Vehicle</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
+          >
+            <span>🚪</span>
+            <span>Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-8">
+        <header class="flex justify-between items-center mb-8">
+          <h1 class="text-2xl font-bold">Hi, Uchi 👋</h1>
+          <input
+            type="text"
+            placeholder="Search"
+            class="bg-gray-200 rounded-lg p-2 text-gray-600 w-64"
+          />
+        </header>
+
+        <!-- Overview Section -->
+        <section class="grid grid-cols-4 gap-4 mb-8">
+          <div class="bg-green-200 p-4 rounded-lg text-center">
+            <p class="font-semibold">Active Workers</p>
+            <h2 class="text-2xl font-bold">50</h2>
+          </div>
+          <div class="bg-yellow-200 p-4 rounded-lg text-center">
+            <p class="font-semibold">Active Vehicles</p>
+            <h2 class="text-2xl font-bold">35</h2>
+          </div>
+          <div class="bg-green-300 p-4 rounded-lg text-center">
+            <p class="font-semibold">Total Crops</p>
+            <h2 class="text-2xl font-bold">230,000</h2>
+          </div>
+          <div class="bg-pink-200 p-4 rounded-lg text-center">
+            <p class="font-semibold">Total Land (sq.mi)</p>
+            <h2 class="text-2xl font-bold">12,300</h2>
+          </div>
+        </section>
+
+        <!-- Graph and Tables -->
+        <section class="grid grid-cols-2 gap-4">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-lg font-semibold mb-4">Fields Bar Graph</h2>
+            <div
+              class="h-48 bg-gray-100 rounded-lg flex items-center justify-center"
+            >
+              fields bar graph
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h2 class="text-lg font-semibold mb-4">Top Farm Fields</h2>
+              <ul class="space-y-2">
+                <li>Rice Palate A - 123, Hapugala, Galle</li>
+                <li>Cowpea Palate B - 123, Hapugala, Galle</li>
+                <li>Mix Palate A - 123, Hapugala, Galle</li>
+                <li>Mix Palate B - 123, Hapugala, Galle</li>
+                <li>Mix Palate C - 123, Hapugala, Galle</li>
+              </ul>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h2 class="text-lg font-semibold mb-4">Crops Pie Chart</h2>
+              <div
+                class="h-32 bg-gray-100 rounded-lg flex items-center justify-center"
+              >
+                crops pie chart
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Right Image Section -->
+      <div class="bg-green-800 flex items-center justify-center p-4 w-80">
+        <img src="farm-image.png" alt="Farm Image" class="rounded-lg" />
+      </div>
+    </div>
+  </body>
 </html>
