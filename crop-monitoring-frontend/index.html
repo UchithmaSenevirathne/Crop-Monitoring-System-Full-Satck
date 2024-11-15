@@ -12,7 +12,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <script>
       tailwind.config = {
         theme: {
@@ -100,9 +103,9 @@
       </aside>
 
       <!-- Main Content -->
-      <main class="flex-1 p-8">
+      <main class="flex-1 p-6">
         <header class="flex justify-between items-center mb-8">
-          <h1 class="text-2xl font-bold">Hi, Uchi 👋</h1>
+          <h1 class="text-2xl font-semibold">Hi, Uchi 👋</h1>
           <input
             type="text"
             placeholder="Search"
@@ -164,8 +167,17 @@
       </main>
 
       <!-- Right Image Section -->
-      <div class="bg-green-800 flex items-center justify-center p-4 w-80">
-        <img src="farm-image.png" alt="Farm Image" class="rounded-lg" />
+      <div class="flex flex-col">
+        <div class="flex items-end justify-center w-80 flex-auto bg-gradient-to-t from-white to-[#138FCB] h-[65%] relative">
+          <img
+            src="./assets/images/farm.png"
+            alt="Farm Image"
+            class="w-80 h-75 flex-1"
+          />
+          <img src="./assets/images/cloud1.png" alt="" class="absolute top-[5%] right-0 w-[250px]">
+          <img src="./assets/images/cloud2.png" alt="" class="absolute top-[24%] right-[20%]">
+        </div>
+        <div class="bg-[#002C2D] w-80 flex flex-col items-center flex-auto h-[35%]"></div>
       </div>
     </div>
   </body>
