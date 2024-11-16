@@ -1,5 +1,6 @@
 package lk.ijse.crop_monitoring_backend.controller;
 
+import lk.ijse.crop_monitoring_backend.customObj.CropResponse;
 import lk.ijse.crop_monitoring_backend.dto.CropDTO;
 import lk.ijse.crop_monitoring_backend.exception.DataPersistFailedException;
 import lk.ijse.crop_monitoring_backend.exception.NotFoundException;
@@ -94,6 +95,16 @@ public class CropManageController {
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping(value = "/all_crops", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CropDTO> getAllCrops() {
+        return cropService.getAllCrops();
+    }
+
+    @GetMapping(value = "/{cropCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CropResponse getCropById(@PathVariable("cropCode") int cropCode) {
+        return cropService.getSelectedCrop(cropCode);
     }
 
     @GetMapping(value = "/category", produces = MediaType.APPLICATION_JSON_VALUE)

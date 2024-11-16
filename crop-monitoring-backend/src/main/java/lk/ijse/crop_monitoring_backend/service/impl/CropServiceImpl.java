@@ -1,5 +1,6 @@
 package lk.ijse.crop_monitoring_backend.service.impl;
 
+import lk.ijse.crop_monitoring_backend.customObj.CropResponse;
 import lk.ijse.crop_monitoring_backend.dao.CropDAO;
 import lk.ijse.crop_monitoring_backend.dao.FieldDAO;
 import lk.ijse.crop_monitoring_backend.dto.CropDTO;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,6 +41,20 @@ public class CropServiceImpl implements CropService {
             tmpCropEntity.get().setCropImage(cropDTO.getCropImage());
             tmpCropEntity.get().setCategory(cropDTO.getCategory());
             tmpCropEntity.get().setCropSeason(cropDTO.getCropSeason());
+        }
+    }
+
+    @Override
+    public List<CropDTO> getAllCrops() {
+        return mapping.convertToCropDTOList(cropDAO.findAll());
+    }
+
+    @Override
+    public CropResponse getSelectedCrop(int cropCode) {
+        if (cropDAO.existsById(cropCode)) {
+            return mapping.convertToCropDTO(cropDAO.getReferenceById(cropCode));
+        }else{
+            throw new NotFoundException("Crop not found");
         }
     }
 }

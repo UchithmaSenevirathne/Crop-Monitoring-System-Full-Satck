@@ -3,8 +3,11 @@ package lk.ijse.crop_monitoring_backend.util;
 import lk.ijse.crop_monitoring_backend.dto.*;
 import lk.ijse.crop_monitoring_backend.entity.*;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class Mapping {
@@ -50,6 +53,10 @@ public class Mapping {
 
     public CropEntity convertToCropEntity(CropDTO cropDTO) {
         return modelMapper.map(cropDTO, CropEntity.class);
+    }
+
+    public List<CropDTO> convertToCropDTOList(List<CropEntity> cropEntityList) {
+        return modelMapper.map(cropEntityList, new TypeToken<List<CropDTO>>() {}.getType());
     }
 
     public UserDTO convertToUserDTO(UserEntity userEntity) {
