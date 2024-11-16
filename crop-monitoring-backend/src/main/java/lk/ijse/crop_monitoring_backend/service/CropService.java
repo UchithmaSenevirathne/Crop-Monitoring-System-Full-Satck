@@ -13,4 +13,6 @@ public interface CropService {
     List<CropDTO> getAllCrops();
 
     CropResponse getSelectedCrop(int cropCode);
+
+    void deleteCrop(int cropCode);
 }
