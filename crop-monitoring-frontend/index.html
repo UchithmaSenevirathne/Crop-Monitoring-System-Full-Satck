@@ -3,182 +3,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Crop Monitoring System</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              bakbak: ['"Bakbak One"', "serif"],
-            },
-            colors: {},
-          },
-        },
-      };
-    </script>
   </head>
-  <body class="bg-[#F2F6F9] font-sans">
-    <!-- Main Container -->
-    <div class="flex min-h-screen">
-      <!-- Sidebar -->
-      <aside class="bg-white w-64">
-        <div class="flex items-center space-x-3 mb-10 p-6">
-          <img
-            src="./assets/images/nav_head.jpg"
-            alt="Logo"
-            class="w-10 h-10 rounded-full"
-          />
-          <span class="font-bakbak font-normal text-[17px]">GREEN SHADOW</span>
-        </div>
-        <nav class="space-y-3 pr-6 pb-6">
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-5 bg-[#FDEFEC] text-[#E16E4E] rounded-r-full"
-          >
-            <span>🏠</span>
-            <span>Home</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
-          >
-            <span>🌾</span>
-            <span>Field</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
-          >
-            <span>🌱</span>
-            <span>Crop</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
-          >
-            <span>👥</span>
-            <span>Staff</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
-          >
-            <span>📖</span>
-            <span>Monitoring Log</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
-          >
-            <span>🔧</span>
-            <span>Equipment</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
-          >
-            <span>🚜</span>
-            <span>Vehicle</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-5 text-gray-600 hover:bg-gray-200 rounded-r-full"
-          >
-            <span>🚪</span>
-            <span>Logout</span>
-          </a>
-        </nav>
-      </aside>
+  <body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-green-600 text-white p-4 flex justify-between items-center">
+      <div class="text-lg font-bold">GREEN SHADOW</div>
+      <ul class="flex gap-4">
+        <li><a href="" class="hover:text-gray-200">Home</a></li>
+        <li><a href="" class="hover:text-gray-200">About Us</a></li>
+        <li><a href="" class="hover:text-gray-200">Crops</a></li>
+        <li><a href="" class="hover:text-gray-200">Fields</a></li>
+        <li><a href="" class="hover:text-gray-200">Contact Us</a></li>
+      </ul>
+      <button class="bg-white text-green-600 px-4 py-2 rounded shadow">
+        Login
+      </button>
+    </nav>
 
-      <!-- Main Content -->
-      <main class="flex-1 p-6">
-        <header class="flex justify-between items-center mb-8">
-          <h1 class="text-2xl font-semibold">Hi, Uchi 👋</h1>
-          <input
-            type="text"
-            placeholder="Search"
-            class="bg-white rounded-lg py-2 px-3 text-gray-600 w-64 text-[14px]"
-          />
-        </header>
-
-        <!-- Overview Section -->
-        <section class="grid grid-cols-4 gap-4 mb-8">
-          <div class="bg-green-200 p-4 rounded-lg text-center">
-            <p class="font-semibold">Active Workers</p>
-            <h2 class="text-2xl font-bold">50</h2>
-          </div>
-          <div class="bg-yellow-200 p-4 rounded-lg text-center">
-            <p class="font-semibold">Active Vehicles</p>
-            <h2 class="text-2xl font-bold">35</h2>
-          </div>
-          <div class="bg-green-300 p-4 rounded-lg text-center">
-            <p class="font-semibold">Total Crops</p>
-            <h2 class="text-2xl font-bold">230,000</h2>
-          </div>
-          <div class="bg-pink-200 p-4 rounded-lg text-center">
-            <p class="font-semibold">Total Land (sq.mi)</p>
-            <h2 class="text-2xl font-bold">12,300</h2>
-          </div>
-        </section>
-
-        <!-- Graph and Tables -->
-        <section class="grid grid-cols-2 gap-4">
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h2 class="text-lg font-semibold mb-4">Fields Bar Graph</h2>
-            <div
-              class="h-48 bg-gray-100 rounded-lg flex items-center justify-center"
-            >
-              fields bar graph
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-white p-6 rounded-lg shadow">
-              <h2 class="text-lg font-semibold mb-4">Top Farm Fields</h2>
-              <ul class="space-y-2">
-                <li>Rice Palate A - 123, Hapugala, Galle</li>
-                <li>Cowpea Palate B - 123, Hapugala, Galle</li>
-                <li>Mix Palate A - 123, Hapugala, Galle</li>
-                <li>Mix Palate B - 123, Hapugala, Galle</li>
-                <li>Mix Palate C - 123, Hapugala, Galle</li>
-              </ul>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-              <h2 class="text-lg font-semibold mb-4">Crops Pie Chart</h2>
-              <div
-                class="h-32 bg-gray-100 rounded-lg flex items-center justify-center"
-              >
-                crops pie chart
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Right Image Section -->
-      <div class="flex flex-col">
-        <div class="flex items-end justify-center w-80 flex-auto bg-gradient-to-t from-white to-[#138FCB] h-[65%] relative">
-          <img
-            src="./assets/images/farm.png"
-            alt="Farm Image"
-            class="w-80 h-75 flex-1"
-          />
-          <img src="./assets/images/cloud1.png" alt="" class="absolute top-[5%] right-0 w-[250px]">
-          <img src="./assets/images/cloud2.png" alt="" class="absolute top-[24%] right-[20%]">
-        </div>
-        <div class="bg-[#002C2D] w-80 flex flex-col items-center flex-auto h-[35%]"></div>
+    <!-- Home Section -->
+    <section
+      class="relative h-screen bg-[url('./assets/images/home.png')] bg-cover bg-center"
+    >
+      <div
+        class="absolute inset-0 bg-green-900 bg-opacity-50 flex flex-col justify-center items-center"
+      >
+        <h1 class="text-4xl md:text-6xl text-white shadow-lg font-bold">
+          Shaded by nature, cultivated with love.
+        </h1>
+        <p class="text-white mt-4 text-center max-w-lg">
+          Where the whispers of nature inspire sustainable growth and vibrant
+          harvests.
+        </p>
       </div>
-    </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="px-8 flex flex-col justify-center items-center py-10">
+      <h2 class="text-4xl font-bold text-green-700 mb-4">About Us</h2>
+      <div class="flex items-center">
+        <img
+          src="./assets/images/about.png"
+          alt=""
+          class="w-[700px] h-[700px]"
+        />
+        <div class="flex flex-col gap-5 text-[18px]">
+        <p>
+          Welcome to Green Shadow Farm – a haven where nature and nurture come
+          together to create a sustainable paradise. Nestled amidst lush
+          greenery, our farm is dedicated to cultivating fresh, organic produce
+          while fostering harmony with the environment.</p>
+          <p>At Green Shadow Farm, we
+          believe in the transformative power of sustainable agriculture. Our
+          journey is rooted in respect for the land, innovation in farming
+          practices, and a passion for providing the finest harvests to our
+          community. Everything we grow reflects our commitment to purity,
+          quality, and care.</p>
+          <p>More than a farm, Green Shadow is a vision—a place
+          where shadows of the green canopy shelter growth, creativity, and life
+          itself. Join us on our mission to nourish bodies, inspire minds, and
+          leave a greener planet for generations to come.</p>
+          <p class="italic text-[16px]">"Green Shadow Farm –
+          where every seed sown is a promise for tomorrow."</p>
+        </p>
+      </div>
+      </div>
+    </section>
+
+    <section class="px-8 flex flex-col justify-center items-center py-10">
+      <h2 class="text-4xl font-bold text-green-700 mb-6">What are the Crops We Plant ?</h2>
+      <div class="grid grid-cols-4 gap-4">
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/cassava.jpg" alt="Crop 1" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Corn</h3>
+        </div>
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/cassava.jpg" alt="Crop 2" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Rice</h3>
+        </div>
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/cassava.jpg" alt="Crop 1" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Wheat</h3>
+        </div>
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/cassava.jpg" alt="Crop 2" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Corn</h3>
+        </div>
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/cassava.jpg" alt="Crop 1" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Wheat</h3>
+        </div>
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/cassava.jpg" alt="Crop 2" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Corn</h3>
+        </div>
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/cassava.jpg" alt="Crop 2" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Corn</h3>
+        </div>
+        <!-- Add more cards -->
+      </div>
+    </section>
+
+    <section class="px-8 flex flex-col justify-center items-center py-10">
+      <h2 class="text-4xl font-bold text-green-700 mb-6">Fields We Have</h2>
+      <div class="grid grid-cols-4 gap-4">
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/ricepalateA1.jpg" alt="Field 1" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Rice Palate A</h3>
+          <p>Location: Hapugala, Galle</p>
+          <p>Size: 2000 Sq.mt</p>
+        </div>
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/ricepalateA1.jpg" alt="Field 1" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Rice Palate A</h3>
+          <p>Location: Hapugala, Galle</p>
+          <p>Size: 2000 Sq.mt</p>
+        </div>
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/ricepalateA1.jpg" alt="Field 1" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Rice Palate A</h3>
+          <p>Location: Hapugala, Galle</p>
+          <p>Size: 2000 Sq.mt</p>
+        </div>
+        <div class="bg-white shadow p-4 rounded w-80">
+          <img src="./assets/images/ricepalateA1.jpg" alt="Field 1" class="h-40 w-full object-cover rounded">
+          <h3 class="text-xl mt-2">Rice Palate A</h3>
+          <p>Location: Hapugala, Galle</p>
+          <p>Size: 2000 Sq.mt</p>
+        </div>
+        <!-- Add more cards -->
+      </div>
+    </section>
+
+    <section class="px-8 flex flex-col justify-center items-center py-10">
+      <h2 class="text-4xl font-bold text-green-700 mb-6">Contact Us</h2>
+      <form class="max-w-md mx-auto">
+        <input type="text" placeholder="Your Name" class="w-full p-2 mb-4 border rounded">
+        <input type="email" placeholder="Your Email" class="w-full p-2 mb-4 border rounded">
+        <textarea placeholder="Your Message" class="w-full p-2 mb-4 border rounded"></textarea>
+        <button class="bg-green-600 text-white px-4 py-2 rounded">Send</button>
+      </form>
+    </section>
+
+    <footer class="bg-green-600 text-white text-center p-4">
+      © 2024 Green Shadow (Pvt) ltd. All rights reserved.
+    </footer>
   </body>
 </html>
