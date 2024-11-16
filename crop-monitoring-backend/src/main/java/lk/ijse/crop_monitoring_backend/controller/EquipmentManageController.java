@@ -1,8 +1,12 @@
 package lk.ijse.crop_monitoring_backend.controller;
 
+import lk.ijse.crop_monitoring_backend.customObj.CropResponse;
+import lk.ijse.crop_monitoring_backend.customObj.EquipResponse;
+import lk.ijse.crop_monitoring_backend.dto.CropDTO;
 import lk.ijse.crop_monitoring_backend.dto.EquipmentDTO;
 import lk.ijse.crop_monitoring_backend.dto.StaffDTO;
 import lk.ijse.crop_monitoring_backend.exception.DataPersistFailedException;
+import lk.ijse.crop_monitoring_backend.exception.NotFoundException;
 import lk.ijse.crop_monitoring_backend.service.EquipmentService;
 import lk.ijse.crop_monitoring_backend.service.StaffService;
 import lk.ijse.crop_monitoring_backend.util.Enums.Availability;
@@ -29,7 +33,7 @@ public class EquipmentManageController {
     private final EquipmentService equipmentService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> addStaff(@RequestBody EquipmentDTO equipmentDTO) {
+    public ResponseEntity<String> addEquipment(@RequestBody EquipmentDTO equipmentDTO) {
         try {
 //            int fieldCode = equipmentDTO.getFieldCode();
 //            int staffId = equipmentDTO.getStaffId();
@@ -47,6 +51,40 @@ public class EquipmentManageController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping(value = "/{equipmentId}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> updateEquipment(@RequestBody EquipmentDTO equipmentDTO, @PathVariable ("equipmentId") int equipmentId) {
+        try {
+            equipmentService.updateEquipment(equipmentDTO, equipmentId);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (NotFoundException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/all_equip", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<EquipmentDTO> getAllEquip() {
+        return equipmentService.getAllEquip();
+    }
+
+    @GetMapping(value = "/{equipmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public EquipResponse getEquipById(@PathVariable("equipmentId") int equipmentId) {
+        return equipmentService.getSelectedEquip(equipmentId);
+    }
+
+    @DeleteMapping(value = "/{equipmentId}")
+    public ResponseEntity<Void> deleteEquip(@PathVariable("equipmentId") int equipmentId) {
+        try {
+            equipmentService.deleteEquip(equipmentId);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (NotFoundException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
