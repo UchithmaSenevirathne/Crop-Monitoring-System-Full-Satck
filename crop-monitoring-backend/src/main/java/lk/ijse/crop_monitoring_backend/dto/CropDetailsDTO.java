@@ -1,5 +1,6 @@
 package lk.ijse.crop_monitoring_backend.dto;
 
+import lk.ijse.crop_monitoring_backend.customObj.CropDetailsResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CropDetailsDTO {
+public class CropDetailsDTO implements CropDetailsResponse {
     private int logCode;
     private String logDate;
     private String logDetails;

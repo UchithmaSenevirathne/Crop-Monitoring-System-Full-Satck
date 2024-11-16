@@ -1,6 +1,7 @@
 package lk.ijse.crop_monitoring_backend.dto;
 
 import jakarta.persistence.Column;
+import lk.ijse.crop_monitoring_backend.customObj.StaffResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class StaffDTO {
+public class StaffDTO implements StaffResponse {
     private int staffId;
     private String firstName;
     private String lastName;

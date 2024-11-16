@@ -1,5 +1,6 @@
 package lk.ijse.crop_monitoring_backend.dto;
 
+import lk.ijse.crop_monitoring_backend.customObj.VehicleResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class VehicleDTO {
+public class VehicleDTO implements VehicleResponse {
     private int vehicleCode;
     private String licensePlateNumber;
     private String vehicleCategory;
