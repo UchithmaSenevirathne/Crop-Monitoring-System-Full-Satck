@@ -2,13 +2,19 @@ package lk.ijse.crop_monitoring_backend.service.impl;
 
 import lk.ijse.crop_monitoring_backend.dao.UserDAO;
 import lk.ijse.crop_monitoring_backend.dto.UserDTO;
+import lk.ijse.crop_monitoring_backend.entity.UserEntity;
 import lk.ijse.crop_monitoring_backend.service.UserService;
 import lk.ijse.crop_monitoring_backend.util.Mapping;
 import lk.ijse.crop_monitoring_backend.util.VarList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -29,5 +35,23 @@ public class UserServiceImpl implements UserService {
             userDAO.save(mapping.convertToUserEntity(userDTO));
             return VarList.Created;
         }
+    }
+
+    @Override
+    public UserDTO loadUserDetailsByUsername(String email) {
+        UserEntity user = userDAO.findByEmail(email);
+        return mapping.convertToUserDTO(user);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) {
+        UserEntity userEntity = userDAO.findByEmail(email);
+        return new org.springframework.security.core.userdetails.User(userEntity.getEmail(), userEntity.getPassword(), getAuthority(userEntity));
+    }
+
+    private Set<SimpleGrantedAuthority> getAuthority(UserEntity userEntity) {
+        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(userEntity.getRole()));
+        return authorities;
     }
 }

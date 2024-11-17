@@ -19,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -74,6 +75,81 @@ public class StaffManageController {
         }catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ResponseDTO(VarList.Internal_Server_Error, e.getMessage(), null));
+        }
+    }
+
+    @PostMapping("/authenticate")
+    public ResponseEntity<ResponseDTO> authenticate(@RequestBody UserDTO userDTO) {
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(userDTO.getEmail(), userDTO.getPassword()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new ResponseDTO(VarList.Unauthorized, "Invalid Credentials", e.getMessage()));
+        }
+
+        UserDTO loadedUser = userService.loadUserDetailsByUsername(userDTO.getEmail());
+        if (loadedUser == null) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(new ResponseDTO(VarList.Conflict, "Authorization Failure! Please Try Again", null));
+        }
+
+        // Check user role
+        if ("MANAGER".equals(loadedUser.getRole())) {
+            // Handle admin login
+            String token = jwtUtil.generateToken(loadedUser);
+            if (token == null || token.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.CONFLICT)
+                        .body(new ResponseDTO(VarList.Conflict, "Authorization Failure! Please Try Again", null));
+            }
+
+            AuthDTO authDTO = new AuthDTO();
+            authDTO.setEmail(loadedUser.getEmail());
+            authDTO.setToken(token);
+            authDTO.setRole("MANAGER");
+
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(new ResponseDTO(VarList.Created, "Manager Login Success", authDTO));
+
+        } else if ("ADMINISTRATIVE".equals(loadedUser.getRole())) {
+            // Handle user login
+            String token = jwtUtil.generateToken(loadedUser);
+            if (token == null || token.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.CONFLICT)
+                        .body(new ResponseDTO(VarList.Conflict, "Authorization Failure! Please Try Again", null));
+            }
+
+            AuthDTO authDTO = new AuthDTO();
+            authDTO.setEmail(loadedUser.getEmail());
+            authDTO.setToken(token);
+            authDTO.setRole("ADMINISTRATIVE");
+
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(new ResponseDTO(VarList.Created, "Administrative Login Success", authDTO));
+
+        } else if ("SCIENTIST".equals(loadedUser.getRole())) {
+            // Handle user login
+            String token = jwtUtil.generateToken(loadedUser);
+            if (token == null || token.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.CONFLICT)
+                        .body(new ResponseDTO(VarList.Conflict, "Authorization Failure! Please Try Again", null));
+            }
+
+            AuthDTO authDTO = new AuthDTO();
+            authDTO.setEmail(loadedUser.getEmail());
+            authDTO.setToken(token);
+            authDTO.setRole("SCIENTIST");
+
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(new ResponseDTO(VarList.Created, "Scientist Login Success", authDTO));
+
+        } else if ("OTHER".equals(loadedUser.getRole())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(new ResponseDTO(VarList.Forbidden, "Others Cannot Log Into This System", null));
+
+        } else {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(new ResponseDTO(VarList.Forbidden, "Invalid Role", null));
         }
     }
 
