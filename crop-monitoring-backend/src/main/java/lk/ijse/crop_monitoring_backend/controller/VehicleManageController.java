@@ -1,8 +1,11 @@
 package lk.ijse.crop_monitoring_backend.controller;
 
+import lk.ijse.crop_monitoring_backend.customObj.EquipResponse;
+import lk.ijse.crop_monitoring_backend.customObj.VehicleResponse;
 import lk.ijse.crop_monitoring_backend.dto.EquipmentDTO;
 import lk.ijse.crop_monitoring_backend.dto.VehicleDTO;
 import lk.ijse.crop_monitoring_backend.exception.DataPersistFailedException;
+import lk.ijse.crop_monitoring_backend.exception.NotFoundException;
 import lk.ijse.crop_monitoring_backend.service.EquipmentService;
 import lk.ijse.crop_monitoring_backend.service.VehicleService;
 import lk.ijse.crop_monitoring_backend.util.Enums.Availability;
@@ -38,6 +41,40 @@ public class VehicleManageController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping(value = "/{vehicleCode}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> updateVehicle(@RequestBody VehicleDTO vehicleDTO, @PathVariable ("vehicleCode") int vehicleCode) {
+        try {
+            vehicleService.updateVehicle(vehicleDTO, vehicleCode);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (NotFoundException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/all_vehicles", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<VehicleDTO> getAllVehicle() {
+        return vehicleService.getAllVehicle();
+    }
+
+    @GetMapping(value = "/{vehicleCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public VehicleResponse getVehicleById(@PathVariable("vehicleCode") int vehicleCode) {
+        return vehicleService.getSelectedVehicle(vehicleCode);
+    }
+
+    @DeleteMapping(value = "/{vehicleCode}")
+    public ResponseEntity<Void> deleteVehicle(@PathVariable("vehicleCode") int vehicleCode) {
+        try {
+            vehicleService.deleteVehi(vehicleCode);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (NotFoundException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
