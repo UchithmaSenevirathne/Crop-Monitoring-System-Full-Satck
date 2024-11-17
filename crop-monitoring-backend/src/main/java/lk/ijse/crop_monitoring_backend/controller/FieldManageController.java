@@ -89,7 +89,7 @@ public class FieldManageController {
 
             fieldService.updateField(fieldDTO);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }catch (DataPersistFailedException e){
+        }catch (NotFoundException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
