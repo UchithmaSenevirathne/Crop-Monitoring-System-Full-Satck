@@ -9,4 +9,8 @@ public interface UserService {
     UserDTO loadUserDetailsByUsername(String email);
 
     UserDetails loadUserByUsername(String email);
+
+    void updateUser(UserDTO userDTO);
+
+    void deleteUser(String staffEmail);
 }

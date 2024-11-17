@@ -5,6 +5,7 @@ import lk.ijse.crop_monitoring_backend.dto.ResponseDTO;
 import lk.ijse.crop_monitoring_backend.dto.StaffDTO;
 import lk.ijse.crop_monitoring_backend.dto.UserDTO;
 import lk.ijse.crop_monitoring_backend.exception.DataPersistFailedException;
+import lk.ijse.crop_monitoring_backend.exception.NotFoundException;
 import lk.ijse.crop_monitoring_backend.service.StaffService;
 import lk.ijse.crop_monitoring_backend.service.UserService;
 import lk.ijse.crop_monitoring_backend.util.Enums.Designation;
@@ -151,6 +152,52 @@ public class StaffManageController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN)
                     .body(new ResponseDTO(VarList.Forbidden, "Invalid Role", null));
         }
+    }
+
+    @PutMapping(value = "/{staffId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Void> updateUser(@RequestBody StaffDTO staffDTO, @PathVariable ("staffId") int staffId){
+
+        try {
+            staffService.updateSatff(staffDTO, staffId);
+
+            UserDTO userDTO = new UserDTO();
+            userDTO.setEmail(staffDTO.getEmail());
+            userDTO.setPassword(staffDTO.getPassword());
+            userDTO.setRole(staffDTO.getRole());
+
+            userService.updateUser(userDTO);
+
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (NotFoundException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping(value = "/{staffId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public StaffDTO getSelectedStaff(@PathVariable ("staffId") int staffId){
+        return staffService.getSelectedStaff(staffId);
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<StaffDTO> getAllStaff(){
+        return staffService.getAllStaff();
+    }
+
+    @DeleteMapping("/{staffId}")
+    public ResponseEntity<Void> deleteStaff(@PathVariable ("staffId") int staffId){
+        try {
+            staffService.deleteStaff(staffId);
+            String staffEmail = staffService.getEmailById(staffId);
+            userService.deleteUser(staffEmail);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }catch (NotFoundException e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+//        return userService.deleteUser(userId) ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping(value = "/designations", produces = MediaType.APPLICATION_JSON_VALUE)

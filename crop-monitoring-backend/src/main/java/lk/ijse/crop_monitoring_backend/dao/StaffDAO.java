@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StaffDAO extends JpaRepository<StaffEntity, Integer> {
+
+    StaffEntity getStaffEntitiesByStaffId(int staffId);
 }
