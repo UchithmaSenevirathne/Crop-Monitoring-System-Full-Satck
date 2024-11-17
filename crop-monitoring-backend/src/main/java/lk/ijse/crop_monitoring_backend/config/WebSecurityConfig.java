@@ -1,7 +1,6 @@
 package lk.ijse.crop_monitoring_backend.config;
 
 import lk.ijse.crop_monitoring_backend.service.impl.UserServiceImpl;
-import lk.ijse.posreactspringbootbackend.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,7 +41,6 @@ public class WebSecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-    //mona request da ganne kyl define krnwa
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)

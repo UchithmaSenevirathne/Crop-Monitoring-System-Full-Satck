@@ -8,8 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.crop_monitoring_backend.service.impl.UserServiceImpl;
 import lk.ijse.crop_monitoring_backend.util.JwtUtil;
-import lk.ijse.posreactspringbootbackend.service.impl.UserServiceImpl;
-import lk.ijse.posreactspringbootbackend.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
