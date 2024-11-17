@@ -66,6 +66,3 @@ public class JwFilter extends OncePerRequestFilter {
         return Jwts.parser().setSigningKey(secretKey.getBytes()).parseClaimsJws(token).getBody();
     }
 }
-
-//OncePerRequestFilter kiwwe request eken req ekt filter eka add krl thiyenne kyl
-//req filter krala check krnna thamai Jwtfilter haduwe
