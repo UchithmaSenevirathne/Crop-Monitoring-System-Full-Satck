@@ -8,9 +8,15 @@
       href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Playpen+Sans:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Schoolbell&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Schoolbell&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/index.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Playpen+Sans:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Schoolbell&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Schoolbell&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -26,6 +32,8 @@
               "zoom-in": "zoomIn 2s ease-in-out infinite",
               "jiggle": "jiggle 1s ease-in-out infinite",
               "fade-in-bounceup": "fadeInBounceup 2s ease-in-out infinite",
+              "slide-in-up": "slideInUp 2s ease-in-out infinite",
+              "typing": "typing 2s steps(20) 3 alternate, blink 5s infinite"
             },
             keyframes: {
               rotate: {
@@ -38,46 +46,72 @@
                 "100%": { transform: "scale(1)", opacity: "1" },
               },
               jiggle: {
-              "0%": {
-                  transform: "scale3d(1, 1, 1)"
+                "0%": {
+                  transform: "scale3d(1, 1, 1)",
+                },
+                "30%": {
+                  transform: "scale3d(1.25, 0.75, 1)",
+                },
+                "40%": {
+                  transform: "scale3d(0.75, 1.25, 1)",
+                },
+                "50%": {
+                  transform: "scale3d(1.15, 0.85, 1)",
+                },
+                "65%": {
+                  transform: "scale3d(0.95, 1.05, 1)",
+                },
+                "75%": {
+                  transform: "scale3d(1.05, 0.95, 1)",
+                },
+                "100%": {
+                  transform: "scale3d(1, 1, 1)",
+                },
               },
-              "30%": {
-                  transform: "scale3d(1.25, 0.75, 1)"
-              },
-              "40%": {
-                  transform: "scale3d(0.75, 1.25, 1)"
-              },
-              "50%": {
-                  transform: "scale3d(1.15, 0.85, 1)"
-              },
-              "65%": {
-                  transform: "scale3d(0.95, 1.05, 1)"
-              },
-              "75%": {
-                  transform: "scale3d(1.05, 0.95, 1)"
-              },
-              "100%": {
-                  transform: "scale3d(1, 1, 1)"
-              },
-          },
-          fadeInBounceup: {
-              "0%": {
+              fadeInBounceup: {
+                "0%": {
                   opacity: 0,
                   transform: "translate3d(0%, 100%, 0)",
-              },
-              "33%": {
+                },
+                "33%": {
                   opacity: 0.5,
                   transform: "translate3d(0%, 0%, 0)",
-              },
-              "66%": {
+                },
+                "66%": {
                   opacity: 0.7,
                   transform: "translate3d(0%, 20%, 0)",
-              },
-              "100%": {
+                },
+                "100%": {
                   opacity: 1,
                   transform: "translate3d(0, 0, 0)",
+                },
               },
-          },
+              slideInUp: {
+                "0%": {
+                  visibility: "visible",
+                  transform: "translate3d(0, 100%, 0)",
+                },
+                "100%": {
+                  transform: "translate3d(0, 0, 0)",
+                },
+              },
+              typing: {
+                "0%": {
+                  width: "0%",
+                  visibility: "hidden",
+                },
+                "100%": {
+                  width: "100%",
+                },
+              },
+              blink: {
+                "50%": {
+                  borderColor: "transparent",
+                },
+                "100%": {
+                  borderColor: "white",
+                },
+              },
             },
             colors: {},
           },
@@ -109,9 +143,8 @@
         <h1 class="text-4xl md:text-6xl text-white shadow-lg font-bold">
           Shaded by nature, cultivated with love.
         </h1>
-        <p class="text-white mt-4 text-center max-w-lg font-playpen">
-          Where the whispers of nature inspire sustainable growth and vibrant
-          harvests.
+        <p class="text-white mt-4 text-center  font-playpen animate-typing overflow-hidden whitespace-nowrap">
+          Where the whispers of nature inspire sustainable growth and vibrant harvests...
         </p>
       </div>
       <div>
@@ -169,7 +202,9 @@
       >
         <div class="flex items-center gap-2">
           <img src="./assets/images/sustainability.png" alt="" />
-          <h1 class="text-[#002C2D] text-lg font-semibold font-playpen">Sustainability</h1>
+          <h1 class="text-[#002C2D] text-lg font-semibold font-playpen">
+            Sustainability
+          </h1>
         </div>
         <p class="text-[#002C2D] font-normal font-playpen">
           We care for the soil, air, and water by using eco-friendly practices
@@ -182,7 +217,9 @@
       >
         <div class="flex items-center gap-2">
           <img src="./assets/images/community.png" alt="" />
-          <h1 class="text-[#002C2D] text-lg font-semibold font-playpen">Community</h1>
+          <h1 class="text-[#002C2D] text-lg font-semibold font-playpen">
+            Community
+          </h1>
         </div>
         <p class="text-[#002C2D] font-normal font-playpen">
           A portion of our proceeds supports local initiatives and charitable
@@ -195,7 +232,9 @@
       >
         <div class="flex items-center gap-2">
           <img src="./assets/images/quality.png" alt="" />
-          <h1 class="text-[#002C2D] text-lg font-semibold font-playpen">Quality</h1>
+          <h1 class="text-[#002C2D] text-lg font-semibold font-playpen">
+            Quality
+          </h1>
         </div>
         <p class="text-[#002C2D] font-normal font-playpen">
           Every product is grown with care, meeting strict organic standards to
@@ -204,38 +243,123 @@
         </p>
       </div>
     </section>
-    
+
     <section class="flex items-center justify-center">
-      <img src="./assets/images/home.png" alt="">
+      <img src="./assets/images/home.png" alt="" />
     </section>
 
-    <div class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[200px] h-[200px] items-center justify-center p-5 overflow-hidden text-center absolute top-[160%] left-[10%] animate-jiggle">
-      <img src="./assets/images/grow.png" alt="" class="w-[100px] max-w-full object-contain">
+    <div
+      class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[200px] h-[200px] items-center justify-center p-5 overflow-hidden text-center absolute top-[160%] left-[10%] animate-jiggle"
+    >
+      <img
+        src="./assets/images/grow.png"
+        alt=""
+        class="w-[100px] max-w-full object-contain"
+      />
       <p class="text-md mt-2 px-2 text-white font-schollbell">
         Plants grow with sunlight, water, and nutrients.
       </p>
     </div>
-    <div class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[300px] h-[300px] items-center justify-center p-5 overflow-hidden text-center absolute top-[230%] animate-jiggle">
-      <img src="./assets/images/health.png" alt="" class="w-[150px] max-w-full object-contain">
+    <div
+      class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[300px] h-[300px] items-center justify-center p-5 overflow-hidden text-center absolute top-[230%] animate-jiggle"
+    >
+      <img
+        src="./assets/images/health.png"
+        alt=""
+        class="w-[150px] max-w-full object-contain"
+      />
       <p class="text-xl mt-2 px-2 font-schollbell">
         Resistance to pests and stress.
       </p>
     </div>
-    <div class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[400px] h-[400px] items-center justify-center p-5 overflow-hidden text-center absolute top-[180%] right-[10%] animate-jiggle">
-      <img src="./assets/images/water.png" alt="" class="w-[200px] max-w-full object-contain">
+    <div
+      class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[400px] h-[400px] items-center justify-center p-5 overflow-hidden text-center absolute top-[180%] right-[10%] animate-jiggle"
+    >
+      <img
+        src="./assets/images/water.png"
+        alt=""
+        class="w-[200px] max-w-full object-contain"
+      />
       <p class="text-2xl mt-2 px-2 font-schollbell">
         Vital for plant hydration and growth.
       </p>
     </div>
-    <div class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[300px] h-[300px] items-center justify-center p-5 overflow-hidden text-center absolute top-[260%] right-[30%] animate-jiggle">
-      <img src="./assets/images/benefits.png" alt="" class="w-[150px] max-w-full object-contain">
-      <p class="text-xl mt-2 px-2 text-white  font-schollbell">
+    <div
+      class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[300px] h-[300px] items-center justify-center p-5 overflow-hidden text-center absolute top-[260%] right-[30%] animate-jiggle"
+    >
+      <img
+        src="./assets/images/benefits.png"
+        alt=""
+        class="w-[150px] max-w-full object-contain"
+      />
+      <p class="text-xl mt-2 px-2 text-white font-schollbell">
         Food, economy, and sustainability.
       </p>
     </div>
 
-    
-    
+    <!-- plants section -->
+    <section class="flex gap-5 mt-[200px]">
+      <div class="text-center">
+        <img
+          src="./assets/images/imgHome.png"
+          alt="Rubber Plant"
+          class="mx-auto rounded transition-all duration-300 hover:scale-110"
+        />
+        <div class="bg-green-800 rounded-lg shadow-lg p-4">
+          <h2 class="mt-4 text-lg font-bold">Crop BG-34</h2>
+          <p class="text-sm italic text-yellow-300">Oryza sativa</p>
+          <div class="mt-2 flex justify-center text-white">
+            <h1>Category :</h1>
+            <p>- Rice</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <img
+          src="./assets/images/imgHome.png"
+          alt="Rubber Plant"
+          class="mx-auto rounded transition-all duration-300 hover:scale-110"
+        />
+        <div class="bg-green-800 rounded-lg shadow-lg p-4">
+          <h2 class="mt-4 text-lg font-bold">Crop CP-10</h2>
+          <p class="text-sm italic text-yellow-300">Vigna unguiculata</p>
+          <div class="mt-2 flex justify-center text-white">
+            <h1>Category :</h1>
+            <p>- Cowpea</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <img
+          src="./assets/images/imgHome.png"
+          alt="Rubber Plant"
+          class="mx-auto rounded transition-all duration-300 hover:scale-110"
+        />
+        <div class="bg-green-800 rounded-lg shadow-lg p-4">
+          <h2 class="mt-4 text-lg font-bold">Crop RD-10</h2>
+          <p class="text-sm italic text-yellow-300">Raphanus sativus</p>
+          <div class="mt-2 flex justify-center text-white">
+            <h1>Category :</h1>
+            <p>- Radish</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <img
+          src="./assets/images/imgHome.png"
+          alt="Rubber Plant"
+          class="mx-auto rounded transition-all duration-300 hover:scale-110"
+        />
+        <div class="bg-green-800 rounded-lg shadow-lg p-4">
+          <h2 class="mt-4 text-lg font-bold">Crop CP-02</h2>
+          <p class="text-sm italic text-yellow-300">Cicer arietinum</p>
+          <div class="mt-2 flex justify-center text-white">
+            <h1>Category :</h1>
+            <p>- Chick Pea</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="px-8 flex flex-col justify-center items-center py-10">
       <h2 class="text-4xl font-bold text-green-700 mb-6">
