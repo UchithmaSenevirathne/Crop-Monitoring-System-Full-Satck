@@ -4,31 +4,106 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crop Monitoring System</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Schoolbell&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              bakbak: ['"Bakbak One"', "serif"],
+              schollbell: ['"Schoolbell"', "cursive"],
+            },
+            animation: {
+              "rotate-slow": "rotate 4s linear infinite",
+              "zoom-in": "zoomIn 2s ease-in-out infinite",
+              "jiggle": "jiggle 1s ease-in-out infinite",
+              "fade-in-bounceup": "fadeInBounceup 2s ease-in-out infinite",
+            },
+            keyframes: {
+              rotate: {
+                "0%": { transform: "rotate(0deg)" },
+                "100%": { transform: "rotate(360deg)" },
+              },
+              zoomIn: {
+                "0%": { transform: "scale(0.5)", opacity: "0" },
+                "50%": { transform: "scale(1.05)", opacity: "1" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+              jiggle: {
+              "0%": {
+                  transform: "scale3d(1, 1, 1)"
+              },
+              "30%": {
+                  transform: "scale3d(1.25, 0.75, 1)"
+              },
+              "40%": {
+                  transform: "scale3d(0.75, 1.25, 1)"
+              },
+              "50%": {
+                  transform: "scale3d(1.15, 0.85, 1)"
+              },
+              "65%": {
+                  transform: "scale3d(0.95, 1.05, 1)"
+              },
+              "75%": {
+                  transform: "scale3d(1.05, 0.95, 1)"
+              },
+              "100%": {
+                  transform: "scale3d(1, 1, 1)"
+              },
+          },
+          fadeInBounceup: {
+              "0%": {
+                  opacity: 0,
+                  transform: "translate3d(0%, 100%, 0)",
+              },
+              "33%": {
+                  opacity: 0.5,
+                  transform: "translate3d(0%, 0%, 0)",
+              },
+              "66%": {
+                  opacity: 0.7,
+                  transform: "translate3d(0%, 20%, 0)",
+              },
+              "100%": {
+                  opacity: 1,
+                  transform: "translate3d(0, 0, 0)",
+              },
+          },
+            },
+            colors: {},
+          },
+        },
+      };
+    </script>
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-[#002C2D] px-[200px]">
     <!-- Navbar -->
-    <nav class="bg-green-600 text-white p-4 flex justify-between items-center">
-      <div class="text-lg font-bold">GREEN SHADOW</div>
-      <ul class="flex gap-4">
-        <li><a href="" class="hover:text-gray-200">Home</a></li>
-        <li><a href="" class="hover:text-gray-200">About Us</a></li>
-        <li><a href="" class="hover:text-gray-200">Crops</a></li>
-        <li><a href="" class="hover:text-gray-200">Fields</a></li>
-        <li><a href="" class="hover:text-gray-200">Contact Us</a></li>
+    <nav class="text-white p-4 flex justify-between items-center">
+      <div class="text-[25px] font-bold">GREEN SHADOW</div>
+      <ul class="flex gap-4 text-[20px]">
+        <li><a href="" class="hover:text-[#FFAB00]">Home</a></li>
+        <li><a href="" class="hover:text-[#FFAB00]">About Us</a></li>
+        <li><a href="" class="hover:text-[#FFAB00]">Crops</a></li>
+        <li><a href="" class="hover:text-[#FFAB00]">Fields</a></li>
+        <li><a href="" class="hover:text-[#FFAB00]">Contact Us</a></li>
       </ul>
-      <button class="bg-white text-green-600 px-4 py-2 rounded shadow">
-        Login
+      <button
+        class="text-white px-4 py-2 bg-[#e39902] rounded-full text-[18px]"
+      >
+        <a href="./pos/Dashboard.html">Sign In</a>
       </button>
     </nav>
 
     <!-- Home Section -->
-    <section
-      class="relative h-screen bg-[url('./assets/images/home.png')] bg-cover bg-center"
-    >
-      <div
-        class="absolute inset-0 bg-green-900 bg-opacity-50 flex flex-col justify-center items-center"
-      >
+    <section class="h-[700px] bg-center flex flex-col items-center mt-[150px]">
+      <div class="items-center justify-center flex flex-col">
         <h1 class="text-4xl md:text-6xl text-white shadow-lg font-bold">
           Shaded by nature, cultivated with love.
         </h1>
@@ -37,69 +112,188 @@
           harvests.
         </p>
       </div>
+      <div>
+        <img src="./assets/images/imghome.png" alt="" class="h-[50%]" />
+      </div>
     </section>
+
+    <!-- home leaves -->
+
+    <img
+      src="./assets/images/leaves.png"
+      alt=""
+      class="absolute top-[20%] animate-rotate-slow"
+    />
+    <img
+      src="./assets/images/palm.png"
+      alt=""
+      class="absolute top-[50%] animate-rotate-slow"
+    />
+    <img
+      src="./assets/images/leaves.png"
+      alt=""
+      class="absolute top-[70%] left-[25%] animate-rotate-slow"
+    />
+    <img
+      src="./assets/images/palm.png"
+      alt=""
+      class="absolute top-[50%] left-[75%] animate-rotate-slow"
+    />
+    <img
+      src="./assets/images/leaves.png"
+      alt=""
+      class="absolute top-[70%] right-[15%] animate-rotate-slow"
+    />
+    <img
+      src="./assets/images/palm.png"
+      alt=""
+      class="absolute top-[20%] right-[15%] animate-rotate-slow"
+    />
+    <img
+      src="./assets/images/leaves.png"
+      alt=""
+      class="absolute top-[80%] left-[5%] animate-rotate-slow"
+    />
+    <img
+      src="./assets/images/palm.png"
+      alt=""
+      class="absolute top-[10%] left-[50%] animate-rotate-slow"
+    />
 
     <!-- About Section -->
-    <section class="px-8 flex flex-col justify-center items-center py-10">
-      <h2 class="text-4xl font-bold text-green-700 mb-4">About Us</h2>
-      <div class="flex items-center">
-        <img
-          src="./assets/images/about.png"
-          alt=""
-          class="w-[700px] h-[700px]"
-        />
-        <div class="flex flex-col gap-5 text-[18px]">
-        <p>
-          Welcome to Green Shadow Farm – a haven where nature and nurture come
-          together to create a sustainable paradise. Nestled amidst lush
-          greenery, our farm is dedicated to cultivating fresh, organic produce
-          while fostering harmony with the environment.</p>
-          <p>At Green Shadow Farm, we
-          believe in the transformative power of sustainable agriculture. Our
-          journey is rooted in respect for the land, innovation in farming
-          practices, and a passion for providing the finest harvests to our
-          community. Everything we grow reflects our commitment to purity,
-          quality, and care.</p>
-          <p>More than a farm, Green Shadow is a vision—a place
-          where shadows of the green canopy shelter growth, creativity, and life
-          itself. Join us on our mission to nourish bodies, inspire minds, and
-          leave a greener planet for generations to come.</p>
-          <p class="italic text-[16px]">"Green Shadow Farm –
-          where every seed sown is a promise for tomorrow."</p>
+    <section class="flex p-[20px] w-[100%] gap-5 rounded-2xl">
+      <div
+        class="flex flex-col border-2 border-[#002C2D] p-[20px] rounded-2xl bg-white gap-2"
+      >
+        <div class="flex items-center gap-2">
+          <img src="./assets/images/sustainability.png" alt="" />
+          <h1 class="text-[#002C2D] text-lg font-semibold">Sustainability</h1>
+        </div>
+        <p class="text-[#002C2D] font-normal">
+          We care for the soil, air, and water by using eco-friendly practices
+          like organic farming, water conservation, and biodiversity promotion,
+          ensuring a healthy planet for future generations.
         </p>
       </div>
+      <div
+        class="flex flex-col border-2 border-[#002C2D] p-[20px] rounded-2xl bg-white gap-2"
+      >
+        <div class="flex items-center gap-2">
+          <img src="./assets/images/community.png" alt="" />
+          <h1 class="text-[#002C2D] text-lg font-semibold">Community</h1>
+        </div>
+        <p class="text-[#002C2D] font-normal">
+          A portion of our proceeds supports local initiatives and charitable
+          causes, helping schools, food banks, and community projects thrive
+          while strengthening relationships.
+        </p>
+      </div>
+      <div
+        class="flex flex-col border-2 border-[#002C2D] p-[20px] rounded-2xl bg-white gap-2"
+      >
+        <div class="flex items-center gap-2">
+          <img src="./assets/images/quality.png" alt="" />
+          <h1 class="text-[#002C2D] text-lg font-semibold">Quality</h1>
+        </div>
+        <p class="text-[#002C2D] font-normal">
+          Every product is grown with care, meeting strict organic standards to
+          deliver fresh, nutrient-rich, and chemical-free produce that you can
+          trust and enjoy.
+        </p>
       </div>
     </section>
+    
+    <section class="flex items-center justify-center">
+      <img src="./assets/images/home.png" alt="">
+    </section>
+
+    <div class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[300px] h-[300px] items-center justify-center p-5 overflow-hidden text-center absolute top-[150%] left-[5%] animate-jiggle">
+      <img src="./assets/images/grow.png" alt="" class="w-[150px] max-w-full object-contain">
+      <p class="text-xl mt-2 px-2 text-white font-schollbell">
+        Plants grow with sunlight, water, and nutrients.
+      </p>
+    </div>
+    <div class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[300px] h-[300px] items-center justify-center p-5 overflow-hidden text-center absolute top-[230%] animate-jiggle">
+      <img src="./assets/images/health.png" alt="" class="w-[150px] max-w-full object-contain">
+      <p class="text-xl mt-2 px-2 font-schollbell">
+        Resistance to pests and stress.
+      </p>
+    </div>
+    <div class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[300px] h-[300px] items-center justify-center p-5 overflow-hidden text-center absolute top-[180%] right-[10%] animate-jiggle">
+      <img src="./assets/images/water.png" alt="" class="w-[150px] max-w-full object-contain">
+      <p class="text-xl mt-2 px-2 font-schollbell">
+        Vital for plant hydration and growth.
+      </p>
+    </div>
+    <div class="flex flex-col bg-gradient-to-b from-white to-[#002C2D] rounded-full w-[300px] h-[300px] items-center justify-center p-5 overflow-hidden text-center absolute top-[260%] right-[30%] animate-jiggle">
+      <img src="./assets/images/benefits.png" alt="" class="w-[150px] max-w-full object-contain">
+      <p class="text-xl mt-2 px-2 text-white  font-schollbell">
+        Food, economy, and sustainability.
+      </p>
+    </div>
+
+    
+    
 
     <section class="px-8 flex flex-col justify-center items-center py-10">
-      <h2 class="text-4xl font-bold text-green-700 mb-6">What are the Crops We Plant ?</h2>
+      <h2 class="text-4xl font-bold text-green-700 mb-6">
+        What are the Crops We Plant ?
+      </h2>
       <div class="grid grid-cols-4 gap-4">
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/cassava.jpg" alt="Crop 1" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/cassava.jpg"
+            alt="Crop 1"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Corn</h3>
         </div>
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/cassava.jpg" alt="Crop 2" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/cassava.jpg"
+            alt="Crop 2"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Rice</h3>
         </div>
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/cassava.jpg" alt="Crop 1" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/cassava.jpg"
+            alt="Crop 1"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Wheat</h3>
         </div>
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/cassava.jpg" alt="Crop 2" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/cassava.jpg"
+            alt="Crop 2"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Corn</h3>
         </div>
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/cassava.jpg" alt="Crop 1" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/cassava.jpg"
+            alt="Crop 1"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Wheat</h3>
         </div>
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/cassava.jpg" alt="Crop 2" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/cassava.jpg"
+            alt="Crop 2"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Corn</h3>
         </div>
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/cassava.jpg" alt="Crop 2" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/cassava.jpg"
+            alt="Crop 2"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Corn</h3>
         </div>
         <!-- Add more cards -->
@@ -110,25 +304,41 @@
       <h2 class="text-4xl font-bold text-green-700 mb-6">Fields We Have</h2>
       <div class="grid grid-cols-4 gap-4">
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/ricepalateA1.jpg" alt="Field 1" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/ricepalateA1.jpg"
+            alt="Field 1"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Rice Palate A</h3>
           <p>Location: Hapugala, Galle</p>
           <p>Size: 2000 Sq.mt</p>
         </div>
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/ricepalateA1.jpg" alt="Field 1" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/ricepalateA1.jpg"
+            alt="Field 1"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Rice Palate A</h3>
           <p>Location: Hapugala, Galle</p>
           <p>Size: 2000 Sq.mt</p>
         </div>
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/ricepalateA1.jpg" alt="Field 1" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/ricepalateA1.jpg"
+            alt="Field 1"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Rice Palate A</h3>
           <p>Location: Hapugala, Galle</p>
           <p>Size: 2000 Sq.mt</p>
         </div>
         <div class="bg-white shadow p-4 rounded w-80">
-          <img src="./assets/images/ricepalateA1.jpg" alt="Field 1" class="h-40 w-full object-cover rounded">
+          <img
+            src="./assets/images/ricepalateA1.jpg"
+            alt="Field 1"
+            class="h-40 w-full object-cover rounded"
+          />
           <h3 class="text-xl mt-2">Rice Palate A</h3>
           <p>Location: Hapugala, Galle</p>
           <p>Size: 2000 Sq.mt</p>
@@ -140,9 +350,20 @@
     <section class="px-8 flex flex-col justify-center items-center py-10">
       <h2 class="text-4xl font-bold text-green-700 mb-6">Contact Us</h2>
       <form class="max-w-md mx-auto">
-        <input type="text" placeholder="Your Name" class="w-full p-2 mb-4 border rounded">
-        <input type="email" placeholder="Your Email" class="w-full p-2 mb-4 border rounded">
-        <textarea placeholder="Your Message" class="w-full p-2 mb-4 border rounded"></textarea>
+        <input
+          type="text"
+          placeholder="Your Name"
+          class="w-full p-2 mb-4 border rounded"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          class="w-full p-2 mb-4 border rounded"
+        />
+        <textarea
+          placeholder="Your Message"
+          class="w-full p-2 mb-4 border rounded"
+        ></textarea>
         <button class="bg-green-600 text-white px-4 py-2 rounded">Send</button>
       </form>
     </section>
