@@ -33,7 +33,8 @@
               "jiggle": "jiggle 1s ease-in-out infinite",
               "fade-in-bounceup": "fadeInBounceup 2s ease-in-out infinite",
               "slide-in-up": "slideInUp 2s ease-in-out infinite",
-              "typing": "typing 2s steps(20) 3 alternate, blink 5s infinite"
+              "typing": "typing 2s steps(20) 3 alternate, blink 5s infinite",
+              "glow": "glow 2s ease-in-out infinite"
             },
             keyframes: {
               rotate: {
@@ -112,6 +113,18 @@
                   borderColor: "white",
                 },
               },
+              glow: {
+              "0%": {
+                  backgroundColor: "#fcfcfd"
+              },
+              "30%": {
+                  backgroundColor: "#e39902",
+                  color: "#fcfcfd"
+              },
+              "100%": {
+                  backgroundColor: "#fcfcfd"
+              },
+          },
             },
             colors: {},
           },
@@ -124,11 +137,11 @@
     <nav class="text-white p-4 flex justify-between items-center">
       <div class="text-[25px] font-bold font-bakbak">GREEN SHADOW</div>
       <ul class="flex gap-4 text-[20px] font-playpen">
-        <li><a href="" class="hover:text-[#FFAB00]">Home</a></li>
-        <li><a href="" class="hover:text-[#FFAB00]">About Us</a></li>
-        <li><a href="" class="hover:text-[#FFAB00]">Crops</a></li>
-        <li><a href="" class="hover:text-[#FFAB00]">Fields</a></li>
-        <li><a href="" class="hover:text-[#FFAB00]">Contact Us</a></li>
+        <li><a href="#home" class="hover:text-[#FFAB00]">Home</a></li>
+        <li><a href="#about" class="hover:text-[#FFAB00]">About Us</a></li>
+        <li><a href="#crops" class="hover:text-[#FFAB00]">Crops</a></li>
+        <li><a href="#field" class="hover:text-[#FFAB00]">Fields</a></li>
+        <li><a href="#contact" class="hover:text-[#FFAB00]">Contact Us</a></li>
       </ul>
       <button
         class="text-white px-4 py-2 bg-[#e39902] rounded-full text-[18px]"
@@ -138,7 +151,7 @@
     </nav>
 
     <!-- Home Section -->
-    <section class="h-[700px] bg-center flex flex-col items-center mt-[150px]">
+    <section class="h-[700px] bg-center flex flex-col items-center mt-[150px]" id="home">
       <div class="items-center justify-center flex flex-col">
         <h1 class="text-4xl md:text-6xl text-white shadow-lg font-bold">
           Shaded by nature, cultivated with love.
@@ -196,9 +209,9 @@
     />
 
     <!-- About Section -->
-    <section class="flex p-[20px] w-[100%] gap-5 rounded-2xl">
+    <section class="flex p-[20px] w-[100%] gap-5 rounded-2xl" id="about">
       <div
-        class="flex flex-col border-2 border-[#002C2D] p-[20px] rounded-2xl bg-white gap-2"
+        class="flex flex-col border-2 border-[#002C2D] p-[20px] rounded-2xl bg-white gap-2 "
       >
         <div class="flex items-center gap-2">
           <img src="./assets/images/sustainability.png" alt="" />
@@ -244,7 +257,7 @@
       </div>
     </section>
 
-    <section class="flex items-center justify-center">
+    <section class="flex items-center justify-center pl-[80px]">
       <img src="./assets/images/home.png" alt="" />
     </section>
 
@@ -254,7 +267,7 @@
       <img
         src="./assets/images/grow.png"
         alt=""
-        class="w-[100px] max-w-full object-contain"
+        class="w-[110px] max-w-full object-contain"
       />
       <p class="text-md mt-2 px-2 text-white font-schollbell">
         Plants grow with sunlight, water, and nutrients.
@@ -298,7 +311,9 @@
     </div>
 
     <!-- plants section -->
-    <section class="flex gap-5 mt-[200px]">
+    <section class="text-center  pt-[100px] mt-[100px]" id="crops">
+      <h1 class="font-playpen text-white text-[40px]">Popular Crops</h1>
+      <div class="flex gap-5 mt-[100px]">
       <div class="text-center">
         <img
           src="./assets/images/imgHome.png"
@@ -359,143 +374,205 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="px-8 flex flex-col justify-center items-center py-10">
-      <h2 class="text-4xl font-bold text-green-700 mb-6">
-        What are the Crops We Plant ?
-      </h2>
-      <div class="grid grid-cols-4 gap-4">
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/cassava.jpg"
-            alt="Crop 1"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Corn</h3>
-        </div>
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/cassava.jpg"
-            alt="Crop 2"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Rice</h3>
-        </div>
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/cassava.jpg"
-            alt="Crop 1"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Wheat</h3>
-        </div>
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/cassava.jpg"
-            alt="Crop 2"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Corn</h3>
-        </div>
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/cassava.jpg"
-            alt="Crop 1"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Wheat</h3>
-        </div>
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/cassava.jpg"
-            alt="Crop 2"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Corn</h3>
-        </div>
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/cassava.jpg"
-            alt="Crop 2"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Corn</h3>
-        </div>
-        <!-- Add more cards -->
-      </div>
-    </section>
-
-    <section class="px-8 flex flex-col justify-center items-center py-10">
-      <h2 class="text-4xl font-bold text-green-700 mb-6">Fields We Have</h2>
-      <div class="grid grid-cols-4 gap-4">
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/ricepalateA1.jpg"
-            alt="Field 1"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Rice Palate A</h3>
-          <p>Location: Hapugala, Galle</p>
-          <p>Size: 2000 Sq.mt</p>
-        </div>
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/ricepalateA1.jpg"
-            alt="Field 1"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Rice Palate A</h3>
-          <p>Location: Hapugala, Galle</p>
-          <p>Size: 2000 Sq.mt</p>
-        </div>
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/ricepalateA1.jpg"
-            alt="Field 1"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Rice Palate A</h3>
-          <p>Location: Hapugala, Galle</p>
-          <p>Size: 2000 Sq.mt</p>
-        </div>
-        <div class="bg-white shadow p-4 rounded w-80">
-          <img
-            src="./assets/images/ricepalateA1.jpg"
-            alt="Field 1"
-            class="h-40 w-full object-cover rounded"
-          />
-          <h3 class="text-xl mt-2">Rice Palate A</h3>
-          <p>Location: Hapugala, Galle</p>
-          <p>Size: 2000 Sq.mt</p>
-        </div>
-        <!-- Add more cards -->
-      </div>
-    </section>
-
-    <section class="px-8 flex flex-col justify-center items-center py-10">
-      <h2 class="text-4xl font-bold text-green-700 mb-6">Contact Us</h2>
-      <form class="max-w-md mx-auto">
-        <input
-          type="text"
-          placeholder="Your Name"
-          class="w-full p-2 mb-4 border rounded"
+    </div>
+    <div class="flex gap-5 mt-[100px]">
+      <div class="text-center">
+        <img
+          src="./assets/images/imgHome.png"
+          alt="Rubber Plant"
+          class="mx-auto rounded transition-all duration-300 hover:scale-110"
         />
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="w-full p-2 mb-4 border rounded"
+        <div class="bg-green-800 rounded-lg shadow-lg p-4">
+          <h2 class="mt-4 text-lg font-bold">Crop BG-34</h2>
+          <p class="text-sm italic text-yellow-300">Oryza sativa</p>
+          <div class="mt-2 flex justify-center text-white">
+            <h1>Category :</h1>
+            <p>- Rice</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <img
+          src="./assets/images/imgHome.png"
+          alt="Rubber Plant"
+          class="mx-auto rounded transition-all duration-300 hover:scale-110"
         />
-        <textarea
-          placeholder="Your Message"
-          class="w-full p-2 mb-4 border rounded"
-        ></textarea>
-        <button class="bg-green-600 text-white px-4 py-2 rounded">Send</button>
-      </form>
+        <div class="bg-green-800 rounded-lg shadow-lg p-4">
+          <h2 class="mt-4 text-lg font-bold">Crop CP-10</h2>
+          <p class="text-sm italic text-yellow-300">Vigna unguiculata</p>
+          <div class="mt-2 flex justify-center text-white">
+            <h1>Category :</h1>
+            <p>- Cowpea</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <img
+          src="./assets/images/imgHome.png"
+          alt="Rubber Plant"
+          class="mx-auto rounded transition-all duration-300 hover:scale-110"
+        />
+        <div class="bg-green-800 rounded-lg shadow-lg p-4">
+          <h2 class="mt-4 text-lg font-bold">Crop RD-10</h2>
+          <p class="text-sm italic text-yellow-300">Raphanus sativus</p>
+          <div class="mt-2 flex justify-center text-white">
+            <h1>Category :</h1>
+            <p>- Radish</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center w-[2000px]">
+        <button class="text-[#002C2D] bg-white p-5 rounded-full border border-[#002C2D] mt-[150px] animate-glow font-semibold font-playpen">View More Crops</button>
+      </div>
+    </div>
     </section>
 
-    <footer class="bg-green-600 text-white text-center p-4">
+    <!-- field section -->
+    <section>
+    <div class="relative w-full mx-auto pt-[100px] mt-[100px]" id="field">
+      <!-- Carousel container -->
+      <div id="carousel" class="relative overflow-hidden rounded-lg shadow-lg">
+        <!-- Slides -->
+        <div class="carousel-slides flex transition-transform duration-500 ease-in-out">
+          <!-- Slide 1 -->
+          <div class="flex-shrink-0 w-full">
+            <img src="./assets/images/field1.jpg" alt="Image 1" class="w-full h-[500px] object-cover">
+            <div class="p-4 bg-gray-100 flex justify-between">
+              <div>
+                <h3 class="text-lg font-semibold font-playpen">Rice Palate A</h3>
+                <p class="text-gray-600 w-[500px]">
+                  Rows of vibrant crops thrive in fertile soil, showcasing nature's diversity. From leafy greens to colorful root vegetables, these fields ensure fresh, nutritious produce for communities worldwide.
+                </p>
+                <div class="flex gap-2 mt-5">
+                  <p class="text-red-600">Crops : </p>
+                  <p class="text-[#002C2D]">BG-34 Rice</p>
+                </div>
+              </div>
+              <div>
+                <h2 class="text-red-600">Hapugala, Galle, Sri Lanka</h2>
+                <p class="text-gray-600">2000 Sq.mt</p>
+                <button class="hover:text-[#002C2D] hover:bg-white mt-[50px] p-2 rounded-full border border-[#002C2D] bg-[#002C2D] text-white">View Fields</button>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="flex-shrink-0 w-full">
+            <img src="./assets/images/field2.jpg" alt="Image 2" class="w-full h-[500px] object-cover">
+            <div class="p-4 bg-gray-100 flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-semibold font-playpen">Rice Palate A</h3>
+                <p class="text-gray-600 w-[500px]">
+                  Rows of vibrant crops thrive in fertile soil, showcasing nature's diversity. From leafy greens to colorful root vegetables, these fields ensure fresh, nutritious produce for communities worldwide.
+                </p>
+                <div class="flex gap-2 mt-5">
+                  <p class="text-red-600">Crops : </p>
+                  <p class="text-[#002C2D]">BG-34 Rice</p>
+                </div>
+              </div>
+              <div>
+                <h2 class="text-red-600">Hapugala, Galle, Sri Lanka</h2>
+                <p class="text-gray-600">2000 Sq.mt</p>
+                <button class="hover:text-[#002C2D] hover:bg-white mt-[50px] p-2 rounded-full border border-[#002C2D] bg-[#002C2D] text-white">View Fields</button>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="flex-shrink-0 w-full">
+            <img src="./assets/images/field3.jpg" alt="Image 3" class="w-full h-[500px] object-cover">
+            <div class="p-4 bg-gray-100 flex justify-between">
+              <div>
+                <h3 class="text-lg font-semibold font-playpen">Rice Palate A</h3>
+                <p class="text-gray-600 w-[500px]">
+                  Rows of vibrant crops thrive in fertile soil, showcasing nature's diversity. From leafy greens to colorful root vegetables, these fields ensure fresh, nutritious produce for communities worldwide.
+                </p>
+                <div class="flex gap-2 mt-5">
+                  <p class="text-red-600">Crops : </p>
+                  <p class="text-[#002C2D]">BG-34 Rice</p>
+                </div>
+              </div>
+              <div>
+                <h2 class="text-red-600">Hapugala, Galle, Sri Lanka</h2>
+                <p class="text-gray-600">2000 Sq.mt</p>
+                <button class="hover:text-[#002C2D] hover:bg-white mt-[50px] p-2 rounded-full border border-[#002C2D] bg-[#002C2D] text-white">View Fields</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Navigation -->
+      <div class="absolute top-1/3 left-0 transform -translate-y-1/2">
+        <button id="prev" class="p-2 text-gray-800 bg-white rounded-full focus:outline-none">
+          &#10094;
+        </button>
+      </div>
+      <div class="absolute top-1/3 right-0 transform -translate-y-1/2">
+        <button id="next" class="p-2 text-gray-800 bg-white rounded-full focus:outline-none">
+          &#10095;
+        </button>
+      </div>
+    </div>
+  </section>    
+
+    <!-- contact section -->
+    <section class="flex items-center justify-between bg-gray-100 min-h-[700px] px-[200px] mt-[200px]" id="contact">
+      <!-- Contact Section -->
+      <div class="mb-8 text-left ">
+        <h1 class="text-5xl font-semibold mb-14">Contact us</h1>
+        <p class="text-gray-600 text-[18px] z-10">
+          Need to get in touch with us? Either fill out the form with your inquiry or <br />
+          find the <a href="#" class="text-blue-500 underline">department email</a> you'd like to contact below.
+        </p>
+      </div>
+      <img src="./assets/images/leaf-4.png" alt="Decorative Dots" class="absolute top-[5120px] opacity-1 h-1/2 w-auto left-[170px] rotate-180" />
+      
+      <!-- Contact Form -->
+      <div class="z-10 w-full max-w-md p-8 bg-white shadow-xl">
+        <form>
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block mb-1 text-gray-700">First name*</label>
+              <input
+                type="text"
+                class="w-full h-12 p-2 bg-gray-100 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label class="block mb-1 text-gray-700">Last name</label>
+              <input
+                type="text"
+                class="w-full h-12 p-2 bg-gray-100 border border-gray-300 rounded-md"
+              />
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-1 text-gray-700">Email*</label>
+            <input
+              type="email"
+              class="w-full h-12 p-2 bg-gray-100 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block mb-1 text-gray-700">What can we help you with?</label>
+            <textarea
+              class="w-full h-12 p-2 bg-gray-100 border border-gray-300 rounded-md"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-1/3 py-2 text-white bg-[orange] rounded-md"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <img src="./assets/images/leaf-3.png" alt="Decorative Dots" class="absolute top-[4840px] opacity-1 right-[150px] w-[300px] h-[300px]" />
+    </section>
+
+    <footer class="bg-green-600 text-white text-center p-4 mt-[200px] w-[100%]">
       © 2024 Green Shadow (Pvt) ltd. All rights reserved.
     </footer>
+
+    <script src="./js/carousel.js"></script>
   </body>
 </html>
