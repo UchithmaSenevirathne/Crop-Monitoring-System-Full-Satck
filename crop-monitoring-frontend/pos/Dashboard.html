@@ -33,7 +33,7 @@
     <!-- Main Container -->
     <div class="flex min-h-screen">
       <!-- Sidebar -->
-      <aside class="w-56">
+      <aside class="w-56 sidebar">
         <div class="flex items-center space-x-3 mb-6 p-6">
           <img
             src="../assets/images/nav_head.jpg"
@@ -47,49 +47,63 @@
         <nav class="space-y-3 pl-6 pb-6">
           <a
             href="#"
-            class="flex items-center space-x-3 py-2 px-6 bg-white text-black rounded-l-full font-medium"
+            class="flex items-center space-x-3 py-2 px-6 active:bg-white active:text-black rounded-l-full text-white hover:bg-gray-200 hover:text-gray-600"
+            onclick="navigate('home.html', this)"
+            id="nav-home"
           >
             <span><i class="fa-solid fa-house"></i></span>
             <span>Home</span>
           </a>
           <a
             href="#"
-            class="flex items-center space-x-3 py-2 px-6 text-white hover:bg-gray-200 rounded-l-full hover:text-gray-600"
+            class="flex items-center space-x-3 py-2 px-6 text-white hover:bg-gray-200 rounded-l-full hover:text-gray-600 active:text-black active:bg-white"
+            onclick="navigate('field.html', this)"
+            id="nav-field"
           >
             <span><i class="fa-solid fa-table-cells-large"></i></span>
             <span>Field</span>
           </a>
           <a
             href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white"
+            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-black active:bg-white"
+            onclick="navigate('home.html', this)"
+            id="nav-crop"
           >
             <span><i class="fa-solid fa-seedling"></i></span>
             <span>Crop</span>
           </a>
           <a
             href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white"
+            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-black active:bg-white"
+            onclick="navigate('home.html', this)"
+            id="nav-staff"
           >
             <span><i class="fa-solid fa-users"></i></span>
             <span>Staff</span>
           </a>
           <a
             href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white"
+            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-black active:bg-white"
+            onclick="navigate('home.html', this)"
+            id="nav-log"
           >
             <span><i class="fa-solid fa-book"></i></span>
             <span>Monitoring Log</span>
           </a>
           <a
             href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white"
+            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-black active:bg-white"
+            onclick="navigate('home.html', this)"
+            id="nav-equip"
           >
             <span><i class="fa-solid fa-wrench"></i></span>
             <span>Equipment</span>
           </a>
           <a
             href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white"
+            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-black active:bg-white"
+            onclick="navigate('home.html', this)"
+            id="nav-vehicle"
           >
             <span><i class="fa-solid fa-tractor"></i></span>
             <span>Vehicle</span>
@@ -124,23 +138,11 @@
           </div>
         </header>
 
-        <div class="flex mt-[40px] gap-5 mb-5">
-          <div class="bg-white  rounded-lg flex-1 mt-10">
-            <h2 class="text-lg font-semibold mb-4">Fields Bar Graph</h2>
-            <div
-              class="h-48 bg-gray-100 rounded-lg flex items-center justify-center"
-            >
-              fields bar graph
-            </div>
-          </div>
-        </div>
-        <!-- Overview Section -->
-
-        <!-- Graph and Tables -->
-        <section class="">
-          
-        </section>
+        <div id="content-area"></div>
       </main>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/loadPage.js"></script>
   </body>
 </html>
