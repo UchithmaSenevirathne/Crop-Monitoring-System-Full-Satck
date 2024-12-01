@@ -24,12 +24,12 @@ function updateActiveNav(activeElement) {
     // Remove the active class from all links
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
-        link.classList.remove('bg-white', 'text-black'); // Remove active styles
+        link.classList.remove('bg-white', 'text-[#086568]'); // Remove active styles
         link.classList.add('text-white'); // Reset to default styles
     });
 
     // Add the active class to the clicked link
-    activeElement.classList.add('bg-white', 'text-black');
+    activeElement.classList.add('bg-white', 'text-[#086568]');
     activeElement.classList.remove('text-white');
 }
 
@@ -37,7 +37,7 @@ function updateActiveNav(activeElement) {
 window.onload = function () {
     const homeNav = document.getElementById('nav-home');
     // Manually set the active state for the home nav link
-    homeNav.classList.add('bg-white', 'text-black');
+    homeNav.classList.add('bg-white', 'text-[#086568]');
     homeNav.classList.remove('text-white');
     // Load the home page content
     navigate('home.html', homeNav);

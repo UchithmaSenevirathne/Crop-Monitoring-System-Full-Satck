@@ -14,72 +14,136 @@
   </head>
   <body class="bg-white">
     <section class="pt-[40px] flex gap-[30px]">
-        <div>
-            <div class="flex gap-5">
-              <div class="flex flex-col gap-2 justify-center">
-                <h1 class="font-medium px-3">Field Name</h1>
-                <input
-                  type="text"
-                  placeholder="Rice Palate A"
-                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-[230px] text-[14px] border border-gray-300"
-                />
-              </div>
-              <div class="flex flex-col gap-2 justify-center">
-                <h1 class="font-medium px-3">Field Location</h1>
-                <input
-                  type="text"
-                  placeholder="Colombo, Sri Lanka"
-                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-80 text-[14px] border border-gray-300"
-                />
-              </div>
-              <div class="flex flex-col gap-2 justify-center">
-                <h1 class="font-medium px-3">Extent Size</h1>
-                <input
-                  type="number"
-                  placeholder="2000 Sq.mt"
-                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300"
-                />
-              </div>
-            </div>
-            <div class="flex mt-[30px] gap-[30px]">
-              <div class="flex flex-col gap-2 justify-center">
-                  <h1 class="font-medium px-3">Field Image 1</h1>
-                  <div class="input-box">
-                    <div class="relative w-96 h-32 mx-auto mb-4 overflow-hidden rounded-xl cursor-pointer group" onclick="document.getElementById('fileInput').click()">
-                      <!-- Image container, initially shows a camera icon -->
-                      <div id="imageContainer" class="flex items-center justify-center w-full h-full bg-gray-200">
-                        <i class="fa-solid fa-camera text-[20px] text-gray-400 ml-5" id="cameraIcon"></i>
-                      </div>
-                      <!-- Hidden file input, triggers onChange when a file is selected -->
-                      <input type="file" accept="image/*" id="fileInput" class="hidden" onchange="handleImageChange(event)" />
-                      <!-- Hover effect showing camera icon when no image is selected -->
-                      <div class="absolute inset-0 flex items-center justify-center transition-opacity bg-gray-600 bg-opacity-50 opacity-0 group-hover:opacity-100">
-                        <i class="fa-solid fa-camera text-[20px] text-white ml-5"></i>
-                      </div>
-                    </div>
-                  </div>
+      <div>
+        <div class="flex gap-5">
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Field Name</h1>
+            <input
+              type="text"
+              placeholder="Rice Palate A"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-[230px] text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Field Location</h1>
+            <input
+              type="text"
+              placeholder="Colombo, Sri Lanka"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-80 text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Extent Size</h1>
+            <input
+              type="number"
+              placeholder="2000 Sq.mt"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+        </div>
+        <div class="flex gap-[30px] mt-5">
+          <div class="flex flex-col justify-center gap-2">
+            <h1 class="font-medium px-3">Field Image 1</h1>
+          <div
+            class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
+          >
+            <div
+              class="flex flex-col items-center justify-center"
+              id="imageUploader"
+            >
+              <label for="imageInput" class="cursor-pointer">
+                <div
+                  class="w-full h-full flex items-center justify-center rounded-md"
+                >
+                  <img
+                    id="imagePreview"
+                    class="hidden w-full h-full object-cover rounded-md"
+                  />
+                  <span id="placeholder" class="text-gray-500"
+                    ><i class="fa-solid fa-camera"></i
+                  ></span>
                 </div>
-                <div class="flex flex-col gap-2 justify-center">
-                  <h1 class="font-medium px-3">Field Image 2</h1>
-                  <div class="input-box">
-                    <div class="relative w-96 h-32 mx-auto mb-4 overflow-hidden rounded-xl cursor-pointer group" onclick="document.getElementById('fileInput').click()">
-                      <!-- Image container, initially shows a camera icon -->
-                      <div id="imageContainer" class="flex items-center justify-center w-full h-full bg-gray-200">
-                        <i class="fa-solid fa-camera text-[20px] text-gray-400 ml-5" id="cameraIcon"></i>
-                      </div>
-                      <!-- Hidden file input, triggers onChange when a file is selected -->
-                      <input type="file" accept="image/*" id="fileInput" class="hidden" onchange="handleImageChange(event)" />
-                      <!-- Hover effect showing camera icon when no image is selected -->
-                      <div class="absolute inset-0 flex items-center justify-center transition-opacity bg-gray-600 bg-opacity-50 opacity-0 group-hover:opacity-100">
-                        <i class="fa-solid fa-camera text-[20px] text-white ml-5"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              </label>
+              <input
+                id="imageInput"
+                type="file"
+                accept="image/*"
+                class="hidden"
+              />
             </div>
           </div>
-          <div class="w-[800px] h-[260px] bg-gray-400 rounded-xl">
+        </div>
+        <div class="flex flex-col justify-center gap-2">
+          <h1 class="font-medium px-3">Field Image 2</h1>
+          <div
+          class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
+        >
+          <div
+            class="flex flex-col items-center justify-center"
+            id="imageUploader"
+          >
+            <label for="imageInput" class="cursor-pointer">
+              <div
+                class="w-full h-full flex items-center justify-center rounded-md"
+              >
+                <img
+                  id="imagePreview"
+                  class="hidden w-full h-full object-cover rounded-md"
+                />
+                <span id="placeholder" class="text-gray-500"
+                  ><i class="fa-solid fa-camera"></i
+                ></span>
+              </div>
+            </label>
+            <input
+              id="imageInput"
+              type="file"
+              accept="image/*"
+              class="hidden"
+            />
           </div>
+        </div>
+        </div>
+        </div>
+      </div>
+      <div class="w-[800px] h-[280px] bg-gray-400 rounded-xl"></div>
+    </section>
+    <section class="mt-[30px]">
+      <div class="overflow-x-auto">
+        <table class="table-auto w-full border border-gray-200 rounded-lg shadow-md">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 text-left text-gray-600">#</th>
+              <th class="px-4 py-2 text-left text-gray-600">Field Name</th>
+              <th class="px-4 py-2 text-left text-gray-600">Field Location</th>
+              <th class="px-4 py-2 text-left text-gray-600">Extent Size</th>
+              <th class="px-4 py-2 text-left text-gray-600">Image 1</th>
+              <th class="px-4 py-2 text-left text-gray-600">Image 2</th>
+              <th class="px-4 py-2 text-center text-gray-600">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example Row -->
+            <tr class="border-t border-gray-200 hover:bg-gray-50">
+              <td class="px-4 py-2 text-gray-700">1</td>
+              <td class="px-4 py-2 text-gray-700"></td>
+              <td class="px-4 py-2 text-gray-700"></td>
+              <td class="px-4 py-2 text-gray-700"></td>
+              <td class="px-4 py-2 text-gray-700"></td>
+              <td class="px-4 py-2 text-gray-700"></td>
+              <td class="px-4 py-2 text-center">
+                <button class="text-blue-500 hover:text-blue-700 mx-2">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="text-red-500 hover:text-red-700 mx-2">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+            <!-- Repeat for more rows -->
+          </tbody>
+        </table>
+      </div>      
     </section>
     <script src="../js/imageselect.js"></script>
   </body>
