@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-white">
+    <section class="pt-[40px] flex gap-[30px] items-start">
+      <div class="flex flex-col justify-center gap-2">
+        <h1 class="font-medium px-3">Crop Image</h1>
+        <div
+          class="w-[500px] h-40 bg-gray-200 rounded-lg flex justify-center items-center"
+        >
+          <div
+            class="flex flex-col items-center justify-center"
+            id="imageUploader"
+          >
+            <label for="imageInput" class="cursor-pointer">
+              <div
+                class="w-full h-full flex items-center justify-center rounded-md"
+              >
+                <img
+                  id="imagePreview"
+                  class="hidden w-full h-full object-cover rounded-md"
+                />
+                <span id="placeholder" class="text-gray-500"
+                  ><i class="fa-solid fa-camera"></i
+                ></span>
+              </div>
+            </label>
+            <input
+              id="imageInput"
+              type="file"
+              accept="image/*"
+              class="hidden"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-[30px]">
+        <div class="flex gap-[30px]">
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Crop Common Name</h1>
+            <input
+              type="text"
+              placeholder="BG-35 Rice"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Crop Scientific Name</h1>
+            <input
+              type="text"
+              placeholder="Oryza sativa"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Category</h1>
+            <select
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-64 text-[14px] border border-gray-300 focus:outline-none"
+            >
+              <option value="rice">Rice</option>
+              <option value="rice">Rice</option>
+              <option value="rice">Rice</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex gap-[30px]">
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Field</h1>
+            <select
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 text-[14px] border border-gray-300 focus:outline-none"
+            >
+              <option value="rice">Rice Palate A</option>
+              <option value="rice">Rice Palate A</option>
+              <option value="rice">Rice Palate A</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-3 justify-center">
+            <h1 class="font-medium px-3">Crop Season</h1>
+            <div class="flex items-center gap-5">
+              <!-- Yala Season Radio Button -->
+              <label class="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="cropSeason"
+                  value="yala"
+                  class="h-4 w-4 text-[#086568] border-gray-300 focus:ring-[#086568]"
+                />
+                <span class="text-gray-700">Yala Season</span>
+              </label>
+
+              <!-- Maha Season Radio Button -->
+              <label class="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="cropSeason"
+                  value="maha"
+                  class="h-4 w-4 text-[#086568] border-gray-300 focus:ring-[#086568]"
+                />
+                <span class="text-gray-700">Maha Season</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="mt-[30px] bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2">
+        <i class="fa-solid fa-circle-plus"></i>
+      <button class="">Add Crop</button>
+    </div>
+    <section class="mt-[30px]">
+        <div class="overflow-x-auto">
+          <table class="table-auto w-full border border-gray-200 rounded-lg shadow-md">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 text-left text-gray-600">#</th>
+                <th class="px-4 py-2 text-left text-gray-600">Common Name</th>
+                <th class="px-4 py-2 text-left text-gray-600">Scientific Name</th>
+                <th class="px-4 py-2 text-left text-gray-600">Category</th>
+                <th class="px-4 py-2 text-left text-gray-600">Season</th>
+                <th class="px-4 py-2 text-left text-gray-600">Field</th>
+                <th class="px-4 py-2 text-left text-gray-600">Image</th>
+                <th class="px-4 py-2 text-center text-gray-600">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example Row -->
+              <tr class="border-t border-gray-200 hover:bg-gray-50">
+                <td class="px-4 py-2 text-gray-700">1</td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-center">
+                  <button class="text-blue-500 hover:text-blue-700 mx-2">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="text-red-500 hover:text-red-700 mx-2">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- Repeat for more rows -->
+            </tbody>
+          </table>
+        </div>      
+      </section>
+  </body>
+</html>
