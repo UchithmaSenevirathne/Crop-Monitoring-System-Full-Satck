@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-white">
+    <section class="pt-[40px] flex gap-5 items-start">
+      <div class="flex flex-col gap-5">
+        <div class="flex gap-[30px]">
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">First Name</h1>
+            <input
+              type="text"
+              placeholder="Uchithma"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-56 text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Last Name</h1>
+            <input
+              type="text"
+              placeholder="Senevirathne"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-64 text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Designation</h1>
+            <select
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+            >
+              <option value="Manager">Manager</option>
+              <option value="Manager">Manager</option>
+              <option value="Manager">Manager</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-3 justify-start">
+            <h1 class="font-medium px-3">Gender</h1>
+            <div class="flex items-center gap-5">
+              <!-- Yala Season Radio Button -->
+              <label class="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="male"
+                  class="h-4 w-4 text-[#086568] border-gray-300 focus:ring-[#086568]"
+                />
+                <span class="text-gray-700">Male</span>
+              </label>
+
+              <!-- Maha Season Radio Button -->
+              <label class="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  class="h-4 w-4 text-[#086568] border-gray-300 focus:ring-[#086568]"
+                />
+                <span class="text-gray-700">Female</span>
+              </label>
+            </div>
+          </div>
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Joined Date</h1>
+            <input
+              type="date"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">DOB</h1>
+            <input
+              type="date"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 class="font-medium px-3">Contact No.</h1>
+            <input
+              type="text"
+              placeholder="+94*********"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+            />
+          </div>
+        </div>
+        <div class="flex gap-[30px]">
+            <div class="flex flex-col gap-2 justify-center">
+                <h1 class="font-medium px-3">Building No.</h1>
+                <input
+                  type="text"
+                  placeholder="221-B"
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+                />
+              </div>
+              <div class="flex flex-col gap-2 justify-center">
+                <h1 class="font-medium px-3">Lane</h1>
+                <input
+                  type="text"
+                  placeholder="Baker Street"
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+                />
+              </div>
+              <div class="flex flex-col gap-2 justify-center">
+                <h1 class="font-medium px-3">Main City</h1>
+                <input
+                  type="text"
+                  placeholder="Galle"
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+                />
+              </div>
+              <div class="flex flex-col gap-2 justify-center">
+                <h1 class="font-medium px-3">Main State</h1>
+                <input
+                  type="text"
+                  placeholder="Southern"
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+                />
+              </div>
+              <div class="flex flex-col gap-2 justify-center">
+                <h1 class="font-medium px-3">Postal Code</h1>
+                <input
+                  type="number"
+                  placeholder="8000"
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+                />
+              </div>
+              <div class="flex flex-col gap-2 justify-center">
+                <h1 class="font-medium px-3">Email</h1>
+                <input
+                  type="email"
+                  placeholder="*****@gmail.com"
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-56 text-[14px] border border-gray-300 focus:outline-none"
+                />
+              </div>
+              <div class="flex flex-col gap-2 justify-center">
+                <h1 class="font-medium px-3">Role</h1>
+                <select
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+                >
+                  <option value="MANAGER">MANAGER</option>
+                  <option value="MANAGER">MANAGER</option>
+                  <option value="MANAGER">MANAGER</option>
+                </select>
+              </div>
+        </div>
+      </div>
+    </section>
+    <div class="mt-[30px] bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2">
+        <i class="fa-solid fa-circle-plus"></i>
+      <button class="">Add Staff</button>
+    </div>
+    <section class="mt-[30px]">
+        <div class="overflow-x-auto">
+          <table class="table-auto w-full border border-gray-200 rounded-lg shadow-md">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="px-4 py-2 text-left text-gray-600">#</th>
+                <th class="px-4 py-2 text-left text-gray-600">Role</th>
+                <th class="px-4 py-2 text-left text-gray-600">Full Name</th>
+                <th class="px-4 py-2 text-left text-gray-600">Joined Date</th>
+                <th class="px-4 py-2 text-left text-gray-600">Email</th>
+                <th class="px-4 py-2 text-left text-gray-600">Contact</th>
+                <th class="px-4 py-2 text-left text-gray-600">Address</th>
+                <th class="px-4 py-2 text-left text-gray-600">Designation</th>
+                <th class="px-4 py-2 text-center text-gray-600">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example Row -->
+              <tr class="border-t border-gray-200 hover:bg-gray-50">
+                <td class="px-4 py-2 text-gray-700">1</td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-gray-700"></td>
+                <td class="px-4 py-2 text-center">
+                  <button class="text-blue-500 hover:text-blue-700 mx-2">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="text-red-500 hover:text-red-700 mx-2">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- Repeat for more rows -->
+            </tbody>
+          </table>
+        </div>      
+      </section>
+  </body>
+</html>
