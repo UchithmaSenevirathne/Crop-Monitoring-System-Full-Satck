@@ -43,71 +43,42 @@
           </div>
         </div>
         <div class="flex gap-[30px] mt-5">
-          <div class="flex flex-col justify-center gap-2">
-            <h1 class="font-medium px-3">Field Image 1</h1>
-            <div
-              class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
-            >
-              <div class="flex flex-col items-center justify-center" id="imageUploader1">
-                <label for="imageInput1" class="cursor-pointer">
-                  <div
-                    class="w-full h-full flex items-center justify-center rounded-md"
-                  >
-                    <img
-                      id="imagePreview1"
-                      class="hidden w-full h-full object-cover rounded-md"
-                    />
-                    <span id="placeholder1" class="text-gray-500"
-                      ><i class="fa-solid fa-camera"></i
-                    ></span>
-                  </div>
-                </label>
-                <input
-                  id="imageInput1"
-                  type="file"
-                  accept="image/*"
-                  class="hidden"
-                />
-              </div>
+          <div class="flex flex-col gap-2">
+            <div>
+              <label for="image-upload-field1" class="font-medium px-3">Field Image 1</label>
+              <input
+                type="file"
+                id="image-upload-field1"
+                accept="image/*"
+                onchange="previewImageField1(event)"
+                class="block w-full text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-[#086568] hover:file:bg-green-200 mt-5"
+              />
             </div>
+            
           </div>
           <div class="flex flex-col justify-center gap-2">
-            <h1 class="font-medium px-3">Field Image 2</h1>
-            <div
-              class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
-            >
-              <div class="flex flex-col items-center justify-center" id="imageUploader2">
-                <label for="imageInput2" class="cursor-pointer">
-                  <div
-                    class="w-full h-full flex items-center justify-center rounded-md"
-                  >
-                    <img
-                      id="imagePreview2"
-                      class="hidden w-full h-full object-cover rounded-md"
-                    />
-                    <span id="placeholder2" class="text-gray-500"
-                      ><i class="fa-solid fa-camera"></i
-                    ></span>
-                  </div>
-                </label>
-                <input
-                  id="imageInput2"
-                  type="file"
-                  accept="image/*"
-                  class="hidden"
-                />
-              </div>
+            <label for="image-upload-field2" class="font-medium px-3">Field Image 2</label>
+              <input
+                type="file"
+                id="image-upload-field2"
+                accept="image/*"
+                onchange="previewImageField2(event)"
+                class="block w-full text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-[#086568] hover:file:bg-green-200 mt-5"
+              />
             </div>
           </div>
-          
+          <div class="mt-[30px] bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2">
+            <i class="fa-solid fa-circle-plus"></i>
+          <button class="">Add Field</button>
+        </div>
         </div>
       </div>
-      <div class="w-[800px] h-[280px] bg-gray-400 rounded-xl"></div>
+      <div class="w-[800px] h-[280px] bg-gray-100 rounded-xl flex">
+        <img src="../assets/images/field.jpg" alt="" class="w-[80%] h-full rounded-l-xl object-cover">
+        <div></div>
+      </div>
     </section>
-    <div class="mt-[30px] bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2">
-      <i class="fa-solid fa-circle-plus"></i>
-    <button class="">Add Field</button>
-  </div>
+    
     <section class="mt-[30px]">
       <div class="overflow-x-auto">
         <table class="table-auto w-full border border-gray-200 rounded-lg shadow-md">
@@ -147,6 +118,6 @@
     </section>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/imageselect.js" defer></script>
+    <script src="../js/field.js"></script>
   </body>
 </html>

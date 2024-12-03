@@ -15,34 +15,7 @@
   </head>
   <body class="bg-white crop-page">
     <section class="pt-[40px] flex gap-[30px] items-start">
-      <div class="flex flex-col justify-center gap-2">
-        <h1 class="font-medium px-3">Crop Image</h1>
-        <div
-          class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
-        >
-          <div class="flex flex-col items-center justify-center" id="imageUploader3">
-            <label for="imageInput3" class="cursor-pointer">
-              <div
-                class="w-full h-full flex items-center justify-center rounded-md"
-              >
-                <img
-                  id="imagePreview3"
-                  class="hidden w-full h-full object-cover rounded-md"
-                />
-                <span id="placeholder3" class="text-gray-500"
-                  ><i class="fa-solid fa-camera"></i
-                ></span>
-              </div>
-            </label>
-            <input
-              id="imageInput3"
-              type="file"
-              accept="image/*"
-              class="hidden"
-            />
-          </div>
-        </div>
-      </div>
+      
       <div class="flex flex-col gap-[30px]">
         <div class="flex gap-[30px]">
           <div class="flex flex-col gap-2 justify-center">
@@ -109,6 +82,25 @@
               </label>
             </div>
           </div>
+          <div class="flex flex-col justify-center gap-2 pl-5">
+            <label for="image-upload-crop" class="font-medium px-3">Crop Image</label>
+              <input
+                type="file"
+                id="image-upload-crop"
+                accept="image/*"
+                onchange="previewImageCrop(event)"
+                class="block w-full text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-[#086568] hover:file:bg-green-200 "
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center gap-2">
+        <div
+          class="w-96 h-56 rounded-lg flex justify-center items-center"
+        >
+          <img src="../assets/images/imgHome.png" alt="" class="w-full h-full object-cover rounded-lg">
         </div>
       </div>
     </section>

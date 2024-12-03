@@ -15,34 +15,6 @@
   </head>
   <body class="bg-white log-page">
     <section class="pt-[40px] flex gap-[30px] items-start">
-      <div class="flex flex-col justify-center gap-2">
-        <h1 class="font-medium px-3">Observed Image</h1>
-        <div
-          class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
-        >
-          <div class="flex flex-col items-center justify-center" id="imageUploader4">
-            <label for="imageInput4" class="cursor-pointer">
-              <div
-                class="w-full h-full flex items-center justify-center rounded-md"
-              >
-                <img
-                  id="imagePreview4"
-                  class="hidden w-full h-full object-cover rounded-md"
-                />
-                <span id="placeholder4" class="text-gray-500"
-                  ><i class="fa-solid fa-camera"></i
-                ></span>
-              </div>
-            </label>
-            <input
-              id="imageInput4"
-              type="file"
-              accept="image/*"
-              class="hidden"
-            />
-          </div>
-        </div>
-      </div>
       <div class="flex flex-col gap-[30px]">
         <div class="flex gap-[30px]">
           <div class="flex flex-col gap-2 justify-center">
@@ -60,6 +32,16 @@
               class="bg-white rounded-xl py-2 px-3 text-gray-600 w-[850px] text-[14px] border border-gray-300 focus:outline-none"
             ></textarea>
           </div>
+          <div class="flex flex-col justify-center gap-2 pl-5">
+            <label for="image-upload-log" class="font-medium px-3">Observed Image</label>
+              <input
+                type="file"
+                id="image-upload-log"
+                accept="image/*"
+                onchange="previewImageLog(event)"
+                class="block w-full text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-[#086568] hover:file:bg-green-200 "
+              />
+            </div>
         </div>
         <div class="flex gap-[30px]">
           <div class="flex flex-col gap-2 justify-center">
