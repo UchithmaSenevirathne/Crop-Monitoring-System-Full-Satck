@@ -11,8 +11,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    
   </head>
-  <body class="bg-white">
+  <body class="bg-white field-page">
     <section class="pt-[40px] flex gap-[30px]">
       <div>
         <div class="flex gap-5">
@@ -44,66 +45,61 @@
         <div class="flex gap-[30px] mt-5">
           <div class="flex flex-col justify-center gap-2">
             <h1 class="font-medium px-3">Field Image 1</h1>
-          <div
-            class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
-          >
             <div
-              class="flex flex-col items-center justify-center"
-              id="imageUploader"
+              class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
             >
-              <label for="imageInput" class="cursor-pointer">
-                <div
-                  class="w-full h-full flex items-center justify-center rounded-md"
-                >
-                  <img
-                    id="imagePreview"
-                    class="hidden w-full h-full object-cover rounded-md"
-                  />
-                  <span id="placeholder" class="text-gray-500"
-                    ><i class="fa-solid fa-camera"></i
-                  ></span>
-                </div>
-              </label>
-              <input
-                id="imageInput"
-                type="file"
-                accept="image/*"
-                class="hidden"
-              />
+              <div class="flex flex-col items-center justify-center" id="imageUploader1">
+                <label for="imageInput1" class="cursor-pointer">
+                  <div
+                    class="w-full h-full flex items-center justify-center rounded-md"
+                  >
+                    <img
+                      id="imagePreview1"
+                      class="hidden w-full h-full object-cover rounded-md"
+                    />
+                    <span id="placeholder1" class="text-gray-500"
+                      ><i class="fa-solid fa-camera"></i
+                    ></span>
+                  </div>
+                </label>
+                <input
+                  id="imageInput1"
+                  type="file"
+                  accept="image/*"
+                  class="hidden"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="flex flex-col justify-center gap-2">
-          <h1 class="font-medium px-3">Field Image 2</h1>
-          <div
-          class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
-        >
-          <div
-            class="flex flex-col items-center justify-center"
-            id="imageUploader"
-          >
-            <label for="imageInput" class="cursor-pointer">
-              <div
-                class="w-full h-full flex items-center justify-center rounded-md"
-              >
-                <img
-                  id="imagePreview"
-                  class="hidden w-full h-full object-cover rounded-md"
+          <div class="flex flex-col justify-center gap-2">
+            <h1 class="font-medium px-3">Field Image 2</h1>
+            <div
+              class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
+            >
+              <div class="flex flex-col items-center justify-center" id="imageUploader2">
+                <label for="imageInput2" class="cursor-pointer">
+                  <div
+                    class="w-full h-full flex items-center justify-center rounded-md"
+                  >
+                    <img
+                      id="imagePreview2"
+                      class="hidden w-full h-full object-cover rounded-md"
+                    />
+                    <span id="placeholder2" class="text-gray-500"
+                      ><i class="fa-solid fa-camera"></i
+                    ></span>
+                  </div>
+                </label>
+                <input
+                  id="imageInput2"
+                  type="file"
+                  accept="image/*"
+                  class="hidden"
                 />
-                <span id="placeholder" class="text-gray-500"
-                  ><i class="fa-solid fa-camera"></i
-                ></span>
               </div>
-            </label>
-            <input
-              id="imageInput"
-              type="file"
-              accept="image/*"
-              class="hidden"
-            />
+            </div>
           </div>
-        </div>
-        </div>
+          
         </div>
       </div>
       <div class="w-[800px] h-[280px] bg-gray-400 rounded-xl"></div>
@@ -149,6 +145,8 @@
         </table>
       </div>      
     </section>
-    <script src="../js/imageselect.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/imageselect.js" defer></script>
   </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -12,32 +13,29 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-white">
+  <body class="bg-white crop-page">
     <section class="pt-[40px] flex gap-[30px] items-start">
       <div class="flex flex-col justify-center gap-2">
         <h1 class="font-medium px-3">Crop Image</h1>
         <div
-          class="w-[500px] h-40 bg-gray-200 rounded-lg flex justify-center items-center"
+          class="w-96 h-40 bg-gray-200 rounded-lg flex justify-center items-center"
         >
-          <div
-            class="flex flex-col items-center justify-center"
-            id="imageUploader"
-          >
-            <label for="imageInput" class="cursor-pointer">
+          <div class="flex flex-col items-center justify-center" id="imageUploader3">
+            <label for="imageInput3" class="cursor-pointer">
               <div
                 class="w-full h-full flex items-center justify-center rounded-md"
               >
                 <img
-                  id="imagePreview"
+                  id="imagePreview3"
                   class="hidden w-full h-full object-cover rounded-md"
                 />
-                <span id="placeholder" class="text-gray-500"
+                <span id="placeholder3" class="text-gray-500"
                   ><i class="fa-solid fa-camera"></i
                 ></span>
               </div>
             </label>
             <input
-              id="imageInput"
+              id="imageInput3"
               type="file"
               accept="image/*"
               class="hidden"
@@ -158,6 +156,7 @@
         </div>      
       </section>
 
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="../js/imageselect.js"></script>
   </body>
 </html>

@@ -12,6 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="../css/dashboard.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -224,10 +225,19 @@
             <span><i class="fa-solid fa-tractor"></i></span>
             <span>Vehicle</span>
           </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-[#086568] active:bg-white"
+            onclick="navigate('vehicle.html', this)"
+            id="nav-vehicle"
+          >
+            <span><i class="fa-solid fa-list-check"></i></span>
+            <span>Assign Field</span>
+          </a>
 
           <a
             href="../index.html"
-            class="flex items-center space-x-3 pt-[390px] px-6 text-white"
+            class="flex items-center space-x-3 pt-[340px] px-6 text-white"
           >
             <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
             <span>Logout</span>
@@ -311,5 +321,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/loadPage.js"></script>
+    <script src="../js/imageselect.js"></script>
   </body>
 </html>
