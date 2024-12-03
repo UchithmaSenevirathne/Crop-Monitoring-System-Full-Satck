@@ -26,16 +26,10 @@ public class StaffServiceImpl implements StaffService {
     private StaffDAO staffDAO;
 
     @Autowired
-    private UserDAO userDAO;
-
-    @Autowired
     private Mapping mapping;
 
     @Override
     public void addStaff(StaffDTO staffDTO) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        staffDTO.setPassword(passwordEncoder.encode(staffDTO.getPassword()));
-
         staffDAO.save(mapping.convertToStaffEntity(staffDTO));
     }
 
@@ -58,10 +52,6 @@ public class StaffServiceImpl implements StaffService {
             tmpEntity.get().setPostalCode(staffDTO.getPostalCode());
             tmpEntity.get().setContactNo(staffDTO.getContactNo());
             tmpEntity.get().setEmail(staffDTO.getEmail());
-
-            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            tmpEntity.get().setPassword(passwordEncoder.encode(staffDTO.getPassword()));
-
             tmpEntity.get().setRole(staffDTO.getRole());
         }
     }

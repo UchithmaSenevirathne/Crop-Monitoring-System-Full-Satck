@@ -45,7 +45,37 @@ public class WebSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.requestMatchers(
-                        ""
+                        "/crop",
+                        "/crop/{cropCode}",
+                        "crop/all_crops",
+                        "/crop/category",
+                        "/crop/season",
+                        "/equipment",
+                        "/equipment/{equipmentId}",
+                        "/equipment/names",
+                        "/equipment/all_equip",
+                        "/equipment/status",
+                        "/equipment/types",
+                        "/field",
+                        "/field/{fieldCode}",
+                        "/field/names",
+                        "/field/all_fields",
+                        "/field_staff",
+                        "/log",
+                        "/log/{logCode}",
+                        "/log/all_logs",
+                        "/staff",
+                        "/staff/{staffId}",
+                        "/staff/authenticate",
+                        "staff/genders",
+                        "/staff/designations",
+                        "/staff/roles",
+                        "/vehicle",
+                        "/vehicle/{vehicleCode}",
+                        "/vehicle/fuel",
+                        "/vehicle/all_vehicles",
+                        "/vehicle/status",
+                        "/vehicle/categories"
                 ).permitAll().anyRequest().authenticated())
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwFilter, UsernamePasswordAuthenticationFilter.class).build();

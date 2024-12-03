@@ -26,6 +26,5 @@ public class StaffDTO implements StaffResponse {
     private String postalCode;
     private String contactNo;
     private String email;
-    private String password;
     private String role;
 }

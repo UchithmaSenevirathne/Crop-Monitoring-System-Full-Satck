@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,9 +48,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String email) {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity userEntity = userDAO.findByEmail(email);
-        return new org.springframework.security.core.userdetails.User(userEntity.getEmail(), userEntity.getPassword(), getAuthority(userEntity));
+        if (userEntity == null) {
+            throw new UsernameNotFoundException("User not found with email: " + email);
+        }
+        return new org.springframework.security.core.userdetails.User(
+                userEntity.getEmail(),
+                userEntity.getPassword(),
+                getAuthority(userEntity)
+        );
     }
 
     @Override
@@ -77,7 +85,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     private Set<SimpleGrantedAuthority> getAuthority(UserEntity userEntity) {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority(userEntity.getRole()));
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + userEntity.getRole())); // Prefix roles with 'ROLE_'
         return authorities;
     }
 }
