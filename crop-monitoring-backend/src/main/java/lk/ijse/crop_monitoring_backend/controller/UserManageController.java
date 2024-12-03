@@ -65,6 +65,10 @@ public class UserManageController {
                     return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
                             .body(new ResponseDTO(VarList.Not_Acceptable, "Email Already Used", null));
                 }
+                case VarList.Forbidden -> {
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                            .body(new ResponseDTO(VarList.Forbidden, "You must be a staff member to register", null));
+                }
                 default -> {
                     return ResponseEntity.status(HttpStatus.BAD_GATEWAY)
                             .body(new ResponseDTO(VarList.Bad_Gateway, "Error", null));
@@ -147,18 +151,10 @@ public class UserManageController {
     @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> updateUser
             (@PathVariable ("id") int id,
-             @RequestPart("email")String updateEmail,
-             @RequestPart("password")String updatePassword,
-             @RequestPart("role")String updateRole){
+             @RequestPart("password")String updatePassword){
 
         try {
-            var updateBuidUserDto = new UserDTO();
-            updateBuidUserDto.setUserId(id);
-            updateBuidUserDto.setEmail(updateEmail);
-            updateBuidUserDto.setPassword(updatePassword);
-            updateBuidUserDto.setRole(updateRole);
-
-            userService.updateUser(updateBuidUserDto);
+            userService.updateUserPassword(id, updatePassword);
 
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (NotFoundException e){

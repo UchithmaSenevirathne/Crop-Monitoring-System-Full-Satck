@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface StaffDAO extends JpaRepository<StaffEntity, Integer> {
 
     StaffEntity getStaffEntitiesByStaffId(int staffId);
+
+    boolean existsByEmail(String email);
 }

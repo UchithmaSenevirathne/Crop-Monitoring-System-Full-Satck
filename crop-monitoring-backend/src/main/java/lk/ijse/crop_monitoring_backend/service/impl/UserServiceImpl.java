@@ -39,7 +39,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         System.out.println("save service");
         if (userDAO.existsByEmail(userDTO.getEmail())) {
             return VarList.Not_Acceptable;
-        }else{
+        } else if (!staffDAO.existsByEmail(userDTO.getEmail())) {
+            return VarList.Forbidden;
+        } else{
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
             userDAO.save(mapping.convertToUserEntity(userDTO));
@@ -97,6 +99,28 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public List<UserDTO> getAllUsers() {
         return mapping.convertToUserDTOList(userDAO.findAll());
+    }
+
+    @Override
+    public void updateUserEmailAndRole(String email, String role) {
+        UserEntity tmpUserEntity = userDAO.findByEmail(email);
+        if(tmpUserEntity == null){
+            throw new NotFoundException("User Not Found");
+        }else {
+            tmpUserEntity.setEmail(email);
+            tmpUserEntity.setRole(role);
+        }
+    }
+
+    @Override
+    public void updateUserPassword(int id, String updatePassword) {
+        Optional<UserEntity> tmpUserEntity = userDAO.findById(id);
+        if(!tmpUserEntity.isPresent()){
+            throw new NotFoundException("User Not Found");
+        }else {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            tmpUserEntity.get().setPassword(passwordEncoder.encode(updatePassword));
+        }
     }
 
     private Set<SimpleGrantedAuthority> getAuthority(UserEntity userEntity) {

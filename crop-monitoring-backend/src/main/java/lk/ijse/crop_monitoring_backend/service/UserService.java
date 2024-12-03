@@ -19,4 +19,8 @@ public interface UserService {
     UserDTO getSelectedUser(int userId);
 
     List<UserDTO> getAllUsers();
+
+    void updateUserEmailAndRole(String email, String role);
+
+    void updateUserPassword(int id, String updatePassword);
 }

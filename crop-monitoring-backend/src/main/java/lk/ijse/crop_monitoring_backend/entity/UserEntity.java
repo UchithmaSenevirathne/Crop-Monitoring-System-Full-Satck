@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "user")
 public class UserEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
     @Column(unique = true)
     private String email;

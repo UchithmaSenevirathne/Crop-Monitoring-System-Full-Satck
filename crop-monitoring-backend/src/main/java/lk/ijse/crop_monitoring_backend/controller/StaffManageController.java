@@ -20,6 +20,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +35,9 @@ import java.util.stream.Collectors;
 public class StaffManageController {
     @Autowired
     private final StaffService staffService;
+
+    @Autowired
+    private final UserService userService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> addStaff(@RequestBody StaffDTO staffDTO) {
@@ -51,6 +55,11 @@ public class StaffManageController {
     public ResponseEntity<Void> updateStaff(@RequestBody StaffDTO staffDTO, @PathVariable ("staffId") int staffId) {
         try {
             staffService.updateSatff(staffDTO, staffId);
+            UserDTO isUser = userService.loadUserDetailsByUsername(staffDTO.getEmail());
+
+            if (isUser != null) {
+                userService.updateUserEmailAndRole(staffDTO.getEmail(), staffDTO.getRole());
+            }
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (NotFoundException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
