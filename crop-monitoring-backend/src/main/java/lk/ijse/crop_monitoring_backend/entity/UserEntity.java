@@ -11,8 +11,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user")
 public class UserEntity {
-    @Column(unique = true)
     @Id
+    @GeneratedValue
+    private int userId;
+    @Column(unique = true)
     private String email;
     private String password;
     private String role;

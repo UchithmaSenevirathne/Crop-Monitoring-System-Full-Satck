@@ -1,5 +1,6 @@
 package lk.ijse.crop_monitoring_backend.service.impl;
 
+import lk.ijse.crop_monitoring_backend.dao.StaffDAO;
 import lk.ijse.crop_monitoring_backend.dao.UserDAO;
 import lk.ijse.crop_monitoring_backend.dto.UserDTO;
 import lk.ijse.crop_monitoring_backend.entity.UserEntity;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -27,10 +29,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private UserDAO userDAO;
 
     @Autowired
+    private StaffDAO staffDAO;
+
+    @Autowired
     private Mapping mapping;
 
     @Override
     public int saveUser(UserDTO userDTO) {
+        System.out.println("save service");
         if (userDAO.existsByEmail(userDTO.getEmail())) {
             return VarList.Not_Acceptable;
         }else{
@@ -61,26 +67,36 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public void updateUser(UserDTO userDTO) {
-        UserEntity tmpUserEntity = userDAO.findByEmail(userDTO.getEmail());
-        if(tmpUserEntity == null){
+    public void updateUser(UserDTO updateBuidUserDto) {
+        Optional<UserEntity> tmpUserEntity = userDAO.findById(updateBuidUserDto.getUserId());
+        if(!tmpUserEntity.isPresent()){
             throw new NotFoundException("User Not Found");
         }else {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            tmpUserEntity.setEmail(userDTO.getEmail());
-            tmpUserEntity.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-            tmpUserEntity.setRole(userDTO.getRole());
+            tmpUserEntity.get().setEmail(updateBuidUserDto.getEmail());
+            tmpUserEntity.get().setPassword(passwordEncoder.encode(updateBuidUserDto.getPassword()));
+            tmpUserEntity.get().setRole(updateBuidUserDto.getRole());
         }
     }
 
     @Override
-    public void deleteUser(String staffEmail) {
-        UserEntity tmpUserEntity = userDAO.findByEmail(staffEmail);
-        if(tmpUserEntity == null){
+    public void deleteUser(int userId) {
+        Optional<UserEntity> tmpUserEntity = userDAO.findById(userId);
+        if(!tmpUserEntity.isPresent()){
             throw new NotFoundException("User Not Found");
         }else {
-            userDAO.deleteByEmail(staffEmail);
+            userDAO.deleteById(userId);
         }
+    }
+
+    @Override
+    public UserDTO getSelectedUser(int userId) {
+        return mapping.convertToUserDTO(userDAO.getUserEntitiesByUserId(userId));
+    }
+
+    @Override
+    public List<UserDTO> getAllUsers() {
+        return mapping.convertToUserDTOList(userDAO.findAll());
     }
 
     private Set<SimpleGrantedAuthority> getAuthority(UserEntity userEntity) {

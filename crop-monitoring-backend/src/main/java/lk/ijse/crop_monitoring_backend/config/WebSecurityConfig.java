@@ -45,6 +45,10 @@ public class WebSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.requestMatchers(
+                        "/backend/user/{id}",
+                        "/backend/user",
+                        "/backend/user/register",
+                        "/backend/user/authenticate",
                         "/crop",
                         "/crop/{cropCode}",
                         "crop/all_crops",
@@ -66,7 +70,7 @@ public class WebSecurityConfig {
                         "/log/all_logs",
                         "/staff",
                         "/staff/{staffId}",
-                        "/staff/authenticate",
+                        "/staff/all_staff",
                         "staff/genders",
                         "/staff/designations",
                         "/staff/roles",

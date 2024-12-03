@@ -3,6 +3,8 @@ package lk.ijse.crop_monitoring_backend.service;
 import lk.ijse.crop_monitoring_backend.dto.UserDTO;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.List;
+
 public interface UserService {
     int saveUser(UserDTO userDTO);
 
@@ -12,5 +14,9 @@ public interface UserService {
 
     void updateUser(UserDTO userDTO);
 
-    void deleteUser(String staffEmail);
+    void deleteUser(int userId);
+
+    UserDTO getSelectedUser(int userId);
+
+    List<UserDTO> getAllUsers();
 }
