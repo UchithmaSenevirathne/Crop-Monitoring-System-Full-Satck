@@ -1,18 +1,19 @@
 // Function to navigate to a page
+// loadPage.js
 function navigate(page, element) {
     const container = document.getElementById('content-area');
 
     fetch(page)
-        .then(response => {
+        .then((response) => {
             if (!response.ok) {
                 throw new Error('Page not found');
             }
             return response.text();
         })
-        .then(html => {
+        .then((html) => {
             container.innerHTML = html;
         })
-        .catch(error => {
+        .catch((error) => {
             container.innerHTML = `<p>Error loading page: ${error.message}</p>`;
         });
 

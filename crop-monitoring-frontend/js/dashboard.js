@@ -14,7 +14,8 @@ async function buildSidebar() {
 
   navItems.forEach((item) => {
     const navLink = document.createElement("a");
-    navLink.href = item.link;
+    // navLink.href = item.link;
+    navLink.href = "#";
     navLink.id = item.id;
     navLink.className =
       "flex items-center space-x-3 py-2 px-6 text-white hover:bg-gray-200 rounded-l-full hover:text-gray-600 active:text-[#086568] active:bg-white";
@@ -22,6 +23,13 @@ async function buildSidebar() {
       <span><i class="${item.icon}"></i></span>
       <span>${item.name}</span>
     `;
+
+    // Add click event listener for dynamic loading
+    navLink.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent default behavior
+      navigate(item.link, navLink);
+    });
+    
     sidebarContainer.appendChild(navLink);
   });
 }
