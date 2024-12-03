@@ -162,87 +162,15 @@
           >
         </div>
         <nav class="space-y-3 pl-6 font-playpen">
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-6 active:bg-white active:text-[#086568] rounded-l-full text-white hover:bg-gray-200 hover:text-gray-600"
-            onclick="navigate('home.html', this)"
-            id="nav-home"
-          >
-            <span><i class="fa-solid fa-house"></i></span>
-            <span>Home</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-6 text-white hover:bg-gray-200 rounded-l-full hover:text-gray-600 active:text-[#086568] active:bg-white"
-            onclick="navigate('field.html', this)"
-            id="nav-field"
-          >
-            <span><i class="fa-solid fa-table-cells-large"></i></span>
-            <span>Field</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-[#086568] active:bg-white"
-            onclick="navigate('crop.html', this)"
-            id="nav-crop"
-          >
-            <span><i class="fa-solid fa-seedling"></i></span>
-            <span>Crop</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-[#086568] active:bg-white"
-            onclick="navigate('staff.html', this)"
-            id="nav-staff"
-          >
-            <span><i class="fa-solid fa-users"></i></span>
-            <span>Staff</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-[#086568] active:bg-white"
-            onclick="navigate('log.html', this)"
-            id="nav-log"
-          >
-            <span><i class="fa-solid fa-book"></i></span>
-            <span>Monitoring Log</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-[#086568] active:bg-white"
-            onclick="navigate('equip.html', this)"
-            id="nav-equip"
-          >
-            <span><i class="fa-solid fa-wrench"></i></span>
-            <span>Equipment</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-[#086568] active:bg-white"
-            onclick="navigate('vehicle.html', this)"
-            id="nav-vehicle"
-          >
-            <span><i class="fa-solid fa-tractor"></i></span>
-            <span>Vehicle</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center space-x-3 py-2 px-6 hover:text-gray-600 hover:bg-gray-200 rounded-l-full text-white active:text-[#086568] active:bg-white"
-            onclick="navigate('vehicle.html', this)"
-            id="nav-vehicle"
-          >
-            <span><i class="fa-solid fa-list-check"></i></span>
-            <span>Assign Field</span>
-          </a>
-
-          <a
-            href="../index.html"
+          <!-- sidebar render here -->
+        </nav>
+        <a
+            href="../pos/login.html"
             class="flex items-center space-x-3 pt-[340px] px-6 text-white"
           >
             <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
             <span>Logout</span>
           </a>
-        </nav>
       </aside>
 
       <!-- Main Content -->
@@ -320,6 +248,8 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/roles.js"></script>
+    <script type="module" src="../js/dashboard.js"></script>
     <script src="../js/loadPage.js"></script>
     <script src="../js/imageselect.js"></script>
   </body>
