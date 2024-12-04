@@ -48,11 +48,11 @@ public class LogServiceImpl implements LogService {
         if(!tmpEntity.isPresent()){
             throw new NotFoundException("Log Not Found");
         }else {
-            StaffEntity staff = staffDAO.findById(cropDetailsDTO.getStaffId())
+            StaffEntity staff = staffDAO.findById(cropDetailsDTO.getStaff_id())
                     .orElseThrow(() -> new DataPersistFailedException("Staff not found"));
-            FieldEntity field = fieldDAO.findById(cropDetailsDTO.getFieldCode())
+            FieldEntity field = fieldDAO.findById(cropDetailsDTO.getField_code())
                     .orElseThrow(() -> new DataPersistFailedException("Field not found"));
-            CropEntity crop = cropDAO.findById(cropDetailsDTO.getCropCode())
+            CropEntity crop = cropDAO.findById(cropDetailsDTO.getCrop_code())
                     .orElseThrow(() -> new DataPersistFailedException("Crop not found"));
 
             tmpEntity.get().setLogDate(cropDetailsDTO.getLogDate());

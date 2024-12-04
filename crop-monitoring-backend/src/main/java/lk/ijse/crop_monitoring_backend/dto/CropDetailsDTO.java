@@ -13,7 +13,7 @@ public class CropDetailsDTO implements CropDetailsResponse {
     private String logDate;
     private String logDetails;
     private String observedImage;
-    private int staffId;
-    private int fieldCode;
-    private int cropCode;
+    private int staff_id;
+    private int field_code;
+    private int crop_code;
 }

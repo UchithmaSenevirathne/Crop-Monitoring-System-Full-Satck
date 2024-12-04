@@ -47,9 +47,9 @@ public class EquipmentServiceImpl implements EquipmentService {
         if(!tmpEntity.isPresent()){
             throw new NotFoundException("Equipment Not Found");
         }else {
-            FieldEntity field = fieldDAO.findById(equipmentDTO.getFieldCode())
+            FieldEntity field = fieldDAO.findById(equipmentDTO.getField_code())
                     .orElseThrow(() -> new DataPersistFailedException("Field not found"));
-            StaffEntity staff = staffDAO.findById(equipmentDTO.getStaffId())
+            StaffEntity staff = staffDAO.findById(equipmentDTO.getStaff_id())
                     .orElseThrow(() -> new DataPersistFailedException("Staff not found"));
 
             tmpEntity.get().setName(equipmentDTO.getName());

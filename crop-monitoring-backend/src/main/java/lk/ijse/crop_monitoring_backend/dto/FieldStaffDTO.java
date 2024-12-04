@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class FieldStaffDTO implements FieldStaffResponse {
     private int field_staff_id;
-    private int fieldCode;
-    private int staffId;
+    private int field_code;
+    private int staff_id;
     private String assignedDate;
     private String dueDate;
 }

@@ -15,10 +15,10 @@ public class FieldStaff {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int field_staff_id;
     @ManyToOne
-    @JoinColumn(name = "fieldCode")
+    @JoinColumn(name = "field_code", referencedColumnName = "fieldCode")
     private FieldEntity field;
     @ManyToOne
-    @JoinColumn(name = "staffId")
+    @JoinColumn(name = "staff_id", referencedColumnName = "staffId")
     private StaffEntity staff;
     private String assignedDate;
     private String dueDate;

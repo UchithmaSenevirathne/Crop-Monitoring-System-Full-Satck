@@ -15,5 +15,5 @@ public class VehicleDTO implements VehicleResponse {
     private String fuelType;
     private String status;
     private String remarks;
-    private int staffId;
+    private int staff_id;
 }

@@ -21,9 +21,9 @@ public class EquipmentEntity {
     private String type;
     private String status;
     @ManyToOne
-    @JoinColumn(name = "fieldCode")
+    @JoinColumn(name = "field_code", referencedColumnName = "fieldCode")
     private FieldEntity field;
     @ManyToOne
-    @JoinColumn(name = "staffId")
+    @JoinColumn(name = "staff_id", referencedColumnName = "staffId")
     private StaffEntity staff;
 }

@@ -62,7 +62,7 @@ public class FieldManageController {
         }
     }
 
-    @PutMapping(value = "/{fieldCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/update/{fieldCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> updateField(
             @PathVariable ("fieldCode") int fieldCode,
             @RequestPart("fieldName") String fieldName,
@@ -101,12 +101,12 @@ public class FieldManageController {
         return fieldService.getAllFields();
     }
 
-    @GetMapping(value = "/{fieldCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get/{fieldCode}", produces = MediaType.APPLICATION_JSON_VALUE)
     public FieldResponse getFieldById(@PathVariable("fieldCode") int fieldCode) {
         return fieldService.getSelectedField(fieldCode);
     }
 
-    @DeleteMapping(value = "/{fieldCode}")
+    @DeleteMapping(value = "/delete/{fieldCode}")
     public ResponseEntity<Void> deleteField(@PathVariable("fieldCode") int fieldCode) {
         try {
             fieldService.deleteField(fieldCode);

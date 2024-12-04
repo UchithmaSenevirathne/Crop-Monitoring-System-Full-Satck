@@ -38,10 +38,12 @@ public class CropManageController {
             @RequestPart("cropImage") MultipartFile cropImage,
             @RequestPart("category") String category,
             @RequestPart("cropSeason") String cropSeason,
-            @RequestPart("fieldCode") String fieldCode
+            @RequestPart("field_code") String field_code
     ){
         try {
-            int fieldIdInt = Integer.parseInt(fieldCode);
+            int fieldIdInt = Integer.parseInt(field_code);
+
+            System.out.println(field_code);
 
             byte[] bytesImg = cropImage.getBytes();
             String base64Img = AppUtil.toBase64Img(bytesImg);
@@ -52,7 +54,7 @@ public class CropManageController {
             cropDTO.setCropImage(base64Img);
             cropDTO.setCategory(category);
             cropDTO.setCropSeason(cropSeason);
-            cropDTO.setFieldCode(fieldIdInt);
+            cropDTO.setField_code(fieldIdInt);
 
             cropService.saveCrop(cropDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -63,7 +65,7 @@ public class CropManageController {
         }
     }
 
-    @PutMapping(value = "/{cropCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/update/{cropCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> updateCrop(
             @PathVariable ("cropCode") int cropCode,
             @RequestPart("cropCommonName") String cropCommonName,
@@ -71,10 +73,10 @@ public class CropManageController {
             @RequestPart("cropImage") MultipartFile cropImage,
             @RequestPart("category") String category,
             @RequestPart("cropSeason") String cropSeason,
-            @RequestPart("fieldCode") String fieldCode
+            @RequestPart("field_code") String field_code
     ){
         try {
-            int fieldIdInt = Integer.parseInt(fieldCode);
+            int fieldIdInt = Integer.parseInt(field_code);
 
             byte[] bytesImg = cropImage.getBytes();
             String base64Img = AppUtil.toBase64Img(bytesImg);
@@ -86,7 +88,7 @@ public class CropManageController {
             cropDTO.setCropImage(base64Img);
             cropDTO.setCategory(category);
             cropDTO.setCropSeason(cropSeason);
-            cropDTO.setFieldCode(fieldIdInt);
+            cropDTO.setField_code(fieldIdInt);
 
             cropService.updateCrop(cropDTO);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -102,12 +104,12 @@ public class CropManageController {
         return cropService.getAllCrops();
     }
 
-    @GetMapping(value = "/{cropCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get/{cropCode}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CropResponse getCropById(@PathVariable("cropCode") int cropCode) {
         return cropService.getSelectedCrop(cropCode);
     }
 
-    @DeleteMapping(value = "/{cropCode}")
+    @DeleteMapping(value = "/delete/{cropCode}")
     public ResponseEntity<Void> deleteCrop(@PathVariable("cropCode") int cropCode) {
         try {
             cropService.deleteCrop(cropCode);

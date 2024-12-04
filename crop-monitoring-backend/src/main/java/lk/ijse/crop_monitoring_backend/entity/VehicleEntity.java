@@ -23,6 +23,6 @@ public class VehicleEntity {
     private String status;
     private String remarks;
     @ManyToOne
-    @JoinColumn(name = "staffId")
+    @JoinColumn(name = "staff_id", referencedColumnName = "staffId")
     private StaffEntity staff;
 }
