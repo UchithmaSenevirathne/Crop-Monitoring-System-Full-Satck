@@ -3,6 +3,11 @@
 function navigate(page, element) {
     const container = document.getElementById('content-area');
 
+    if (!container) {
+        console.error('Content area not found');
+        return;
+    }
+
     fetch(page)
         .then((response) => {
             if (!response.ok) {
@@ -12,6 +17,14 @@ function navigate(page, element) {
         })
         .then((html) => {
             container.innerHTML = html;
+
+            // Dynamically add event listeners or run scripts after page load
+            if (page.includes('field.html')) {
+                // Re-run field page specific scripts
+                if (typeof loadFields === 'function') {
+                    loadFields();
+                }
+            }
         })
         .catch((error) => {
             container.innerHTML = `<p>Error loading page: ${error.message}</p>`;
