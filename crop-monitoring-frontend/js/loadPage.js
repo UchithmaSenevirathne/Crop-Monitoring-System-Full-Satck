@@ -24,6 +24,12 @@ function navigate(page, element) {
                 if (typeof loadFields === 'function') {
                     loadFields();
                 }
+            }else if (page.includes('crop.html')) {
+                // Re-run field page specific scripts
+                if (typeof loadCrops === 'function') {
+                    loadCrops();
+                    loadCategoriesAndFields();
+                }
             }
         })
         .catch((error) => {
