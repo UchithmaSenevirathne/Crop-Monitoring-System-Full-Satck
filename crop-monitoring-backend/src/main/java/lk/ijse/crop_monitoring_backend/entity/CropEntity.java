@@ -23,7 +23,7 @@ public class CropEntity {
     private String category;
     private String cropSeason;
     @ManyToOne
-    @JoinColumn(name = "field_code", referencedColumnName = "fieldCode")
+    @JoinColumn(name = "fieldCode")
     private FieldEntity field;
     @OneToMany(mappedBy = "crop", cascade = CascadeType.ALL)
     private List<CropDetailsEnttiy> cropDetails;

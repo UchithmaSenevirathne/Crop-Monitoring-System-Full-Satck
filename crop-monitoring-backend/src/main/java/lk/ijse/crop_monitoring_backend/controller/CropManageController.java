@@ -38,12 +38,13 @@ public class CropManageController {
             @RequestPart("cropImage") MultipartFile cropImage,
             @RequestPart("category") String category,
             @RequestPart("cropSeason") String cropSeason,
-            @RequestPart("field_code") String field_code
+            @RequestPart("fieldCode") String fieldCode
     ){
         try {
-            int fieldIdInt = Integer.parseInt(field_code);
+            int fieldIdInt = Integer.parseInt(fieldCode);
 
-            System.out.println(field_code);
+            System.out.println(fieldCode);
+            System.out.println(fieldIdInt);
 
             byte[] bytesImg = cropImage.getBytes();
             String base64Img = AppUtil.toBase64Img(bytesImg);
@@ -54,7 +55,7 @@ public class CropManageController {
             cropDTO.setCropImage(base64Img);
             cropDTO.setCategory(category);
             cropDTO.setCropSeason(cropSeason);
-            cropDTO.setField_code(fieldIdInt);
+            cropDTO.setFieldCode(fieldIdInt);
 
             cropService.saveCrop(cropDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -73,10 +74,10 @@ public class CropManageController {
             @RequestPart("cropImage") MultipartFile cropImage,
             @RequestPart("category") String category,
             @RequestPart("cropSeason") String cropSeason,
-            @RequestPart("field_code") String field_code
+            @RequestPart("fieldCode") String fieldCode
     ){
         try {
-            int fieldIdInt = Integer.parseInt(field_code);
+            int fieldIdInt = Integer.parseInt(fieldCode);
 
             byte[] bytesImg = cropImage.getBytes();
             String base64Img = AppUtil.toBase64Img(bytesImg);
@@ -88,7 +89,7 @@ public class CropManageController {
             cropDTO.setCropImage(base64Img);
             cropDTO.setCategory(category);
             cropDTO.setCropSeason(cropSeason);
-            cropDTO.setField_code(fieldIdInt);
+            cropDTO.setFieldCode(fieldIdInt);
 
             cropService.updateCrop(cropDTO);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

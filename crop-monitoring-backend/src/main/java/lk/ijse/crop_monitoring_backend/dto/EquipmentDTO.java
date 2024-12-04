@@ -14,5 +14,5 @@ public class EquipmentDTO implements EquipResponse {
     private String type;
     private String status;
     private int field_code;
-    private int staff_id;
+    private int staffId;
 }

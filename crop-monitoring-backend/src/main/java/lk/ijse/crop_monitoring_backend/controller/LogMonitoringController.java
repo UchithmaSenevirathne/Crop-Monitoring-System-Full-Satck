@@ -34,25 +34,25 @@ public class LogMonitoringController {
             @RequestPart("logDate") String logDate,
             @RequestPart("logDetails") String logDetails,
             @RequestPart("observedImage") MultipartFile observedImage,
-            @RequestPart("staff_id") String staff_id,
-            @RequestPart("field_code") String field_code,
-            @RequestPart("crop_code") String crop_code
+            @RequestPart("staffId") String staffId,
+            @RequestPart("fieldCode") String fieldCode,
+            @RequestPart("cropCode") String cropCode
     ){
         try {
             byte[] bytesImg = observedImage.getBytes();
             String base64Img = AppUtil.toBase64Img(bytesImg);
 
-            int staffIdInt = Integer.parseInt(staff_id);
-            int fieldCodeInt = Integer.parseInt(field_code);
-            int cropCodeInt = Integer.parseInt(crop_code);
+            int staffIdInt = Integer.parseInt(staffId);
+            int fieldCodeInt = Integer.parseInt(fieldCode);
+            int cropCodeInt = Integer.parseInt(cropCode);
 
             CropDetailsDTO cropDetailsDTO = new CropDetailsDTO();
             cropDetailsDTO.setLogDate(logDate);
             cropDetailsDTO.setLogDetails(logDetails);
             cropDetailsDTO.setObservedImage(base64Img);
-            cropDetailsDTO.setStaff_id(staffIdInt);
-            cropDetailsDTO.setField_code(fieldCodeInt);
-            cropDetailsDTO.setCrop_code(cropCodeInt);
+            cropDetailsDTO.setStaffId(staffIdInt);
+            cropDetailsDTO.setFieldCode(fieldCodeInt);
+            cropDetailsDTO.setCropCode(cropCodeInt);
 
             logService.saveLog(cropDetailsDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -69,26 +69,26 @@ public class LogMonitoringController {
             @RequestPart("logDate") String logDate,
             @RequestPart("logDetails") String logDetails,
             @RequestPart("observedImage") MultipartFile observedImage,
-            @RequestPart("staff_id") String staff_id,
-            @RequestPart("field_code") String field_code,
-            @RequestPart("crop_code") String crop_code
+            @RequestPart("staffId") String staffId,
+            @RequestPart("fieldCode") String fieldCode,
+            @RequestPart("cropCode") String cropCode
     ){
         try {
             byte[] bytesImg = observedImage.getBytes();
             String base64Img = AppUtil.toBase64Img(bytesImg);
 
-            int staffIdInt = Integer.parseInt(staff_id);
-            int fieldCodeInt = Integer.parseInt(field_code);
-            int cropCodeInt = Integer.parseInt(crop_code);
+            int staffIdInt = Integer.parseInt(staffId);
+            int fieldCodeInt = Integer.parseInt(fieldCode);
+            int cropCodeInt = Integer.parseInt(cropCode);
 
             CropDetailsDTO cropDetailsDTO = new CropDetailsDTO();
             cropDetailsDTO.setLogCode(logCode);
             cropDetailsDTO.setLogDate(logDate);
             cropDetailsDTO.setLogDetails(logDetails);
             cropDetailsDTO.setObservedImage(base64Img);
-            cropDetailsDTO.setStaff_id(staffIdInt);
-            cropDetailsDTO.setField_code(fieldCodeInt);
-            cropDetailsDTO.setCrop_code(cropCodeInt);
+            cropDetailsDTO.setStaffId(staffIdInt);
+            cropDetailsDTO.setFieldCode(fieldCodeInt);
+            cropDetailsDTO.setCropCode(cropCodeInt);
 
             logService.updateLog(cropDetailsDTO);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

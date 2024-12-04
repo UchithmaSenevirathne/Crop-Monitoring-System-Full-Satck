@@ -49,7 +49,7 @@ public class EquipmentServiceImpl implements EquipmentService {
         }else {
             FieldEntity field = fieldDAO.findById(equipmentDTO.getField_code())
                     .orElseThrow(() -> new DataPersistFailedException("Field not found"));
-            StaffEntity staff = staffDAO.findById(equipmentDTO.getStaff_id())
+            StaffEntity staff = staffDAO.findById(equipmentDTO.getStaffId())
                     .orElseThrow(() -> new DataPersistFailedException("Staff not found"));
 
             tmpEntity.get().setName(equipmentDTO.getName());

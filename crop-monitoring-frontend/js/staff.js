@@ -1,17 +1,8 @@
-const apiUrlCrop = "http://localhost:8080/crop";
+const apiUrlCrop = "http://localhost:8080/staff";
 
 // const API_BASE_URL_FIELD = "http://localhost:8080/field"
 
-let alertTypeCrop = "Crop saved successfully!";
-
-// Utility to convert file to Base64
-const getBase64Crop = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result.split(",")[1]);
-    reader.onerror = (error) => reject(error);
-    reader.readAsDataURL(file);
-  });
+let alertTypeCrop = "Staff add successfully!";
 
 
   // Fetch and populate categories and fields in dropdowns

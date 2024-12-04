@@ -19,12 +19,12 @@ public class CropDetailsEnttiy {
     @Column(columnDefinition = "LONGTEXT")
     private String observedImage;
     @ManyToOne
-    @JoinColumn(name = "staff_id", referencedColumnName = "staffId")
+    @JoinColumn(name = "staffId")
     private StaffEntity staff;
     @ManyToOne
-    @JoinColumn(name = "field_code", referencedColumnName = "fieldCode")
+    @JoinColumn(name = "fieldCode")
     private FieldEntity field;
     @ManyToOne
-    @JoinColumn(name = "crop_code", referencedColumnName = "cropCode")
+    @JoinColumn(name = "cropCode")
     private CropEntity crop;
 }

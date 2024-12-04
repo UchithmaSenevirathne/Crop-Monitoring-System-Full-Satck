@@ -23,5 +23,5 @@ public class CropDTO implements CropResponse {
     private String cropImage;
     private String category;
     private String cropSeason;
-    private int field_code;
+    private int fieldCode;
 }

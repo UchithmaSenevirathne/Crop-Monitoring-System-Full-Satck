@@ -44,7 +44,7 @@ public class VehicleServiceImpl implements VehicleService {
         if(!tmpEntity.isPresent()){
             throw new NotFoundException("Vehicle Not Found");
         }else {
-            StaffEntity staff = staffDAO.findById(vehicleDTO.getStaff_id())
+            StaffEntity staff = staffDAO.findById(vehicleDTO.getStaffId())
                     .orElseThrow(() -> new DataPersistFailedException("Staff not found"));
 
             tmpEntity.get().setLicensePlateNumber(vehicleDTO.getLicensePlateNumber());
