@@ -89,7 +89,8 @@ async function loadLogs() {
           <td class="px-4 py-2 text-gray-700">${log.logCode}</td>
           <td class="px-4 py-2 text-gray-700">${log.logDate}</td>
           <td class="px-4 py-2 text-gray-700">${log.logDetails}</td>
-          <td class="px-4 py-2 text-gray-700">${log.cropStatus}</td>
+          <td class="px-4 py-2 text-gray-700">
+            <span class="inline-block px-2 py-1 text-xs text-green-700 bg-green-200 rounded-full">${log.cropStatus}</span></td>
           <td class="px-4 py-2 text-gray-700">${log.cropCode}</td>
           <td class="px-4 py-2 text-gray-700">${log.fieldCode}</td>
           <td class="px-4 py-2 text-gray-700">${log.staffId}</td>

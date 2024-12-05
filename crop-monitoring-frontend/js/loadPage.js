@@ -42,6 +42,18 @@ function navigate(page, element) {
                     loadLogs();
                     loadCropAndStaff();
                 }
+            }else if (page.includes('equip.html')) {
+                // Re-run field page specific scripts
+                if (typeof loadEquips === 'function') {
+                    loadEquips();
+                    loadDropDownEquip();
+                }
+            }else if (page.includes('vehicle.html')) {
+                // Re-run field page specific scripts
+                if (typeof loadVehicles === 'function') {
+                    loadVehicles();
+                    loadDropDownVehicle();
+                }
             }
         })
         .catch((error) => {
