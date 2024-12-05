@@ -51,7 +51,7 @@ public class StaffManageController {
         }
     }
 
-    @PutMapping(value = "/{staffId}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/update/{staffId}",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateStaff(@RequestBody StaffDTO staffDTO, @PathVariable ("staffId") int staffId) {
         try {
             staffService.updateSatff(staffDTO, staffId);
@@ -73,12 +73,12 @@ public class StaffManageController {
         return staffService.getAllStaff();
     }
 
-    @GetMapping(value = "/{staffId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get/{staffId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public StaffResponse getStaffById(@PathVariable("staffId") int staffId) {
         return staffService.getSelectedStaff(staffId);
     }
 
-    @DeleteMapping(value = "/{staffId}")
+    @DeleteMapping(value = "/delete/{staffId}")
     public ResponseEntity<Void> deleteStaff(@PathVariable("staffId") int staffId) {
         try {
             staffService.deleteStaff(staffId);
