@@ -1,8 +1,8 @@
-const apiUrlCrop = "http://localhost:8080/staff";
+const apiUrlStaff = "http://localhost:8080/staff";
 
 // const API_BASE_URL_FIELD = "http://localhost:8080/field"
 
-let alertTypeCrop = "Staff add successfully!";
+let alertTypeStaff = "Staff add successfully!";
 
 
   // Fetch and populate categories and fields in dropdowns
@@ -24,77 +24,78 @@ let alertTypeCrop = "Staff add successfully!";
 //       });
 // }
 
-function loadCategoriesAndFields() {
-  // Load categories
-  fetch(`${apiUrlCrop}/category`)
+function loadDesignationAndRole() {
+  // Load designations
+  fetch(`${apiUrlStaff}/designations`)
     .then(response => response.json())
-    .then(categories => {
-      const categoryDropdown = document.getElementById("category");
-      if (!categoryDropdown) {
-        console.error("Category dropdown not found");
+    .then(designations => {
+      const desigDropdown = document.getElementById("designation");
+      if (!desigDropdown) {
+        console.error("Designation dropdown not found");
         return;
       }
-      console.log("Categories:", categories);
+      console.log("Designation:", designations);
 
       // Check if categories is an array of strings or objects
-      categoryDropdown.innerHTML = categories.map(cat =>
-        typeof cat === "string" 
-          ? `<option value="${cat}">${cat}</option>` 
-          : `<option value="${cat.id || cat.name}">${cat.name}</option>`
+      desigDropdown.innerHTML = designations.map(des =>
+        typeof des === "string" 
+          ? `<option value="${des}">${des}</option>` 
+          : `<option value="${des.id || des.name}">${des.name}</option>`
       ).join('');
     })
-    .catch(error => console.error("Error loading categories:", error));
+    .catch(error => console.error("Error loading designations:", error));
 
-  // Load fields
-  fetch(`${apiUrl}/all_fields`)
+    // Load designations
+  fetch(`${apiUrlStaff}/roles`)
     .then(response => response.json())
-    .then(fieldNames => {
-      const fieldDropdown = document.getElementById("fields");
-      if (!fieldDropdown) {
-        console.error("Field dropdown not found");
+    .then(roles => {
+      const rolesDropdown = document.getElementById("role");
+      if (!rolesDropdown) {
+        console.error("Role dropdown not found");
         return;
       }
-      console.log("Fields:", fieldNames);
+      console.log("Roles:", roles);
 
-      // Check if fields have a `name` property
-      fieldDropdown.innerHTML = fieldNames.map(field => 
-        `<option value="${field.fieldCode}">${field.fieldName}</option>`
+      // Check if categories is an array of strings or objects
+      rolesDropdown.innerHTML = roles.map(r =>
+        typeof r === "string" 
+          ? `<option value="${r}">${r}</option>` 
+          : `<option value="${r.id || r.name}">${r.name}</option>`
       ).join('');
     })
-    .catch(error => console.error("Error loading fields:", error));
+    .catch(error => console.error("Error loading roles:", error));
 }
 
 // Function to load all fields and populate the table
-async function loadCrops() {
+async function loadStaffs() {
   try {
-    const response = await fetch(`${apiUrlCrop}/all_crops`);
-    const crops = await response.json();
+    const response = await fetch(`${apiUrlStaff}/all_staff`);
+    const staffs = await response.json();
 
     const tableBody = document.querySelector("tbody");
     if (!tableBody) {
-      console.log("Table body not found. Skipping Crop population.");
+      console.log("Table body not found. Skipping Staff population.");
       return;
     }
     
     tableBody.innerHTML = ""; // Clear existing rows
 
-    crops.forEach((crop) => {
+    staffs.forEach((staff) => {
       const row = `
         <tr class="border-t border-gray-200 hover:bg-gray-50">
-          <td class="px-4 py-2 text-gray-700">${crop.cropCode}</td>
-          <td class="px-4 py-2 text-gray-700">${crop.cropCommonName}</td>
-          <td class="px-4 py-2 text-gray-700">${crop.cropScientificName}</td>
-          <td class="px-4 py-2 text-gray-700">${crop.category}</td>
-          <td class="px-4 py-2 text-gray-700">${crop.cropSeason}</td>
-          <td class="px-4 py-2 text-gray-700">${crop.fieldCode}</td>
-          <td class="px-4 py-2 text-gray-700">
-            <img src="data:image/png;base64,${crop.cropImage}" class="w-16 h-16 rounded" alt="Crop Image" />
-          </td>
+          <td class="px-4 py-2 text-gray-700">${staff.staffId}</td>
+          <td class="px-4 py-2 text-gray-700">${staff.role}</td>
+          <td class="px-4 py-2 text-gray-700">${staff.firstName}</td>
+          <td class="px-4 py-2 text-gray-700">${staff.joinedDate}</td>
+          <td class="px-4 py-2 text-gray-700">${staff.email}</td>
+          <td class="px-4 py-2 text-gray-700">${staff.contactNo}</td>
+          <td class="px-4 py-2 text-gray-700">${staff.mainCity}</td>
+          <td class="px-4 py-2 text-gray-700">${staff.designation}</td>
           <td class="px-4 py-2 text-center">
-            <button class="text-blue-500 hover:text-blue-700 mx-2" onclick="editCrop(${crop.cropCode})">
+            <button class="text-blue-500 hover:text-blue-700 mx-2" onclick="editStaff(${staff.staffId})">
               <i class="fas fa-edit"></i>
             </button>
-            <button class="text-red-500 hover:text-red-700 mx-2" onclick="deleteCrop(${crop.cropCode})">
+            <button class="text-red-500 hover:text-red-700 mx-2" onclick="deleteStaff(${staff.staffId})">
               <i class="fas fa-trash-alt"></i>
             </button>
           </td>
@@ -102,127 +103,150 @@ async function loadCrops() {
       tableBody.insertAdjacentHTML("beforeend", row);
     });
   } catch (error) {
-    console.error("Error loading crops:", error);
+    console.error("Error loading staffs:", error);
   }
 }
 
-// Save or update field
-async function saveOrUpdateCrop() {
-  const cropCommonName = document.querySelector('input[id="cropCommonName"]').value;
-  const cropScientificName = document.querySelector('input[id="cropScientificName"]').value;
-  const cropImageFile = document.querySelector("#image-upload-crop").files[0];
-  const category = document.getElementById('category').value;
-  const cropSeason = document.querySelector('input[name="cropSeason"]:checked').value;
-  const fieldCode = document.getElementById('fields').value;
-  const button = document.getElementById("btnCrop");
+// Save or update staff
+async function saveOrUpdateStaff() {
+  const firstName = document.querySelector('input[id="firstName"]').value;
+  const lastName = document.querySelector('input[id="lastName"]').value;
+  const designation = document.getElementById('designation').value;
+  const gender = document.querySelector('input[name="gender"]:checked').value;
+  const joinedDate = document.getElementById('joinedDate').value;
+  const dOB = document.getElementById('dOB').value;
+  const contactNo = document.getElementById('contactNo').value;
+  const buildingNo = document.getElementById('buildingNo').value;
+  const lane = document.getElementById('lane').value;
+  const mainCity = document.getElementById('mainCity').value;
+  const mainState = document.getElementById('mainState').value;
+  const postalCode = document.getElementById('postalCode').value;
+  const email = document.getElementById('email').value;
+  const role = document.getElementById('role').value;
+  const button = document.getElementById("btnStaff");
 
   try {
-    const cropImage = cropImageFile ? await getBase64Crop(cropImageFile) : null;
-
-    console.log(fieldCode);
-
+    
     const method = button.dataset.mode === "edit" ? "PUT" : "POST";
-    alertTypeCrop = button.dataset.mode === "edit" ? "Crop updated successfully!" : "Crop saved successfully!"
-    const cropCode = button.dataset.cropCode || "";
-    const url = method === "POST" ? apiUrlCrop : `${apiUrlCrop}/update/${cropCode}`;
-    const formData = new FormData();
+    alertTypeStaff = button.dataset.mode === "edit" ? "Staff updated successfully!" : "Staff add successfully!"
+    const staffId = button.dataset.staffId || "";
+    const url = method === "POST" ? apiUrlStaff : `${apiUrlStaff}/update/${staffId}`;
+    // Create a JSON object
+    const staffData = {
+      firstName,
+      lastName,
+      designation,
+      gender,
+      joinedDate,
+      dOB,
+      contactNo,
+      buildingNo,
+      lane,
+      mainCity,
+      mainState,
+      postalCode,
+      email,
+      role,
+    };
 
-    formData.append("cropCommonName", cropCommonName);
-    formData.append("cropScientificName", cropScientificName);
-    if(cropImage) formData.append("cropImage", cropImageFile);
-    formData.append("category", category);
-    formData.append("cropSeason", cropSeason);
-    formData.append("fieldCode", fieldCode);
+    // Send JSON data
+    await fetch(url, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(staffData),
+    });
 
-    await fetch(url, { method, body: formData });
-    alert(alertTypeCrop);
-    resetFormCrop();
-    loadCrops();
+    alert(alertTypeStaff);
+    resetFormStaff();
+    loadStaffs();
   } catch (error) {
-    console.error("Error saving crop:", error);
+    console.error("Error saving staff:", error);
   }
 }
 
 // Edit field
-async function editCrop(cropCode) {
-  console.log(cropCode)
+async function editStaff(staffId) {
+  console.log(staffId)
   try {
-    const response = await fetch(`${apiUrlCrop}/get/${cropCode}`);
-    const crop = await response.json();
+    const response = await fetch(`${apiUrlStaff}/get/${staffId}`);
+    const staff = await response.json();
 
-    document.querySelector('input[id="cropCommonName"]').value = crop.cropCommonName;
-    document.querySelector('input[id="cropScientificName"]').value = crop.cropScientificName;
-    document.getElementById('category').value = crop.category;
-    document.querySelector('input[name="cropSeason"]:checked').value = crop.cropSeason;
-    document.querySelector('input[id="fields"]').value = crop.fieldCode;
-    document.querySelector("#image-upload-crop").files[0] = crop.cropImage;
+    document.querySelector('input[id="firstName"]').value = staff.firstName
+    document.querySelector('input[id="lastName"]').value = staff.lastName
+    document.getElementById('designation').value = staff.designation
+    document.querySelector('input[name="gender"]:checked').value = staff.gender
+    document.getElementById('joinedDate').value = staff.joinedDate
+    document.getElementById('dOB').value = staff.dOB
+    document.getElementById('contactNo').value = staff.contactNo
+    document.getElementById('buildingNo').value = staff.buildingNo
+    document.getElementById('lane').value = staff.lane
+    document.getElementById('mainCity').value = staff.mainCity
+    document.getElementById('mainState').value = staff.mainState
+    document.getElementById('postalCode').value = staff.postalCode
+    document.getElementById('email').value = staff.email
+    document.getElementById('role').value = staff.role
 
-    const button = document.getElementById("btnCrop");
-    button.textContent = "Update Crop";
+    const button = document.getElementById("btnStaff");
+    button.textContent = "Update Staff";
     button.dataset.mode = "edit";
-    button.dataset.cropCode = cropCode;
+    button.dataset.staffId = staffId;
   } catch (error) {
-    console.error("Error editing Crop:", error);
+    console.error("Error editing Staff:", error);
   }
 }
 
 // Delete field
-async function deleteCrop(cropCode) {
+async function deleteStaff(staffId) {
   if (!confirm("Are you sure to delete this data?")) return;
 
   try {
-    await fetch(`${apiUrlCrop}/delete/${cropCode}`, { method: "DELETE" });
-    alert("Crop deleted successfully!");
-    loadCrops();
+    await fetch(`${apiUrlStaff}/delete/${staffId}`, { method: "DELETE" });
+    alert("Staff deleted successfully!");
+    loadStaffs();
   } catch (error) {
-    console.error("Error deleting crop:", error);
+    console.error("Error deleting staff:", error);
   }
 }
 
 // Reset form to default state
-function resetFormCrop() {
-  document.querySelector('input[placeholder="BG-35 Rice"]').value = "";
-  document.querySelector('input[placeholder="Oryza sativa"]').value = "";
-  
-  document.querySelector("#image-upload-crop").value = "";
+function resetFormStaff() {
+  document.querySelector('input[id="firstName"]').value = "";
+    document.querySelector('input[id="lastName"]').value = "";
+    document.getElementById('designation').value = "";
+    document.querySelector('input[name="gender"]:checked').value = "";
+    document.getElementById('joinedDate').value = "";
+    document.getElementById('dOB').value = "";
+    document.getElementById('contactNo').value = "";
+    document.getElementById('buildingNo').value = "";
+    document.getElementById('lane').value = "";
+    document.getElementById('mainCity').value = "";
+    document.getElementById('mainState').value = "";
+    document.getElementById('postalCode').value = "";
+    document.getElementById('email').value = "";
+    document.getElementById('role').value = "";
   
   const button = document.querySelector("button");
-  button.textContent = "Add Crop";
+  button.textContent = "Add Staff";
   button.dataset.mode = "add";
-  button.removeAttribute("data-crop-code");
+  button.removeAttribute("data-staff-code");
 }
 
 // Load fields on page load
 document.addEventListener("DOMContentLoaded", () => {
 
-  loadCategoriesAndFields();
+  loadDesignationAndRole();
   // Only run these if the elements exist
   const tableBody = document.querySelector("tbody");
   if (tableBody) {
-    loadCrops();
+    loadStaffs();
   }
 
-  const saveButtonCrop = document.getElementById("btnCrop");
-  if (saveButtonCrop) {
-    saveButtonCrop.addEventListener("click", saveOrUpdateCrop);
+  const saveButtonStaff = document.getElementById("btnStaff");
+  if (saveButtonStaff) {
+    saveButtonStaff.addEventListener("click", saveOrUpdateStaff);
   } else {
-    console.log("Save button not found. This might be okay if not on the Crop page.");
+    console.log("Save button not found. This might be okay if not on the Staff page.");
   }
 });
-
-
-
-// Attach preview functions to the window object to make them globally accessible
-window.previewImageCrop = function(event) {
-  const file = event.target.files[0]; // Get the selected file
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      // Optional: If you want to show a preview, uncomment and add an img element with id='image-preview-field1'
-      // const preview = document.getElementById('image-preview-field1');
-      // preview.src = e.target.result;
-      console.log("Crop image selected:", file.name);
-    };
-    reader.readAsDataURL(file); // Read the file as a Data URL
-  }
-}

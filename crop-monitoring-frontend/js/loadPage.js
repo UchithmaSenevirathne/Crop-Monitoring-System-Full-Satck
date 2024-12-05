@@ -30,6 +30,12 @@ function navigate(page, element) {
                     loadCrops();
                     loadCategoriesAndFields();
                 }
+            }else if (page.includes('staff.html')) {
+                // Re-run field page specific scripts
+                if (typeof loadStaffs === 'function') {
+                    loadStaffs();
+                    loadDesignationAndRole();
+                }
             }
         })
         .catch((error) => {

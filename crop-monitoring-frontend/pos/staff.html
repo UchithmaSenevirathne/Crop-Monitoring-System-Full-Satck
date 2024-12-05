@@ -20,6 +20,7 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">First Name</h1>
             <input
+            id="firstName"
               type="text"
               placeholder="Uchithma"
               class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
@@ -28,6 +29,7 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Last Name</h1>
             <input
+            id="lastName"
               type="text"
               placeholder="Senevirathne"
               class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-64 text-[14px] border border-gray-300 focus:outline-none"
@@ -36,11 +38,9 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Designation</h1>
             <select
-              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none" id="designation"
             >
-              <option value="Manager">Manager</option>
-              <option value="Manager">Manager</option>
-              <option value="Manager">Manager</option>
+              
             </select>
           </div>
           <div class="flex flex-col gap-3 justify-start">
@@ -72,6 +72,7 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Joined Date</h1>
             <input
+            id="joinedDate"
               type="date"
               class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
             />
@@ -79,6 +80,7 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">DOB</h1>
             <input
+            id="dOB"
               type="date"
               class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
             />
@@ -86,6 +88,7 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Contact No.</h1>
             <input
+            id="contactNo"
               type="text"
               placeholder="+94*********"
               class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
@@ -96,6 +99,7 @@
             <div class="flex flex-col gap-2 justify-center">
                 <h1 class="font-medium px-3">Building No.</h1>
                 <input
+                id="buildingNo"
                   type="text"
                   placeholder="221-B"
                   class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-40 text-[14px] border border-gray-300 focus:outline-none"
@@ -104,6 +108,7 @@
               <div class="flex flex-col gap-2 justify-center">
                 <h1 class="font-medium px-3">Lane</h1>
                 <input
+                id="lane"
                   type="text"
                   placeholder="Baker Street"
                   class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
@@ -112,6 +117,7 @@
               <div class="flex flex-col gap-2 justify-center">
                 <h1 class="font-medium px-3">Main City</h1>
                 <input
+                id="mainCity"
                   type="text"
                   placeholder="Galle"
                   class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-44 text-[14px] border border-gray-300 focus:outline-none"
@@ -120,6 +126,7 @@
               <div class="flex flex-col gap-2 justify-center">
                 <h1 class="font-medium px-3">Main State</h1>
                 <input
+                id="mainState"
                   type="text"
                   placeholder="Southern"
                   class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
@@ -128,6 +135,7 @@
               <div class="flex flex-col gap-2 justify-center">
                 <h1 class="font-medium px-3">Postal Code</h1>
                 <input
+                id="postalCode"
                   type="number"
                   placeholder="8000"
                   class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-40 text-[14px] border border-gray-300 focus:outline-none"
@@ -136,6 +144,7 @@
               <div class="flex flex-col gap-2 justify-center">
                 <h1 class="font-medium px-3">Email</h1>
                 <input
+                id="email"
                   type="email"
                   placeholder="*****@gmail.com"
                   class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-[330px] text-[14px] border border-gray-300 focus:outline-none"
@@ -144,11 +153,9 @@
               <div class="flex flex-col gap-2 justify-center">
                 <h1 class="font-medium px-3">Role</h1>
                 <select
-                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-[200px] text-[14px] border border-gray-300 focus:outline-none"
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-[200px] text-[14px] border border-gray-300 focus:outline-none" id="role"
                 >
-                  <option value="MANAGER">MANAGER</option>
-                  <option value="MANAGER">MANAGER</option>
-                  <option value="MANAGER">MANAGER</option>
+                  
                 </select>
               </div>
         </div>
@@ -156,7 +163,7 @@
     </section>
     <div class="mt-[30px] bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2">
         <i class="fa-solid fa-circle-plus"></i>
-      <button class="">Add Staff</button>
+      <button class="" data-mode="add" onclick="saveOrUpdateStaff()" id="btnStaff">Add Staff</button>
     </div>
     <section class="mt-[30px]">
         <div class="overflow-x-auto">
@@ -165,39 +172,26 @@
               <tr>
                 <th class="px-4 py-2 text-left text-gray-600">#</th>
                 <th class="px-4 py-2 text-left text-gray-600">Role</th>
-                <th class="px-4 py-2 text-left text-gray-600">Full Name</th>
+                <th class="px-4 py-2 text-left text-gray-600">Name</th>
                 <th class="px-4 py-2 text-left text-gray-600">Joined Date</th>
                 <th class="px-4 py-2 text-left text-gray-600">Email</th>
                 <th class="px-4 py-2 text-left text-gray-600">Contact</th>
-                <th class="px-4 py-2 text-left text-gray-600">Address</th>
+                <th class="px-4 py-2 text-left text-gray-600">City</th>
                 <th class="px-4 py-2 text-left text-gray-600">Designation</th>
                 <th class="px-4 py-2 text-center text-gray-600">Actions</th>
               </tr>
             </thead>
             <tbody>
               <!-- Example Row -->
-              <tr class="border-t border-gray-200 hover:bg-gray-50">
-                <td class="px-4 py-2 text-gray-700">1</td>
-                <td class="px-4 py-2 text-gray-700"></td>
-                <td class="px-4 py-2 text-gray-700"></td>
-                <td class="px-4 py-2 text-gray-700"></td>
-                <td class="px-4 py-2 text-gray-700"></td>
-                <td class="px-4 py-2 text-gray-700"></td>
-                <td class="px-4 py-2 text-gray-700"></td>
-                <td class="px-4 py-2 text-gray-700"></td>
-                <td class="px-4 py-2 text-center">
-                  <button class="text-blue-500 hover:text-blue-700 mx-2">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="text-red-500 hover:text-red-700 mx-2">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </td>
+              <tr>
+                
               </tr>
               <!-- Repeat for more rows -->
             </tbody>
           </table>
         </div>      
       </section>
+
+      <script src="../js/staff.js"></script>
   </body>
 </html>
