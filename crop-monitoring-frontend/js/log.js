@@ -45,7 +45,7 @@ function loadCropAndStaff() {
 
       // Check if fields have a `name` property
       staffDropdown.innerHTML = staffs
-        .map((st) => `<option value="${st.staffId}">${st.firstName}</option>`)
+        .map((st) => `<option value="${st.staffId}">${st.firstName} (${st.designation}) (ID : ${st.staffId})</option>`)
         .join("");
     })
     .catch((error) => console.error("Error loading staffs:", error));

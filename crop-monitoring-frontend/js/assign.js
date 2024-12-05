@@ -34,7 +34,7 @@ function loadDropDownAssign() {
 
     // Check if fields have a `name` property
     staffDropdown.innerHTML = staffs
-      .map((st) => `<option value="${st.staffId}">${st.firstName}</option>`)
+      .map((st) => `<option value="${st.staffId}">${st.firstName} (${st.designation}) (ID : ${st.staffId})</option>`)
       .join("");
   })
   .catch((error) => console.error("Error loading staffs:", error));
@@ -80,30 +80,33 @@ async function assignStaffToField() {
   const assignedDate = document.getElementById('assignedDate').value;
   const dueDate = document.getElementById('dueDate').value;
   const fieldCode = document.getElementById('fields').value;
-  const staffId = document.getElementById('staffs').value;
+  // const staffId = document.getElementById('staffs').value;
+
+   // Get selected staff IDs
+   const staffSelect = document.getElementById('staffs');
+   const selectedStaffs = Array.from(staffSelect.selectedOptions).map(option => option.value);
 
   try {
    console.log(fieldCode);
-   console.log(staffId);
+  //  console.log(staffId);
 
-    const method = "POST";
-    const url = apiUrlAssign;
-
-    const assignData = {
+    // Send multiple staff assignments
+    for (const staffId of selectedStaffs) {
+      const assignData = {
         assignedDate,
         dueDate,
         fieldCode,
-        staffId
+        staffId: parseInt(staffId)
       };
-  
-      // Send JSON data
-      await fetch(url, {
-        method,
+
+      await fetch(apiUrlAssign, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(assignData),
       });
+    }
 
     alert("Staff assign to field successfully");
     resetFormAssign();
