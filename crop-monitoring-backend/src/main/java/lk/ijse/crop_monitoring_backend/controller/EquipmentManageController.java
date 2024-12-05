@@ -54,7 +54,7 @@ public class EquipmentManageController {
         }
     }
 
-    @PutMapping(value = "/{equipmentId}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/update/{equipmentId}",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateEquipment(@RequestBody EquipmentDTO equipmentDTO, @PathVariable ("equipmentId") int equipmentId) {
         try {
             equipmentService.updateEquipment(equipmentDTO, equipmentId);
@@ -71,12 +71,12 @@ public class EquipmentManageController {
         return equipmentService.getAllEquip();
     }
 
-    @GetMapping(value = "/{equipmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get/{equipmentId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public EquipResponse getEquipById(@PathVariable("equipmentId") int equipmentId) {
         return equipmentService.getSelectedEquip(equipmentId);
     }
 
-    @DeleteMapping(value = "/{equipmentId}")
+    @DeleteMapping(value = "/delete/{equipmentId}")
     public ResponseEntity<Void> deleteEquip(@PathVariable("equipmentId") int equipmentId) {
         try {
             equipmentService.deleteEquip(equipmentId);

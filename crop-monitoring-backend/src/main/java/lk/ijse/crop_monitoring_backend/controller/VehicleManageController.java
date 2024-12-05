@@ -44,7 +44,7 @@ public class VehicleManageController {
         }
     }
 
-    @PutMapping(value = "/{vehicleCode}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/update/{vehicleCode}",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateVehicle(@RequestBody VehicleDTO vehicleDTO, @PathVariable ("vehicleCode") int vehicleCode) {
         try {
             vehicleService.updateVehicle(vehicleDTO, vehicleCode);
@@ -61,12 +61,12 @@ public class VehicleManageController {
         return vehicleService.getAllVehicle();
     }
 
-    @GetMapping(value = "/{vehicleCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get/{vehicleCode}", produces = MediaType.APPLICATION_JSON_VALUE)
     public VehicleResponse getVehicleById(@PathVariable("vehicleCode") int vehicleCode) {
         return vehicleService.getSelectedVehicle(vehicleCode);
     }
 
-    @DeleteMapping(value = "/{vehicleCode}")
+    @DeleteMapping(value = "/delete/{vehicleCode}")
     public ResponseEntity<Void> deleteVehicle(@PathVariable("vehicleCode") int vehicleCode) {
         try {
             vehicleService.deleteVehi(vehicleCode);
