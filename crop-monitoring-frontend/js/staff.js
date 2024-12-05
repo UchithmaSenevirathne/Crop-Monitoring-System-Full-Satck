@@ -175,18 +175,18 @@ async function editStaff(staffId) {
 
     document.querySelector('input[id="firstName"]').value = staff.firstName
     document.querySelector('input[id="lastName"]').value = staff.lastName
-    document.getElementById('designation').value = staff.designation
+    document.querySelector('input[id=designation]').value = staff.designation
     document.querySelector('input[name="gender"]:checked').value = staff.gender
-    document.getElementById('joinedDate').value = staff.joinedDate
-    document.getElementById('dOB').value = staff.dOB
-    document.getElementById('contactNo').value = staff.contactNo
-    document.getElementById('buildingNo').value = staff.buildingNo
-    document.getElementById('lane').value = staff.lane
-    document.getElementById('mainCity').value = staff.mainCity
-    document.getElementById('mainState').value = staff.mainState
-    document.getElementById('postalCode').value = staff.postalCode
-    document.getElementById('email').value = staff.email
-    document.getElementById('role').value = staff.role
+    document.querySelector('input[id=joinedDate]').value = staff.joinedDate
+    document.querySelector('input[id=dOB]').value = staff.dOB
+    document.querySelector('input[id=contactNo]').value = staff.contactNo
+    document.querySelector('input[id=buildingNo]').value = staff.buildingNo
+    document.querySelector('input[id=lane]').value = staff.lane
+    document.querySelector('input[id=mainCity]').value = staff.mainCity
+    document.querySelector('input[id=mainState]').value = staff.mainState
+    document.querySelector('input[id=postalCode]').value = staff.postalCode
+    document.querySelector('input[id=email]').value = staff.email
+    document.querySelector('input[id=role]').value = staff.role
 
     const button = document.getElementById("btnStaff");
     button.textContent = "Update Staff";

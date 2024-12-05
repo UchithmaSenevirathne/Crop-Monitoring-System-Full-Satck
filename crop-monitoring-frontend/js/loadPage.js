@@ -36,6 +36,12 @@ function navigate(page, element) {
                     loadStaffs();
                     loadDesignationAndRole();
                 }
+            }else if (page.includes('log.html')) {
+                // Re-run field page specific scripts
+                if (typeof loadLogs === 'function') {
+                    loadLogs();
+                    loadCropAndStaff();
+                }
             }
         })
         .catch((error) => {
