@@ -57,6 +57,7 @@ public class LogServiceImpl implements LogService {
 
             tmpEntity.get().setLogDate(cropDetailsDTO.getLogDate());
             tmpEntity.get().setLogDetails(cropDetailsDTO.getLogDetails());
+            tmpEntity.get().setCropStatus(cropDetailsDTO.getCropStatus());
             tmpEntity.get().setObservedImage(cropDetailsDTO.getObservedImage());
             tmpEntity.get().setStaff(staff);
             tmpEntity.get().setField(field);

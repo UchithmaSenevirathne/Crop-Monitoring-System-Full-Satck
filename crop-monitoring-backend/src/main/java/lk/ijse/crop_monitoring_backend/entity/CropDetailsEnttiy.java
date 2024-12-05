@@ -16,6 +16,7 @@ public class CropDetailsEnttiy {
     private int logCode;
     private String logDate;
     private String logDetails;
+    private String  cropStatus;
     @Column(columnDefinition = "LONGTEXT")
     private String observedImage;
     @ManyToOne

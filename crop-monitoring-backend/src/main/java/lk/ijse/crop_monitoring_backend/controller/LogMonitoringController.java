@@ -33,6 +33,7 @@ public class LogMonitoringController {
     public ResponseEntity<String> addLog(
             @RequestPart("logDate") String logDate,
             @RequestPart("logDetails") String logDetails,
+            @RequestPart("cropStatus") String cropStatus,
             @RequestPart("observedImage") MultipartFile observedImage,
             @RequestPart("staffId") String staffId,
             @RequestPart("fieldCode") String fieldCode,
@@ -49,6 +50,7 @@ public class LogMonitoringController {
             CropDetailsDTO cropDetailsDTO = new CropDetailsDTO();
             cropDetailsDTO.setLogDate(logDate);
             cropDetailsDTO.setLogDetails(logDetails);
+            cropDetailsDTO.setCropStatus(cropStatus);
             cropDetailsDTO.setObservedImage(base64Img);
             cropDetailsDTO.setStaffId(staffIdInt);
             cropDetailsDTO.setFieldCode(fieldCodeInt);
@@ -63,11 +65,12 @@ public class LogMonitoringController {
         }
     }
 
-    @PutMapping(value = "/{logCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/update/{logCode}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> updateLog(
             @PathVariable ("logCode") int logCode,
             @RequestPart("logDate") String logDate,
             @RequestPart("logDetails") String logDetails,
+            @RequestPart("cropStatus") String cropStatus,
             @RequestPart("observedImage") MultipartFile observedImage,
             @RequestPart("staffId") String staffId,
             @RequestPart("fieldCode") String fieldCode,
@@ -85,6 +88,7 @@ public class LogMonitoringController {
             cropDetailsDTO.setLogCode(logCode);
             cropDetailsDTO.setLogDate(logDate);
             cropDetailsDTO.setLogDetails(logDetails);
+            cropDetailsDTO.setCropStatus(cropStatus);
             cropDetailsDTO.setObservedImage(base64Img);
             cropDetailsDTO.setStaffId(staffIdInt);
             cropDetailsDTO.setFieldCode(fieldCodeInt);
@@ -104,12 +108,12 @@ public class LogMonitoringController {
         return logService.getAllLogs();
     }
 
-    @GetMapping(value = "/{logCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get/{logCode}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CropDetailsResponse getLogById(@PathVariable("logCode") int logCode) {
         return logService.getSelectedLog(logCode);
     }
 
-    @DeleteMapping(value = "/{logCode}")
+    @DeleteMapping(value = "/delete/{logCode}")
     public ResponseEntity<Void> deleteLog(@PathVariable("logCode") int logCode) {
         try {
             logService.deleteLog(logCode);
