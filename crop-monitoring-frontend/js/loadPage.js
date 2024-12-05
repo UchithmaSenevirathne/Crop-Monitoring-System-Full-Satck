@@ -54,6 +54,12 @@ function navigate(page, element) {
                     loadVehicles();
                     loadDropDownVehicle();
                 }
+            }else if (page.includes('assign.html')) {
+                // Re-run field page specific scripts
+                if (typeof loadAssign === 'function') {
+                    loadAssign();
+                    loadDropDownAssign();
+                }
             }
         })
         .catch((error) => {

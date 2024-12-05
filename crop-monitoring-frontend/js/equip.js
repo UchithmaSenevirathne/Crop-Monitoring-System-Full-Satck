@@ -173,11 +173,40 @@ async function editEquip(equipmentId) {
     const response = await fetch(`${apiUrlEquip}/get/${equipmentId}`);
     const equip = await response.json();
 
-    document.getElementById('names').value = equip.names;
-    document.querySelector('input[name="type"]:checked').value = equip.type;
-    document.getElementById('status').value = equip.status;
-    document.getElementById('fields').value = equip.fieldCode;
-    document.getElementById('staffs').value = equip.staffId;
+    // document.getElementById('names').value = equip.names;
+    // document.querySelector('input[name="type"]:checked').value = equip.type;
+    // document.getElementById('status').value = equip.status;
+    // document.getElementById('fields').value = equip.fieldCode;
+    // document.getElementById('staffs').value = equip.staffId;
+
+    // Set select fields
+    const namesDropdown = document.getElementById('names');
+    if (namesDropdown) {
+      namesDropdown.value = equip.name;
+    }
+
+    const statuses = document.getElementById('status');
+    if (statuses) {
+      statuses.value = equip.status;
+    }
+
+    const fieldDropdown = document.getElementById('fields');
+    if (fieldDropdown) {
+      fieldDropdown.value = equip.fieldCode;
+    }
+
+    const staffDropdown = document.getElementById('staffs');
+    if (staffDropdown) {
+      staffDropdown.value = equip.staffId;
+    }
+
+     // Set radio button for crop season
+     const typeRadios = document.querySelectorAll('input[name="type"]');
+     typeRadios.forEach(radio => {
+       if (radio.value === equip.type) {
+         radio.checked = true;
+       }
+     });
 
     const button = document.getElementById("btnEquip");
     button.textContent = "Update Equipment";

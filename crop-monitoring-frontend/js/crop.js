@@ -153,23 +153,88 @@ async function saveOrUpdateCrop() {
 }
 
 // Edit field
+// async function editCrop(cropCode) {
+//   console.log(cropCode)
+//   try {
+//     const response = await fetch(`${apiUrlCrop}/get/${cropCode}`);
+//     const crop = await response.json();
+
+//     document.querySelector('input[id="cropCommonName"]').value = crop.cropCommonName;
+//     document.querySelector('input[id="cropScientificName"]').value = crop.cropScientificName;
+//     document.getElementById('category').value = crop.category;
+//     document.querySelector('input[name="cropSeason"]:checked').value = crop.cropSeason;
+//     document.querySelector('input[id="fields"]').value = crop.fieldCode;
+//     document.querySelector("#image-upload-crop").files[0] = crop.cropImage;
+
+//     const button = document.getElementById("btnCrop");
+//     button.textContent = "Update Crop";
+//     button.dataset.mode = "edit";
+//     button.dataset.cropCode = cropCode;
+//   } catch (error) {
+//     console.error("Error editing Crop:", error);
+//   }
+// }
+
 async function editCrop(cropCode) {
-  console.log(cropCode)
   try {
     const response = await fetch(`${apiUrlCrop}/get/${cropCode}`);
     const crop = await response.json();
 
+    // Set text inputs
     document.querySelector('input[id="cropCommonName"]').value = crop.cropCommonName;
     document.querySelector('input[id="cropScientificName"]').value = crop.cropScientificName;
-    document.getElementById('category').value = crop.category;
-    document.querySelector('input[name="cropSeason"]:checked').value = crop.cropSeason;
-    document.querySelector('input[id="fields"]').value = crop.fieldCode;
-    document.querySelector("#image-upload-crop").files[0] = crop.cropImage;
+
+    // Set select fields
+    const categoryDropdown = document.getElementById('category');
+    if (categoryDropdown) {
+      categoryDropdown.value = crop.category;
+    }
+
+    const fieldsDropdown = document.getElementById('fields');
+    if (fieldsDropdown) {
+      fieldsDropdown.value = crop.fieldCode;
+    }
+
+    // Set radio button for crop season
+    const seasonRadios = document.querySelectorAll('input[name="cropSeason"]');
+    seasonRadios.forEach(radio => {
+      if (radio.value === crop.cropSeason) {
+        radio.checked = true;
+      }
+    });
+
+    // Handle image 
+    const imageUpload = document.getElementById('image-upload-crop');
+    if (crop.cropImage) {
+      // Convert base64 to File object
+      const byteCharacters = atob(crop.cropImage);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: 'image/png' }); // Adjust mime type if needed
+      
+      // Create a File object
+      const file = new File([blob], 'crop-image.png', { type: 'image/png' });
+      
+      // Create a DataTransfer object to set files
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(file);
+      imageUpload.files = dataTransfer.files;
+
+      // Optional: Show image preview
+      const preview = document.getElementById('image-preview-crop');
+      if (preview) {
+        preview.src = `data:image/png;base64,${crop.cropImage}`;
+      }
+    }
 
     const button = document.getElementById("btnCrop");
     button.textContent = "Update Crop";
     button.dataset.mode = "edit";
     button.dataset.cropCode = cropCode;
+
   } catch (error) {
     console.error("Error editing Crop:", error);
   }

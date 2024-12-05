@@ -175,8 +175,8 @@ async function editStaff(staffId) {
 
     document.querySelector('input[id="firstName"]').value = staff.firstName
     document.querySelector('input[id="lastName"]').value = staff.lastName
-    document.querySelector('input[id=designation]').value = staff.designation
-    document.querySelector('input[name="gender"]:checked').value = staff.gender
+    // document.querySelector('input[id=designation]').value = staff.designation
+    // document.querySelector('input[name="gender"]:checked').value = staff.gender
     document.querySelector('input[id=joinedDate]').value = staff.joinedDate
     document.querySelector('input[id=dOB]').value = staff.dOB
     document.querySelector('input[id=contactNo]').value = staff.contactNo
@@ -186,7 +186,26 @@ async function editStaff(staffId) {
     document.querySelector('input[id=mainState]').value = staff.mainState
     document.querySelector('input[id=postalCode]').value = staff.postalCode
     document.querySelector('input[id=email]').value = staff.email
-    document.querySelector('input[id=role]').value = staff.role
+    // document.querySelector('input[id=role]').value = staff.role
+
+    // Set select fields
+    const desigDropdown = document.getElementById('designation');
+    if (desigDropdown) {
+      desigDropdown.value = staff.designation;
+    }
+
+    const rolesDropdown = document.getElementById('role');
+    if (rolesDropdown) {
+      rolesDropdown.value = staff.role;
+    }
+
+     // Set radio button for crop season
+     const genderRadios = document.querySelectorAll('input[name="gender"]');
+     genderRadios.forEach(radio => {
+       if (radio.value === staff.gender) {
+         radio.checked = true;
+       }
+     });
 
     const button = document.getElementById("btnStaff");
     button.textContent = "Update Staff";

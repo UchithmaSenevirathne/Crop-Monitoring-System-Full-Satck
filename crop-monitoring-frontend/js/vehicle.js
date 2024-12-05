@@ -158,11 +158,35 @@ async function editVehicle(vehicleCode) {
     const vehicle = await response.json();
 
     document.getElementById('licensePlateNumber').value = vehicle.licensePlateNumber;
-    document.getElementById('categories').value = vehicle.vehicleCategory;
-    document.querySelector('input[name="type"]:checked').value = vehicle.fuelType;
-    document.getElementById('status').value = vehicle.status;
+    // document.getElementById('categories').value = vehicle.vehicleCategory;
+    // document.querySelector('input[name="type"]:checked').value = vehicle.fuelType;
+    // document.getElementById('status').value = vehicle.status;
     document.getElementById('remarks').value = vehicle.remarks;
-    document.getElementById('staffs').value = vehicle.staffId;
+    // document.getElementById('staffs').value = vehicle.staffId;
+
+     // Set select fields
+     const vehicleDropdown = document.getElementById('categories');
+     if (vehicleDropdown) {
+      vehicleDropdown.value = vehicle.vehicleCategory;
+     }
+
+     const statuses = document.getElementById('status');
+     if (statuses) {
+      statuses.value = vehicle.status;
+     }
+
+     const staffDropdown = document.getElementById('staffs');
+     if (staffDropdown) {
+      staffDropdown.value = vehicle.staffId;
+     }
+
+     // Set radio button for crop season
+    const typeRadios = document.querySelectorAll('input[name="type"]');
+    typeRadios.forEach(radio => {
+      if (radio.value === vehicle.fuelType) {
+        radio.checked = true;
+      }
+    });
 
     const button = document.getElementById("btnVehicle");
     button.textContent = "Update Vehicle";

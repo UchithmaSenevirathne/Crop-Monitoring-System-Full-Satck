@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-white">
+    <section class="pt-[40px] flex gap-[30px]">
+      <div>
+        <div class="flex gap-[40px]">
+            <div class="flex flex-col gap-2 justify-center">
+                <h1 class="font-medium px-3">Assign Date</h1>
+                <input
+                id="assignedDate"
+                  type="date"
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+                />
+              </div>
+              <div class="flex flex-col gap-2 justify-center">
+                <h1 class="font-medium px-3">Due Date</h1>
+                <input
+                id="dueDate"
+                  type="date"
+                  class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
+                />
+              </div>
+                <div class="flex flex-col gap-2 justify-center">
+                  <h1 class="font-medium px-3">Assign Field</h1>
+                  <select
+                    class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-80 text-[14px] border border-gray-300 focus:outline-none" id="fields"
+                  >
+                    
+                  </select>
+                </div>
+                <div class="flex flex-col gap-2 justify-center">
+                  <h1 class="font-medium px-3">Assign Staff</h1>
+                  <select
+                    class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-64 text-[14px] border border-gray-300 focus:outline-none" id="staffs"
+                  >
+                    
+                  </select>
+                </div>
+        </div>
+
+        <div class="flex gap-[30px] mt-5">
+            <div class="mt-[30px] bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2">
+                <i class="fa-solid fa-circle-plus"></i>
+              <button class="" data-mode="add" onclick="assignStaffToField()" id="btnAssign">Assign</button>
+            </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-[30px]">
+      <div class="overflow-x-auto">
+        <table class="table-auto w-full border border-gray-200 rounded-lg shadow-md">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 text-left text-gray-600">#</th>
+              <th class="px-4 py-2 text-left text-gray-600">Assign Date</th>
+              <th class="px-4 py-2 text-left text-gray-600">Due Date</th>
+              <th class="px-4 py-2 text-left text-gray-600">Field</th>
+              <th class="px-4 py-2 text-left text-gray-600">Staff</th>
+              <th class="px-4 py-2 text-center text-gray-600">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example Row -->
+            <tr>
+              
+            </tr>
+            <!-- Repeat for more rows -->
+          </tbody>
+        </table>
+      </div>      
+    </section>
+    <script src="../js/assign.js"></script>
+  </body>
+</html>

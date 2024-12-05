@@ -101,6 +101,59 @@ async function editField(fieldCode) {
     document.querySelector("#image-upload-field1").files[0] = field.fieldImage1;
     document.querySelector("#image-upload-field2").files[0] = field.fieldImage2;
 
+    // Handle image 
+    const imageUpload1 = document.getElementById('image-upload-field1');
+    if (field.fieldImage1) {
+      // Convert base64 to File object
+      const byteCharacters1 = atob(field.fieldImage1);
+      const byteNumbers1 = new Array(byteCharacters1.length);
+      for (let i = 0; i < byteCharacters1.length; i++) {
+        byteNumbers1[i] = byteCharacters1.charCodeAt(i);
+      }
+      const byteArray1 = new Uint8Array(byteNumbers1);
+      const blob1 = new Blob([byteArray1], { type: 'image/png' }); // Adjust mime type if needed
+      
+      // Create a File object
+      const file1 = new File([blob1], 'field-image-1.png', { type: 'image/png' });
+      
+      // Create a DataTransfer object to set files
+      const dataTransfer1 = new DataTransfer();
+      dataTransfer1.items.add(file1);
+      imageUpload1.files = dataTransfer1.files;
+
+      // Optional: Show image preview
+      const preview1 = document.getElementById('image-preview-field1');
+      if (preview1) {
+        preview1.src = `data:image/png;base64,${field.fieldImage1}`;
+      }
+    }
+
+    const imageUpload2 = document.getElementById('image-upload-field2');
+    if (field.fieldImage2) {
+      // Convert base64 to File object
+      const byteCharacters2 = atob(field.fieldImage2);
+      const byteNumbers2 = new Array(byteCharacters2.length);
+      for (let i = 0; i < byteCharacters2.length; i++) {
+        byteNumbers2[i] = byteCharacters2.charCodeAt(i);
+      }
+      const byteArray2 = new Uint8Array(byteNumbers2);
+      const blob2 = new Blob([byteArray2], { type: 'image/png' }); // Adjust mime type if needed
+      
+      // Create a File object
+      const file2 = new File([blob2], 'field-image-2.png', { type: 'image/png' });
+      
+      // Create a DataTransfer object to set files
+      const dataTransfer2 = new DataTransfer();
+      dataTransfer2.items.add(file2);
+      imageUpload2.files = dataTransfer2.files;
+
+      // Optional: Show image preview
+      const preview2 = document.getElementById('image-preview-field2');
+      if (preview2) {
+        preview2.src = `data:image/png;base64,${field.fieldImage2}`;
+      }
+    }
+
     const button = document.querySelector("button[data-mode]");
     button.textContent = "Update Field";
     button.dataset.mode = "edit";

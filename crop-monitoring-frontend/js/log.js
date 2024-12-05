@@ -169,11 +169,62 @@ async function editLog(logCode) {
 
     document.querySelector('input[id="logDate"]').value = log.logDate
     document.querySelector('textarea[id="logDetails"]').value = log.logDetails;
-    document.querySelector("#image-upload-log").files[0] = log.observedImage;
-    document.querySelector('input[name="cropStatus"]:checked').value = log.cropStatus;
-    document.querySelector('input[id="crops"]').value = log.cropCode;
-    document.querySelector('input[id="field"]').value = log.fieldCode;
-    document.querySelector('input[id="staff"]').value = log.staffId;
+    // document.querySelector("#image-upload-log").files[0] = log.observedImage;
+    // document.querySelector('input[name="cropStatus"]:checked').value = log.cropStatus;
+    // document.querySelector('input[id="crops"]').value = log.cropCode;
+    // document.querySelector('input[id="field"]').value = log.fieldCode;
+    // document.querySelector('input[id="staff"]').value = log.staffId;
+
+    // Handle image 
+    const imageUpload = document.getElementById('image-upload-log');
+    if (log.observedImage) {
+      // Convert base64 to File object
+      const byteCharacters = atob(log.observedImage);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: 'image/png' }); // Adjust mime type if needed
+      
+      // Create a File object
+      const file = new File([blob], 'log-image.png', { type: 'image/png' });
+      
+      // Create a DataTransfer object to set files
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(file);
+      imageUpload.files = dataTransfer.files;
+
+      // Optional: Show image preview
+      const preview = document.getElementById('image-preview-log');
+      if (preview) {
+        preview.src = `data:image/png;base64,${log.observedImage}`;
+      }
+    }
+
+    // Set select fields
+    const cropDropdown = document.getElementById('crops');
+    if (cropDropdown) {
+      cropDropdown.value = log.cropCode;
+    }
+
+    const fieldDropdown = document.getElementById('field');
+    if (fieldDropdown) {
+      fieldDropdown.value = log.fieldCode;
+    }
+
+    const staffDropdown = document.getElementById('staff');
+    if (staffDropdown) {
+      staffDropdown.value = log.staffId;
+    }
+
+    // Set radio button for crop season
+    const statusRadios = document.querySelectorAll('input[name="cropStatus"]');
+    statusRadios.forEach(radio => {
+      if (radio.value === log.cropStatus) {
+        radio.checked = true;
+      }
+    });
 
     const button = document.getElementById("btnLog");
     button.textContent = "Update Log";
