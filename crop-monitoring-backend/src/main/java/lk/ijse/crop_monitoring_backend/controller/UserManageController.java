@@ -35,8 +35,7 @@ public class UserManageController {
     @PostMapping(value = "/register", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ResponseDTO> registerUser(
             @RequestPart("email") String email,
-            @RequestPart("password") String password,
-            @RequestPart("role") String role
+            @RequestPart("password") String password
     ) {
         System.out.println("save control-start");
         try {
@@ -48,7 +47,6 @@ public class UserManageController {
 
             userDTO.setEmail(email);
             userDTO.setPassword(password);
-            userDTO.setRole(role);
 
             int res = userService.saveUser(userDTO);
             switch (res) {

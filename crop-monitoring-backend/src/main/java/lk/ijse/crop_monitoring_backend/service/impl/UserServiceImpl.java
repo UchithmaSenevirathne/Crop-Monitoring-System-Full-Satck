@@ -3,6 +3,7 @@ package lk.ijse.crop_monitoring_backend.service.impl;
 import lk.ijse.crop_monitoring_backend.dao.StaffDAO;
 import lk.ijse.crop_monitoring_backend.dao.UserDAO;
 import lk.ijse.crop_monitoring_backend.dto.UserDTO;
+import lk.ijse.crop_monitoring_backend.entity.StaffEntity;
 import lk.ijse.crop_monitoring_backend.entity.UserEntity;
 import lk.ijse.crop_monitoring_backend.exception.NotFoundException;
 import lk.ijse.crop_monitoring_backend.service.UserService;
@@ -42,8 +43,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         } else if (!staffDAO.existsByEmail(userDTO.getEmail())) {
             return VarList.Forbidden;
         } else{
+            StaffEntity staffEntity = staffDAO.findByEmail(userDTO.getEmail());
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+            userDTO.setRole(staffEntity.getRole());
             userDAO.save(mapping.convertToUserEntity(userDTO));
             return VarList.Created;
         }
