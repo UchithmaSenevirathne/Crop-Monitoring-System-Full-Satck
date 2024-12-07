@@ -1,5 +1,6 @@
 package lk.ijse.crop_monitoring_backend.service;
 
+import lk.ijse.crop_monitoring_backend.customObj.StaffResponse;
 import lk.ijse.crop_monitoring_backend.dto.StaffDTO;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface StaffService {
     void deleteStaff(int staffId);
 
     String getEmailById(int staffId);
+
+    StaffResponse getStaffByEmail(String email);
 }

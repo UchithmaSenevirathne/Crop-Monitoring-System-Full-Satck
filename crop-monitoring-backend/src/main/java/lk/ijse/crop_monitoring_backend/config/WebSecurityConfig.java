@@ -83,6 +83,7 @@ public class WebSecurityConfig {
                         "/staff/delete/{staffId}",
                         "/staff/update/{staffId}",
                         "/staff/get/{staffId}",
+                        "/staff/getByEmail/{email}",
                         "/staff/all_staff",
                         "staff/genders",
                         "/staff/designations",

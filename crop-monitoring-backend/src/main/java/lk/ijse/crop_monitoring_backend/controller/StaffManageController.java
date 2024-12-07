@@ -90,6 +90,11 @@ public class StaffManageController {
         }
     }
 
+    @GetMapping(value = "/getByEmail/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public StaffResponse getStaffByEmail(@PathVariable("email") String email) {
+        return staffService.getStaffByEmail(email);
+    }
+
     @GetMapping(value = "/designations", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<String>> getDesignations() {
         List<String> designations = Arrays.stream(Designation.values())

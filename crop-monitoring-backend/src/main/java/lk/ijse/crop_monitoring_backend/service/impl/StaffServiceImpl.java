@@ -1,5 +1,6 @@
 package lk.ijse.crop_monitoring_backend.service.impl;
 
+import lk.ijse.crop_monitoring_backend.customObj.StaffResponse;
 import lk.ijse.crop_monitoring_backend.dao.StaffDAO;
 import lk.ijse.crop_monitoring_backend.dao.UserDAO;
 import lk.ijse.crop_monitoring_backend.dto.FieldStaffDTO;
@@ -84,5 +85,10 @@ public class StaffServiceImpl implements StaffService {
         }else {
             throw new NotFoundException("Staff Not Found");
         }
+    }
+
+    @Override
+    public StaffResponse getStaffByEmail(String email) {
+        return mapping.convertToStaffDTO(staffDAO.findByEmail(email));
     }
 }
