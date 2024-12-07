@@ -5,10 +5,37 @@ async function getUserRole() {
   return localStorage.getItem("role"); // Default to MANAGER if not set
 }
 
+async function getUserName() {
+  const email = localStorage.getItem("email");
+      const response = await fetch(`http://localhost:8080/staff/getByEmail/${email}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+
+    const data = await response.json();
+
+    console.log(data.firstName);
+
+    return data.firstName;
+
+}
+
 async function buildSidebar() {
   const sidebarContainer = document.querySelector(".sidebar nav");
+  // const userNameElement = document.getElementById("userName")
   const userRole = await getUserRole();
 
+  // try {
+  //   // Fetch username and update the UI
+  //   const userName = await getUserName();
+  //   userNameElement.textContent = userName; // Update the text content of the username element
+  // } catch (error) {
+  //   console.error("Failed to fetch user name:", error);
+  //   userNameElement.textContent = "Guest"; // Fallback username
+  // }
+ 
   const navItems = roleBasedNavigation[userRole] || [];
   sidebarContainer.innerHTML = ""; // Clear existing items
 
@@ -31,7 +58,23 @@ async function buildSidebar() {
     });
     
     sidebarContainer.appendChild(navLink);
+
+    // setUserName();
   });
 }
+
+// function setUserName(){
+//     const userNameElement = document.getElementById("userName")
+
+//     try {
+//     // Fetch username and update the UI
+//     const userName = getUserName();
+//     userNameElement.textContent = userName; // Update the text content of the username element
+//   } catch (error) {
+//     console.error("Failed to fetch user name:", error);
+//     userNameElement.textContent = "Guest"; // Fallback username
+//   }
+
+// }
 
 document.addEventListener("DOMContentLoaded", buildSidebar);

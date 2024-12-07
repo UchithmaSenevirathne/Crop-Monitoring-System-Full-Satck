@@ -15,13 +15,12 @@
   </head>
   <body class="bg-white crop-page">
     <section class="pt-[40px] flex gap-[30px] items-start">
-      
       <div class="flex flex-col gap-[30px]">
         <div class="flex gap-[30px]">
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Crop Common Name</h1>
             <input
-            id="cropCommonName"
+              id="cropCommonName"
               type="text"
               placeholder="BG-35 Rice"
               class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 text-[14px] border border-gray-300 focus:outline-none"
@@ -30,7 +29,7 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Crop Scientific Name</h1>
             <input
-            id="cropScientificName"
+              id="cropScientificName"
               type="text"
               placeholder="Oryza sativa"
               class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 text-[14px] border border-gray-300 focus:outline-none"
@@ -39,20 +38,18 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Category</h1>
             <select
-              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-64 text-[14px] border border-gray-300 focus:outline-none" id="category"
-            >
-              
-            </select>
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-64 text-[14px] border border-gray-300 focus:outline-none"
+              id="category"
+            ></select>
           </div>
         </div>
         <div class="flex gap-[30px]">
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Field</h1>
             <select
-              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 text-[14px] border border-gray-300 focus:outline-none" id="fields"
-            >
-              
-            </select>
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 text-[14px] border border-gray-300 focus:outline-none"
+              id="fields"
+            ></select>
           </div>
           <div class="flex flex-col gap-3 justify-center">
             <h1 class="font-medium px-3">Crop Season</h1>
@@ -81,58 +78,80 @@
             </div>
           </div>
           <div class="flex flex-col justify-center gap-2 pl-5">
-            <label for="image-upload-crop" class="font-medium px-3">Crop Image</label>
-              <input
-                type="file"
-                id="image-upload-crop"
-                accept="image/*"
-                onchange="previewImageCrop(event)"
-                class="block w-full text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-[#086568] hover:file:bg-green-200 "
-              />
-            </div>
+            <label for="image-upload-crop" class="font-medium px-3"
+              >Crop Image</label
+            >
+            <input
+              type="file"
+              id="image-upload-crop"
+              accept="image/*"
+              onchange="previewImageCrop(event)"
+              class="block w-full text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-[#086568] hover:file:bg-green-200"
+            />
           </div>
         </div>
       </div>
 
       <div class="flex flex-col justify-center gap-2">
-        <div
-          class="w-96 h-56 rounded-lg flex justify-center items-center"
-        >
-          <img src="../assets/images/imgHome.png" alt="" class="w-full h-full object-cover rounded-lg">
+        <div class="w-96 h-56 rounded-lg flex justify-center items-center">
+          <img
+            src="../assets/images/imgHome.png"
+            alt=""
+            class="w-full h-full object-cover rounded-lg"
+          />
         </div>
       </div>
     </section>
-    <div class="mt-[30px] bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2">
+    <div class="flex justify-between items-center mt-[30px] ">
+      <div
+        class="bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2"
+      >
         <i class="fa-solid fa-circle-plus"></i>
-      <button class="" data-mode="add" onclick="saveOrUpdateCrop()" id="btnCrop">Add Crop</button>
+        <button
+          class=""
+          data-mode="add"
+          onclick="saveOrUpdateCrop()"
+          id="btnCrop"
+        >
+          Add Crop
+        </button>
+      </div>
+      <input
+        id="searchCrop"
+        type="text"
+        placeholder="Search Crop"
+        class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 h-[40px] text-[14px] border border-gray-300 focus:outline-none"
+        oninput="filterCropTable()"
+      />
     </div>
     <section class="mt-[30px]">
-        <div class="overflow-x-auto">
-          <table class="table-auto w-full border border-gray-200 rounded-lg shadow-md">
-            <thead class="bg-gray-100">
-              <tr>
-                <th class="px-4 py-2 text-left text-gray-600">#</th>
-                <th class="px-4 py-2 text-left text-gray-600">Common Name</th>
-                <th class="px-4 py-2 text-left text-gray-600">Scientific Name</th>
-                <th class="px-4 py-2 text-left text-gray-600">Category</th>
-                <th class="px-4 py-2 text-left text-gray-600">Season</th>
-                <th class="px-4 py-2 text-left text-gray-600">Field</th>
-                <th class="px-4 py-2 text-left text-gray-600">Image</th>
-                <th class="px-4 py-2 text-center text-gray-600">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Example Row -->
-              <tr>
-                
-              </tr>
-              <!-- Repeat for more rows -->
-            </tbody>
-          </table>
-        </div>      
-      </section>
+      <div class="overflow-x-auto max-h-[350px] overflow-y-auto">
+        <table
+        id="cropTable"
+          class="table-auto w-full border border-gray-200 rounded-lg shadow-md"
+        >
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 text-left text-gray-600">#</th>
+              <th class="px-4 py-2 text-left text-gray-600">Common Name</th>
+              <th class="px-4 py-2 text-left text-gray-600">Scientific Name</th>
+              <th class="px-4 py-2 text-left text-gray-600">Category</th>
+              <th class="px-4 py-2 text-left text-gray-600">Season</th>
+              <th class="px-4 py-2 text-left text-gray-600">Field</th>
+              <th class="px-4 py-2 text-left text-gray-600">Image</th>
+              <th class="px-4 py-2 text-center text-gray-600">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example Row -->
+            <tr></tr>
+            <!-- Repeat for more rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="../js/crop.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/crop.js"></script>
   </body>
 </html>

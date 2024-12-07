@@ -1,25 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-white">
-    <div class="flex mt-[40px] gap-5 mb-5">
-        <div class="bg-white rounded-lg flex-1 mt-10">
-          <h2 class="text-lg font-semibold mb-4">Fields Bar Graph</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- <script defer src="../js/home.js"></script> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.7/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+     <link rel="stylesheet"
+        href="../css/calender.css">
+        <link rel="stylesheet"
+        href=
+"https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  </head>
+  <body class="bg-white">
+    <div
+      class="bg-[url('../assets/images/dash.jpg')] bg-no-repeat w-full h-[750px] flex items-center justify-center rounded-lg gap-[300px]"
+    >
+      <div class="flex flex-col gap-2">
+        <div class="flex gap-2">
           <div
-            class="h-48 bg-gray-100 rounded-lg flex items-center justify-center"
+            class="w-[200px] h-[200px] bg-[#002C2D] flex flex-col items-center justify-center gap-2 rounded-lg hover:scale-105 transform transition-all duration-300"
           >
-            fields bar graph
+            <h1 class="text-white text-lg font-medium">Total Crops</h1>
+            <p class="text-3xl text-white font-medium">10</p>
+          </div>
+          <div
+            class="w-[200px] h-[200px] bg-[#002C2D] flex flex-col items-center justify-center gap-2 rounded-lg hover:scale-105 transform transition-all duration-300"
+          >
+            <h1 class="text-white text-lg font-medium">Total Fields</h1>
+            <p class="text-3xl text-white font-medium">5</p>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <div
+            class="w-[200px] h-[200px] bg-[#002C2D] flex flex-col items-center justify-center gap-2 rounded-lg hover:scale-105 transform transition-all duration-300"
+          >
+            <h1 class="text-white text-lg font-medium">Total Staffs</h1>
+            <p class="text-3xl text-white font-medium">10</p>
+          </div>
+          <div
+            class="w-[200px] h-[200px] bg-[#002C2D] flex flex-col items-center justify-center gap-2 rounded-lg hover:scale-105 transform transition-all duration-300"
+          >
+            <h1 class="text-white text-lg font-medium">Total Vehicles</h1>
+            <p class="text-3xl text-white font-medium">12</p>
           </div>
         </div>
       </div>
-      <!-- Overview Section -->
 
-      <!-- Graph and Tables -->
-      <div class=""></div>
-</body>
+      <div class="calendar-container">
+        <header class="calendar-header">
+          <p class="calendar-current-date"></p>
+          <div class="calendar-navigation">
+            <span id="calendar-prev" class="material-symbols-rounded">
+              chevron_left
+            </span>
+            <span id="calendar-next" class="material-symbols-rounded">
+              chevron_right
+            </span>
+          </div>
+        </header>
+
+        <div class="calendar-body">
+          <ul class="calendar-weekdays">
+            <li>Sun</li>
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li>Sat</li>
+          </ul>
+          <ul class="calendar-dates">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li class="today">7</li>
+          </ul>
+          <ul class="calendar-dates">
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+          </ul>
+          <ul class="calendar-dates">
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+            <li>21</li>
+          </ul>
+          <ul class="calendar-dates">
+            <li>22</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>26</li>
+            <li>27</li>
+            <li>28</li>
+          </ul>
+          <ul class="calendar-dates">
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+     
+
+    </div>
+
+    
+  </body>
 </html>

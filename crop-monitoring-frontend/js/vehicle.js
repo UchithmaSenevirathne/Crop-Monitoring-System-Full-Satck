@@ -238,3 +238,31 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Save button not found. This might be okay if not on the Vehicle page.");
   }
 });
+
+function filterVehicleTable() {
+  const searchValue = document.getElementById("searchVehicle").value.toLowerCase();
+  const table = document.getElementById("vehicleTable");
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    const licensePlateNumber = cells[1]?.textContent.toLowerCase() || "";
+    const vehicleCategory = cells[2]?.textContent.toLowerCase() || "";
+    const fuelType = cells[3]?.textContent.toLowerCase() || "";
+    const status = cells[4]?.textContent.toLowerCase() || "";
+    const remarks = cells[5]?.textContent.toLowerCase() || "";
+
+    // Match search value with any of the fields
+    if (
+      licensePlateNumber.includes(searchValue) ||
+      vehicleCategory.includes(searchValue) ||
+      fuelType.includes(searchValue) ||
+      status.includes(searchValue) ||
+      remarks.includes(searchValue)
+    ) {
+      row.style.display = ""; // Show row
+    } else {
+      row.style.display = "none"; // Hide row
+    }
+  });
+}

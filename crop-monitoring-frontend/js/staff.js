@@ -269,3 +269,35 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Save button not found. This might be okay if not on the Staff page.");
   }
 });
+
+function filterStaffTable() {
+  const searchValue = document.getElementById("searchStaff").value.toLowerCase();
+  const table = document.getElementById("staffTable");
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    const role = cells[1]?.textContent.toLowerCase() || "";
+    const firstName = cells[2]?.textContent.toLowerCase() || "";
+    const joinedDate = cells[3]?.textContent.toLowerCase() || "";
+    const email = cells[4]?.textContent.toLowerCase() || "";
+    const contactNo = cells[5]?.textContent.toLowerCase() || "";
+    const mainCity = cells[6]?.textContent.toLowerCase() || "";
+    const designation = cells[7]?.textContent.toLowerCase() || "";
+
+    // Match search value with any of the fields
+    if (
+      role.includes(searchValue) ||
+      firstName.includes(searchValue) ||
+      joinedDate.includes(searchValue) ||
+      email.includes(searchValue) ||
+      contactNo.includes(searchValue) ||
+      mainCity.includes(searchValue) ||
+      designation.includes(searchValue)
+    ) {
+      row.style.display = ""; // Show row
+    } else {
+      row.style.display = "none"; // Hide row
+    }
+  });
+}

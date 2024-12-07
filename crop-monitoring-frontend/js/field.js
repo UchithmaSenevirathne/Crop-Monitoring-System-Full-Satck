@@ -236,3 +236,27 @@ window.previewImageField2 = function(event) {
     reader.readAsDataURL(file); // Read the file as a Data URL
   }
 }
+
+function filterFieldTable() {
+  const searchValue = document.getElementById("searchField").value.toLowerCase();
+  const table = document.getElementById("fieldTable");
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    const fieldName = cells[1]?.textContent.toLowerCase() || "";
+    const fieldLocation = cells[2]?.textContent.toLowerCase() || "";
+    const extentSize = cells[3]?.textContent.toLowerCase() || "";
+
+    // Match search value with any of the fields
+    if (
+      fieldName.includes(searchValue) ||
+      fieldLocation.includes(searchValue) ||
+      extentSize.includes(searchValue)
+    ) {
+      row.style.display = ""; // Show row
+    } else {
+      row.style.display = "none"; // Hide row
+    }
+  });
+}

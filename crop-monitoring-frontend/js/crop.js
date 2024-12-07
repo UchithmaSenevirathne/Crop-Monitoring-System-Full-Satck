@@ -300,3 +300,29 @@ window.previewImageCrop = function(event) {
     reader.readAsDataURL(file); // Read the file as a Data URL
   }
 }
+
+function filterCropTable() {
+  const searchValue = document.getElementById("searchCrop").value.toLowerCase();
+  const table = document.getElementById("cropTable");
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    const cropCommonName = cells[1]?.textContent.toLowerCase() || "";
+    const cropScientificName = cells[2]?.textContent.toLowerCase() || "";
+    const category = cells[3]?.textContent.toLowerCase() || "";
+    const cropSeason = cells[4]?.textContent.toLowerCase() || "";
+
+    // Match search value with any of the fields
+    if (
+      cropCommonName.includes(searchValue) ||
+      cropScientificName.includes(searchValue) ||
+      category.includes(searchValue) ||
+      cropSeason.includes(searchValue)
+    ) {
+      row.style.display = ""; // Show row
+    } else {
+      row.style.display = "none"; // Hide row
+    }
+  });
+}

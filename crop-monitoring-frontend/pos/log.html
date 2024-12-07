@@ -20,7 +20,7 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Log Date</h1>
             <input
-            id="logDate"
+              id="logDate"
               type="date"
               class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-52 text-[14px] border border-gray-300 focus:outline-none"
             />
@@ -28,47 +28,46 @@
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Log Details</h1>
             <textarea
-            id="logDetails"
+              id="logDetails"
               type="text"
               placeholder="log details..."
               class="bg-white rounded-xl py-2 px-3 text-gray-600 w-[850px] text-[14px] border border-gray-300 focus:outline-none"
             ></textarea>
           </div>
           <div class="flex flex-col justify-center gap-2 pl-5">
-            <label for="image-upload-log" class="font-medium px-3">Observed Image</label>
-              <input
-                type="file"
-                id="image-upload-log"
-                accept="image/*"
-                onchange="previewImageLog(event)"
-                class="block w-full text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-[#086568] hover:file:bg-green-200 "
-              />
-            </div>
+            <label for="image-upload-log" class="font-medium px-3"
+              >Observed Image</label
+            >
+            <input
+              type="file"
+              id="image-upload-log"
+              accept="image/*"
+              onchange="previewImageLog(event)"
+              class="block w-full text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-[#086568] hover:file:bg-green-200"
+            />
+          </div>
         </div>
         <div class="flex gap-[30px]">
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Assign Crop</h1>
             <select
-              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-56 text-[14px] border border-gray-300 focus:outline-none" id="crops"
-            >
-              
-            </select>
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-56 text-[14px] border border-gray-300 focus:outline-none"
+              id="crops"
+            ></select>
           </div>
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Assign Field</h1>
             <select
-              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-56 text-[14px] border border-gray-300 focus:outline-none" id="field"
-            >
-              
-            </select>
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-56 text-[14px] border border-gray-300 focus:outline-none"
+              id="field"
+            ></select>
           </div>
           <div class="flex flex-col gap-2 justify-center">
             <h1 class="font-medium px-3">Assign Staff</h1>
             <select
-              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-64 text-[14px] border border-gray-300 focus:outline-none" id="staff"
-            >
-              
-            </select>
+              class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-64 text-[14px] border border-gray-300 focus:outline-none"
+              id="staff"
+            ></select>
           </div>
           <div class="flex flex-col gap-3 justify-center">
             <h1 class="font-medium px-3">Crop Status</h1>
@@ -107,38 +106,57 @@
         </div>
       </div>
     </section>
-    <div class="mt-[30px] bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2">
+    <div class="items-center flex justify-between mt-[40px]">
+      <div
+        class="bg-[#086568] text-white py-2 rounded-3xl font-semibold w-52 flex justify-center items-center gap-2"
+      >
         <i class="fa-solid fa-circle-plus"></i>
-      <button class="" data-mode="add" onclick="saveOrUpdateLog()" id="btnLog">Create Log</button>
+        <button
+          class=""
+          data-mode="add"
+          onclick="saveOrUpdateLog()"
+          id="btnLog"
+        >
+          Create Log
+        </button>
+      </div>
+      <input
+        id="searchLog"
+        type="text"
+        placeholder="Search Log"
+        class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 h-[40px] text-[14px] border border-gray-300 focus:outline-none"
+        oninput="filterLogTable()"
+      />
     </div>
     <section class="mt-[30px]">
-        <div class="overflow-x-auto">
-          <table class="table-auto w-full border border-gray-200 rounded-lg shadow-md">
-            <thead class="bg-gray-100">
-              <tr>
-                <th class="px-4 py-2 text-left text-gray-600">#</th>
-                <th class="px-4 py-2 text-left text-gray-600">Log Date</th>
-                <th class="px-4 py-2 text-left text-gray-600">Deatails</th>
-                <th class="px-4 py-2 text-left text-gray-600">Status</th>
-                <th class="px-4 py-2 text-left text-gray-600">Crop</th>
-                <th class="px-4 py-2 text-left text-gray-600">Field</th>
-                <th class="px-4 py-2 text-left text-gray-600">Satff</th>
-                <th class="px-4 py-2 text-left text-gray-600">Image</th>
-                <th class="px-4 py-2 text-center text-gray-600">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Example Row -->
-              <tr>
-                
-              </tr>
-              <!-- Repeat for more rows -->
-            </tbody>
-          </table>
-        </div>      
-      </section>
+      <div class="overflow-x-auto max-h-[350px] overflow-y-auto">
+        <table
+        id="logTable"
+          class="table-auto w-full border border-gray-200 rounded-lg shadow-md"
+        >
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-4 py-2 text-left text-gray-600">#</th>
+              <th class="px-4 py-2 text-left text-gray-600">Log Date</th>
+              <th class="px-4 py-2 text-left text-gray-600">Deatails</th>
+              <th class="px-4 py-2 text-left text-gray-600">Status</th>
+              <th class="px-4 py-2 text-left text-gray-600">Crop</th>
+              <th class="px-4 py-2 text-left text-gray-600">Field</th>
+              <th class="px-4 py-2 text-left text-gray-600">Satff</th>
+              <th class="px-4 py-2 text-left text-gray-600">Image</th>
+              <th class="px-4 py-2 text-center text-gray-600">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example Row -->
+            <tr></tr>
+            <!-- Repeat for more rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="../js/log.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/log.js"></script>
   </body>
 </html>

@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Save token and user details (optional)
           localStorage.setItem("token", authData.token);
           localStorage.setItem("role", authData.role);
+          localStorage.setItem("email", authData.email);
   
           // Redirect user based on role
           if (authData.role === "MANAGER") {
@@ -56,4 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  function handleLogout(){
+    localStorage.clear();
+    window.location.href = "./login.html";
+  }
   

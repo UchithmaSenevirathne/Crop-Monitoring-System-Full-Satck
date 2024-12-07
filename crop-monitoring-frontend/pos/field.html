@@ -74,17 +74,24 @@
             <i class="fa-solid fa-circle-plus"></i>
           <button class="" data-mode="add" onclick="saveOrUpdateField()">Add Field</button>
         </div>
-        </div>
       </div>
-      <div class="w-[800px] h-[280px] bg-gray-100 rounded-xl flex">
+      <div class="w-[800px] h-[280px] bg-gray-100 rounded-xl flex flex-col items-end gap-3">
         <img src="../assets/images/field.jpg" alt="" class="w-full h-full rounded-xl object-cover">
-        <div></div>
+        <div>
+          <input
+          id="searchField"
+            type="text"
+            placeholder="Search Field"
+            class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 text-[14px] border border-gray-300 focus:outline-none"
+            oninput="filterFieldTable()"
+          />
+        </div>
       </div>
     </section>
     
-    <section class="mt-[30px]">
-      <div class="overflow-x-auto">
-        <table class="table-auto w-full border border-gray-200 rounded-lg shadow-md">
+    <section class="mt-[70px]">
+      <div class="overflow-x-auto max-h-[350px] overflow-y-auto">
+        <table id="fieldTable" class="table-auto w-full border border-gray-200 rounded-lg shadow-md ">
           <thead class="bg-gray-100">
             <tr>
               <th class="px-4 py-2 text-left text-gray-600">#</th>

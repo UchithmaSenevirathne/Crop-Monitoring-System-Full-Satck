@@ -45,28 +45,31 @@ function loadCropAndStaff() {
 
       // Check if fields have a `name` property
       staffDropdown.innerHTML = staffs
-        .map((st) => `<option value="${st.staffId}">${st.firstName} (${st.designation}) (ID : ${st.staffId})</option>`)
+        .map(
+          (st) =>
+            `<option value="${st.staffId}">${st.firstName} (${st.designation}) (ID : ${st.staffId})</option>`
+        )
         .join("");
     })
     .catch((error) => console.error("Error loading staffs:", error));
 
-    // Load staff
+  // Load staff
   fetch(`${apiUrl}/all_fields`)
-  .then((response) => response.json())
-  .then((fields) => {
-    const fieldDropdown = document.getElementById("field");
-    if (!fieldDropdown) {
-      console.error("Field dropdown not found");
-      return;
-    }
-    console.log("Fields:", fields);
+    .then((response) => response.json())
+    .then((fields) => {
+      const fieldDropdown = document.getElementById("field");
+      if (!fieldDropdown) {
+        console.error("Field dropdown not found");
+        return;
+      }
+      console.log("Fields:", fields);
 
-    // Check if fields have a `name` property
-    fieldDropdown.innerHTML = fields
-      .map((fd) => `<option value="${fd.fieldCode}">${fd.fieldName}</option>`)
-      .join("");
-  })
-  .catch((error) => console.error("Error loading fields:", error));
+      // Check if fields have a `name` property
+      fieldDropdown.innerHTML = fields
+        .map((fd) => `<option value="${fd.fieldCode}">${fd.fieldName}</option>`)
+        .join("");
+    })
+    .catch((error) => console.error("Error loading fields:", error));
 }
 
 // Function to load all fields and populate the table
@@ -167,7 +170,7 @@ async function editLog(logCode) {
     const response = await fetch(`${apiUrlLog}/get/${logCode}`);
     const log = await response.json();
 
-    document.querySelector('input[id="logDate"]').value = log.logDate
+    document.querySelector('input[id="logDate"]').value = log.logDate;
     document.querySelector('textarea[id="logDetails"]').value = log.logDetails;
     // document.querySelector("#image-upload-log").files[0] = log.observedImage;
     // document.querySelector('input[name="cropStatus"]:checked').value = log.cropStatus;
@@ -175,8 +178,8 @@ async function editLog(logCode) {
     // document.querySelector('input[id="field"]').value = log.fieldCode;
     // document.querySelector('input[id="staff"]').value = log.staffId;
 
-    // Handle image 
-    const imageUpload = document.getElementById('image-upload-log');
+    // Handle image
+    const imageUpload = document.getElementById("image-upload-log");
     if (log.observedImage) {
       // Convert base64 to File object
       const byteCharacters = atob(log.observedImage);
@@ -185,42 +188,42 @@ async function editLog(logCode) {
         byteNumbers[i] = byteCharacters.charCodeAt(i);
       }
       const byteArray = new Uint8Array(byteNumbers);
-      const blob = new Blob([byteArray], { type: 'image/png' }); // Adjust mime type if needed
-      
+      const blob = new Blob([byteArray], { type: "image/png" }); // Adjust mime type if needed
+
       // Create a File object
-      const file = new File([blob], 'log-image.png', { type: 'image/png' });
-      
+      const file = new File([blob], "log-image.png", { type: "image/png" });
+
       // Create a DataTransfer object to set files
       const dataTransfer = new DataTransfer();
       dataTransfer.items.add(file);
       imageUpload.files = dataTransfer.files;
 
       // Optional: Show image preview
-      const preview = document.getElementById('image-preview-log');
+      const preview = document.getElementById("image-preview-log");
       if (preview) {
         preview.src = `data:image/png;base64,${log.observedImage}`;
       }
     }
 
     // Set select fields
-    const cropDropdown = document.getElementById('crops');
+    const cropDropdown = document.getElementById("crops");
     if (cropDropdown) {
       cropDropdown.value = log.cropCode;
     }
 
-    const fieldDropdown = document.getElementById('field');
+    const fieldDropdown = document.getElementById("field");
     if (fieldDropdown) {
       fieldDropdown.value = log.fieldCode;
     }
 
-    const staffDropdown = document.getElementById('staff');
+    const staffDropdown = document.getElementById("staff");
     if (staffDropdown) {
       staffDropdown.value = log.staffId;
     }
 
     // Set radio button for crop season
     const statusRadios = document.querySelectorAll('input[name="cropStatus"]');
-    statusRadios.forEach(radio => {
+    statusRadios.forEach((radio) => {
       if (radio.value === log.cropStatus) {
         radio.checked = true;
       }
@@ -250,10 +253,10 @@ async function deleteLog(logCode) {
 
 // Reset form to default state
 function resetFormLog() {
-    document.querySelector('input[id="logDate"]').value = ""
-    document.querySelector('textarea[id="logDetails"]').value = "";
-    document.querySelector("#image-upload-log").files[0] = "";
-    document.querySelector('input[name="cropStatus"]:checked').value = "";
+  document.querySelector('input[id="logDate"]').value = "";
+  document.querySelector('textarea[id="logDetails"]').value = "";
+  document.querySelector("#image-upload-log").files[0] = "";
+  document.querySelector('input[name="cropStatus"]:checked').value = "";
 
   const button = document.querySelector("button");
   button.textContent = "Create Log";
@@ -294,3 +297,27 @@ window.previewImageLog = function (event) {
     reader.readAsDataURL(file); // Read the file as a Data URL
   }
 };
+
+function filterLogTable() {
+  const searchValue = document.getElementById("searchLog").value.toLowerCase();
+  const table = document.getElementById("logTable");
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    const logDate = cells[1]?.textContent.toLowerCase() || "";
+    const logDetails = cells[2]?.textContent.toLowerCase() || "";
+    const cropStatus = cells[3]?.textContent.toLowerCase() || "";
+
+    // Match search value with any of the fields
+    if (
+      logDate.includes(searchValue) ||
+      logDetails.includes(searchValue) ||
+      cropStatus.includes(searchValue)
+    ) {
+      row.style.display = ""; // Show row
+    } else {
+      row.style.display = "none"; // Hide row
+    }
+  });
+}

@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -40,7 +40,7 @@
               jiggle: "jiggle 1s ease-in-out infinite",
               "fade-in-bounceup": "fadeInBounceup 2s ease-in-out infinite",
               "slide-in-up": "slideInUp 2s ease-in-out infinite",
-              typing: "typing 2s steps(20) 3 alternate, blink 5s infinite",
+              typing: "typing 10s steps(50) 10 alternate, blink 50s infinite",
               glow: "glow 2s ease-in-out infinite",
               flip: "flip 2s ease-in-out infinite",
             },
@@ -157,32 +157,32 @@
       <!-- Sidebar -->
       <aside class="w-56 sidebar">
         <div class="flex items-center space-x-3 mb-6 p-6 justify-center">
-          <span class="font-bakbak font-normal text-[20px] text-white"
-            >GREEN SHADOW</span
-          >
+          <h1 class="font-bakbak text-lg font-medium text-white">
+            GREEN SHADOW
+          </h1>
         </div>
         <nav class="space-y-3 pl-6 font-playpen">
           <!-- sidebar render here -->
         </nav>
         <a
-            href="../pos/login.html"
-            class="flex items-center space-x-3 px-6 text-white absolute top-[95%] left-[1%] font-playpen"
-          >
-            <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
-            <span>Logout</span>
-          </a>
+          class="flex items-center space-x-3 px-6 text-white absolute top-[95%] left-[1%] font-playpen"
+          onclick="handleLogout()"
+        >
+          <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+          <span>Logout</span>
+        </a>
       </aside>
 
       <!-- Main Content -->
       <main class="flex-1 p-6 bg-white my-[20px] rounded-3xl mr-[20px]">
         <header class="flex justify-between items-center mb-8">
-          <input
-            type="text"
-            placeholder="Search"
-            class="bg-white rounded-3xl py-2 px-3 text-gray-600 w-96 text-[14px] border border-gray-300 focus:outline-none"
-          />
+          <h1 class="font-playpen text-3xl font-medium text-[#002C2D]">
+            Welcome to Green Shadow !
+          </h1>
           <div class="flex items-center gap-3">
-            <h1 class="text-md font-semibold">Uchithma Senevirathne</h1>
+            <h1 class="text-md font-semibold" id="userName">
+              Uchithma Senevirathne
+            </h1>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaH95MYy4lQdqXKOR2FCcv2KIHRhz7rCj4N8VKm4zbQmfaOU7lU_m_ykDR6sWGMMEKof8&usqp=CAU"
               alt=""
@@ -193,70 +193,72 @@
         </header>
 
         <img
-      src="../assets/images/leaves.png"
-      alt=""
-      class="absolute animate-rotate-slow top-[5%] left-[2%]"
-    />
-    <img
-      src="../assets/images/palm.png"
-      alt=""
-      class="absolute animate-rotate-slow top-[15%] left-[8%]"
-    />
-    <img
-      src="../assets/images/leaves.png"
-      alt=""
-      class="absolute animate-rotate-slow top-[20%] left-[1%]"
-    />
-    <img
-      src="../assets/images/palm.png"
-      alt=""
-      class="absolute  animate-rotate-slow top-[30%] left-[7%]"
-    />
-    <img
-      src="../assets/images/leaves.png"
-      alt=""
-      class="absolute animate-rotate-slow top-[50%] left-[1%]"
-    />
-    <img
-      src="../assets/images/palm.png"
-      alt=""
-      class="absolute animate-rotate-slow top-[60%] left-[8%]"
-    />
-    <img
-      src="../assets/images/leaves.png"
-      alt=""
-      class="absolute animate-rotate-slow top-[70%] left-[2%]"
-    />
-    <img
-      src="../assets/images/palm.png"
-      alt=""
-      class="absolute animate-rotate-slow top-[85%] left-[1%]"
-    />
-    <img
-      src="../assets/images/leaves.png"
-      alt=""
-      class="absolute animate-rotate-slow top-[80%] left-[8%]"
-    />
-    <img
-      src="../assets/images/palm.png"
-      alt=""
-      class="absolute animate-rotate-slow top-[95%] left-[8%]"
-    />
+          src="../assets/images/leaves.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[5%] left-[2%]"
+        />
+        <img
+          src="../assets/images/palm.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[15%] left-[8%]"
+        />
+        <img
+          src="../assets/images/leaves.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[20%] left-[1%]"
+        />
+        <img
+          src="../assets/images/palm.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[30%] left-[7%]"
+        />
+        <img
+          src="../assets/images/leaves.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[50%] left-[1%]"
+        />
+        <img
+          src="../assets/images/palm.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[60%] left-[8%]"
+        />
+        <img
+          src="../assets/images/leaves.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[70%] left-[2%]"
+        />
+        <img
+          src="../assets/images/palm.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[85%] left-[1%]"
+        />
+        <img
+          src="../assets/images/leaves.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[80%] left-[8%]"
+        />
+        <img
+          src="../assets/images/palm.png"
+          alt=""
+          class="absolute animate-rotate-slow top-[95%] left-[8%]"
+        />
 
         <div id="content-area"></div>
       </main>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="../js/roles.js"></script>
-<script src="../js/field.js"></script>
-<script src="../js/crop.js"></script>
-<script src="../js/staff.js"></script>
-<script src="../js/log.js"></script>
-<script src="../js/equip.js"></script>
-<script src="../js/vehicle.js"></script>
-<script src="../js/assign.js"></script>
-<script type="module" src="../js/dashboard.js"></script>
-<script src="../js/loadPage.js"></script>
+    <!-- <script src="../js/home.js"></script> -->
+    <script src="../js/roles.js"></script>
+    <script src="../js/field.js"></script>
+    <script src="../js/crop.js"></script>
+    <script src="../js/staff.js"></script>
+    <script src="../js/log.js"></script>
+    <script src="../js/equip.js"></script>
+    <script src="../js/vehicle.js"></script>
+    <script src="../js/assign.js"></script>
+    <script src="../js/login.js"></script>
+    <script type="module" src="../js/dashboard.js"></script>
+    <script src="../js/loadPage.js"></script>
   </body>
 </html>

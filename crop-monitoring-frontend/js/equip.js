@@ -255,3 +255,27 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Save button not found. This might be okay if not on the Equip page.");
   }
 });
+
+function filterEquipTable() {
+  const searchValue = document.getElementById("searchEquip").value.toLowerCase();
+  const table = document.getElementById("equipTable");
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach((row) => {
+    const cells = row.querySelectorAll("td");
+    const name = cells[1]?.textContent.toLowerCase() || "";
+    const type = cells[2]?.textContent.toLowerCase() || "";
+    const status = cells[3]?.textContent.toLowerCase() || "";
+
+    // Match search value with any of the fields
+    if (
+      name.includes(searchValue) ||
+      type.includes(searchValue) ||
+      status.includes(searchValue)
+    ) {
+      row.style.display = ""; // Show row
+    } else {
+      row.style.display = "none"; // Hide row
+    }
+  });
+}
